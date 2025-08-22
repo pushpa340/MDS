@@ -30,11 +30,7 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast({
-        title: "Login Successful",
-        description: "Welcome back!",
-      });
-      router.push("/client"); // Redirect to a generic dashboard landing, will be handled by dashboard layout
+      // Let the auth context handle redirection based on role
     } catch (error: any) {
       console.error("Login failed:", error);
       toast({

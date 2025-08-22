@@ -15,8 +15,8 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-// import { db } from "@/lib/firebase";
-// import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const services = [
     { title: "Digital Marketing" },
@@ -35,12 +35,17 @@ export default function ContactPage() {
     e.preventDefault();
     setIsLoading(true);
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        service: formData.get("service"),
+        message: formData.get("message"),
+        submittedAt: serverTimestamp(),
+    };
 
     try {
-        // MOCK SUBMISSION: Replace with Firestore write
-        console.log("Submitting query:", data);
-        // await addDoc(collection(db, "queries"), data);
+        await addDoc(collection(db, "queries"), data);
         toast({
             title: "Message Sent!",
             description: "Thanks for reaching out. We'll be in touch soon.",

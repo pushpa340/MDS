@@ -6,24 +6,8 @@ import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-// import { db } from "@/lib/firebase";
-// import { collection, getDocs, orderBy, query } from "firebase/firestore";
-
-// Mock Data
-const mockQueries = [
-    { id: 'q1', name: 'John Doe', email: 'john@example.com', service: 'Digital Marketing', message: 'Interested in SEO.', submittedAt: { toDate: () => new Date() } },
-    { id: 'q2', name: 'Jane Smith', email: 'jane@example.com', service: 'Inventory Management', message: 'Need a demo.', submittedAt: { toDate: () => new Date() } },
-];
-const mockNewsletter = [
-    { id: 'n1', email: 'test1@example.com', subscribedAt: { toDate: () => new Date() } },
-    { id: 'n2', email: 'test2@example.com', subscribedAt: { toDate: () => new Date() } },
-];
-const mockApplications = [
-    { id: 'a1', name: 'Peter Pan', email: 'peter@neverland.com', jobTitle: 'Senior Frontend Developer', submittedAt: { toDate: () => new Date() } },
-];
-const mockTestimonials = [
-    { id: 't1', name: 'Sarah L.', message: 'Transformed our sales process!', userId: 'uid1', createdAt: { toDate: () => new Date() } },
-];
+import { db } from "@/lib/firebase";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 export default function AdminDashboardPage() {
     const { user, role, loading } = useAuth();
@@ -53,10 +37,10 @@ export default function AdminDashboardPage() {
                     <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="queries"><DataTab collectionName="queries" headers={['Name', 'Email', 'Service', 'Message']} data={mockQueries} /></TabsContent>
-                <TabsContent value="newsletter"><DataTab collectionName="newsletter" headers={['Email', 'Subscribed At']} data={mockNewsletter} /></TabsContent>
-                <TabsContent value="applications"><DataTab collectionName="job_applications" headers={['Name', 'Email', 'Position', 'Submitted At']} data={mockApplications} /></TabsContent>
-                <TabsContent value="testimonials"><DataTab collectionName="testimonials" headers={['Name', 'Message', 'Submitted At']} data={mockTestimonials} /></TabsContent>
+                <TabsContent value="queries"><DataTab collectionName="queries" headers={['Name', 'Email', 'Service', 'Message', 'Submitted At']} /></TabsContent>
+                <TabsContent value="newsletter"><DataTab collectionName="newsletter" headers={['Email', 'Subscribed At']} /></TabsContent>
+                <TabsContent value="applications"><DataTab collectionName="job_applications" headers={['Name', 'Email', 'Position', 'Submitted At']} /></TabsContent>
+                <TabsContent value="testimonials"><DataTab collectionName="testimonials" headers={['Name', 'Message', 'Submitted At']} /></TabsContent>
             </Tabs>
         </div>
     );
@@ -65,37 +49,34 @@ export default function AdminDashboardPage() {
 interface DataTabProps {
     collectionName: string;
     headers: string[];
-    data: any[]; // Replace with more specific types
 }
 
-function DataTab({ collectionName, headers, data: mockData }: DataTabProps) {
+function DataTab({ collectionName, headers }: DataTabProps) {
     const [data, setData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            // MOCK: In a real app, you would fetch from Firestore here
-            setData(mockData);
-            // try {
-            //     const q = query(collection(db, collectionName), orderBy("submittedAt", "desc"));
-            //     const querySnapshot = await getDocs(q);
-            //     setData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-            // } catch (error) {
-            //     console.error(`Error fetching ${collectionName}:`, error);
-            // }
+            try {
+                const q = query(collection(db, collectionName), orderBy("submittedAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                setData(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+            } catch (error) {
+                console.error(`Error fetching ${collectionName}:`, error);
+            }
             setIsLoading(false);
         };
         fetchData();
-    }, [collectionName, mockData]);
+    }, [collectionName]);
 
     const renderCell = (item: any, header: string) => {
-        const key = header.toLowerCase().replace(' ', '');
+        const key = header.toLowerCase().replace(/ /g, '');
         let value = item[key];
         
         if (collectionName === 'job_applications' && key === 'position') value = item['jobTitle'];
-        if (key.includes('at')) value = value?.toDate()?.toLocaleString() ?? 'N/A';
-
+        if (key.includes('at') || key.includes('submitted')) value = value?.toDate()?.toLocaleString() ?? 'N/A';
+        
         return <TableCell>{value}</TableCell>;
     };
 
@@ -110,7 +91,7 @@ function DataTab({ collectionName, headers, data: mockData }: DataTabProps) {
                     <TableHeader>
                         <TableRow>
                             {headers.map(header => <TableHead key={header}>{header}</TableHead>)}
-                        </TableRow>
+                        TableRow>
                     </TableHeader>
                     <TableBody>
                         {isLoading ? (

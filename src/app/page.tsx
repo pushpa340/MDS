@@ -50,8 +50,8 @@ import {
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
-// import { db } from "@/lib/firebase";
-// import { collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 
 const services = [
   {
@@ -209,21 +209,19 @@ function TestimonialsSection() {
   
   useEffect(() => {
     const fetchTestimonials = async () => {
-      // MOCK DATA: Replace with Firestore fetch
-      const mockTestimonials: Testimonial[] = [
-        { id: '1', name: 'Sarah L.', photoUrl: 'https://placehold.co/100x100.png', message: 'Marcom Media Solution transformed our sales process. Their lead management is top-notch!', data_ai_hint: 'woman portrait' },
-        { id: '2', name: 'Michael B.', photoUrl: 'https://placehold.co/100x100.png', message: 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.', data_ai_hint: 'man portrait' },
-        { id: '3', name: 'Emily C.', photoUrl: 'https://placehold.co/100x100.png', message: 'Exceptional digital marketing services that delivered real results for our brand.', data_ai_hint: 'woman professional' },
-        { id: '4', name: 'David R.', photoUrl: 'https://placehold.co/100x100.png', message: 'The POS system is intuitive and has streamlined our entire checkout process. Highly recommend!', data_ai_hint: 'man smiling' },
-      ];
-      setTestimonials(mockTestimonials);
-      // try {
-      //   const querySnapshot = await getDocs(collection(db, "testimonials"));
-      //   const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
-      //   setTestimonials(data);
-      // } catch (error) {
-      //   console.error("Error fetching testimonials: ", error);
-      // }
+      try {
+        const querySnapshot = await getDocs(collection(db, "testimonials"));
+        const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
+        setTestimonials(data);
+      } catch (error) {
+        console.error("Error fetching testimonials: ", error);
+        // Fallback to mock data if firestore fails
+        const mockTestimonials: Testimonial[] = [
+          { id: '1', name: 'Sarah L.', photoUrl: 'https://placehold.co/100x100.png', message: 'Marcom Media Solution transformed our sales process. Their lead management is top-notch!', data_ai_hint: 'woman portrait' },
+          { id: '2', name: 'Michael B.', photoUrl: 'https://placehold.co/100x100.png', message: 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.', data_ai_hint: 'man portrait' },
+        ];
+        setTestimonials(mockTestimonials);
+      }
     };
     fetchTestimonials();
   }, []);
@@ -239,33 +237,35 @@ function TestimonialsSection() {
             Real stories from businesses we've helped succeed.
           </p>
         </div>
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="mx-auto mt-12 w-full max-w-4xl"
-        >
-          <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="h-full">
-                    <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                      <Avatar className="h-20 w-20">
-                        <AvatarImage src={testimonial.photoUrl} alt={testimonial.name} data-ai-hint={testimonial.data_ai_hint} />
-                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <p className="mt-4 text-base italic text-muted-foreground">
-                        "{testimonial.message}"
-                      </p>
-                      <p className="mt-4 font-semibold">{testimonial.name}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {testimonials.length > 0 && (
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            className="mx-auto mt-12 w-full max-w-4xl"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="h-full">
+                      <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                        <Avatar className="h-20 w-20">
+                          <AvatarImage src={testimonial.photoUrl} alt={testimonial.name} data-ai-hint={testimonial.data_ai_hint} />
+                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <p className="mt-4 text-base italic text-muted-foreground">
+                          "{testimonial.message}"
+                        </p>
+                        <p className="mt-4 font-semibold">{testimonial.name}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        )}
       </div>
     </section>
   );
@@ -280,12 +280,17 @@ function ContactAndNewsletterSection() {
         e.preventDefault();
         setIsSubmittingContact(true);
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData.entries());
+        const data = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          service: formData.get("service"),
+          message: formData.get("message"),
+          submittedAt: serverTimestamp(),
+        };
         
         try {
-            // MOCK SUBMISSION: Replace with Firestore write
-            console.log("Submitting query:", data);
-            // await addDoc(collection(db, "queries"), data);
+            await addDoc(collection(db, "queries"), data);
             toast({
                 title: "Query Submitted!",
                 description: "Thank you for reaching out. We'll get back to you soon.",
@@ -307,12 +312,13 @@ function ContactAndNewsletterSection() {
         e.preventDefault();
         setIsSubmittingNewsletter(true);
         const formData = new FormData(e.currentTarget);
-        const email = formData.get("email");
+        const data = {
+          email: formData.get("email"),
+          subscribedAt: serverTimestamp(),
+        };
 
         try {
-            // MOCK SUBMISSION: Replace with Firestore write
-            console.log("Subscribing to newsletter:", { email });
-            // await addDoc(collection(db, "newsletter"), { email });
+            await addDoc(collection(db, "newsletter"), data);
              toast({
                 title: "Subscribed!",
                 description: "Thanks for joining our newsletter.",

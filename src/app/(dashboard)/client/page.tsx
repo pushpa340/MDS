@@ -10,8 +10,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-// import { db } from "@/lib/firebase";
-// import { doc, updateDoc, collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { doc, updateDoc, collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
 
 // Mock data, replace with Firestore data
 const mockServiceRequests = [
@@ -71,9 +71,8 @@ function ProfileSection() {
         if (!user) return;
         setIsLoading(true);
         try {
-            // const userRef = doc(db, "users", user.uid);
-            // await updateDoc(userRef, { name });
-            console.log("Updating profile with name:", name);
+            const userRef = doc(db, "users", user.uid);
+            await updateDoc(userRef, { name });
             toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
         } catch (error) {
             console.error(error);
@@ -146,14 +145,13 @@ function TestimonialFormSection() {
         setIsLoading(true);
 
         try {
-            // await addDoc(collection(db, "testimonials"), {
-            //     name: userProfile.name,
-            //     message: message,
-            //     photoUrl: user.photoURL || `https://placehold.co/100x100.png?text=${userProfile.name.charAt(0)}`,
-            //     userId: user.uid,
-            //     createdAt: serverTimestamp(),
-            // });
-            console.log("Submitting testimonial:", message);
+            await addDoc(collection(db, "testimonials"), {
+                name: userProfile.name,
+                message: message,
+                photoUrl: user.photoURL || `https://placehold.co/100x100.png?text=${userProfile.name.charAt(0)}`,
+                userId: user.uid,
+                createdAt: serverTimestamp(),
+            });
             toast({ title: "Testimonial Submitted", description: "Thank you for your feedback!" });
             setMessage("");
         } catch (error) {

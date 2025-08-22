@@ -24,8 +24,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import type { JobOpening, JobApplication } from "@/types";
-// import { db } from "@/lib/firebase";
-// import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 
 function ApplicationForm({ job }: { job: JobOpening }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,23 +37,18 @@ function ApplicationForm({ job }: { job: JobOpening }) {
     setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const applicationData: Omit<JobApplication, 'id' | 'submittedAt'> = {
+    const applicationData = {
       jobId: job.id,
       jobTitle: job.title,
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       linkedin: formData.get("linkedin") as string,
       resumeUrl: formData.get("resumeUrl") as string,
+      submittedAt: serverTimestamp(),
     };
 
     try {
-        // MOCK SUBMISSION: Replace with Firestore write
-        console.log("Submitting application:", {...applicationData, submittedAt: new Date()});
-        // await addDoc(collection(db, "job_applications"), {
-        //     ...applicationData,
-        //     submittedAt: serverTimestamp(),
-        // });
-
+        await addDoc(collection(db, "job_applications"), applicationData);
         toast({
             title: "Application Sent!",
             description: `Your application for the ${job.title} position has been submitted.`,
@@ -123,20 +118,20 @@ export default function CareersPage() {
   useEffect(() => {
     const fetchJobs = async () => {
       setIsLoading(true);
-      // MOCK DATA: Replace with Firestore fetch
-      const mockJobs: JobOpening[] = [
-        { id: '1', title: 'Senior Frontend Developer', location: 'Remote', description: 'We are looking for an experienced Frontend Developer to build beautiful and performant user interfaces.' },
-        { id: '2', title: 'Product Marketing Manager', location: 'New York, NY', description: 'Join our marketing team to shape the voice of our products and drive growth.' },
-        { id: '3', title: 'Cloud Solutions Architect', location: 'Remote', description: 'Design and implement scalable cloud infrastructure for our suite of products.' },
-      ];
-      setJobOpenings(mockJobs);
-      // try {
-      //   const querySnapshot = await getDocs(collection(db, "job_openings"));
-      //   const jobs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as JobOpening[];
-      //   setJobOpenings(jobs);
-      // } catch (error) {
-      //   console.error("Error fetching job openings: ", error);
-      // }
+      try {
+        const querySnapshot = await getDocs(collection(db, "job_openings"));
+        const jobs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as JobOpening[];
+        setJobOpenings(jobs);
+      } catch (error) {
+        console.error("Error fetching job openings: ", error);
+        // Fallback to mock data if firestore fails
+        const mockJobs: JobOpening[] = [
+          { id: '1', title: 'Senior Frontend Developer', location: 'Remote', description: 'We are looking for an experienced Frontend Developer to build beautiful and performant user interfaces.' },
+          { id: '2', title: 'Product Marketing Manager', location: 'New York, NY', description: 'Join our marketing team to shape the voice of our products and drive growth.' },
+          { id: '3', title: 'Cloud Solutions Architect', location: 'Remote', description: 'Design and implement scalable cloud infrastructure for our suite of products.' },
+        ];
+        setJobOpenings(mockJobs);
+      }
       setIsLoading(false);
     };
 

@@ -57,11 +57,7 @@ export default function SignupPage() {
         role: "client", // Default role for new signups
       });
 
-      toast({
-        title: "Account Created",
-        description: "You have been successfully signed up.",
-      });
-      router.push("/client");
+      // Let the auth context handle redirection
     } catch (error: any) {
       console.error("Signup failed:", error);
       toast({

@@ -5,6 +5,7 @@ import { onAuthStateChanged, type User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase';
 import type { UserProfile } from '@/types';
+import { useRouter } from 'next/navigation';
 
 interface AuthContextType {
   user: User | null;
@@ -25,9 +26,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState<'admin' | 'client' | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setLoading(true);
       if (user) {
         setUser(user);
         const userDocRef = doc(db, 'users', user.uid);
@@ -37,15 +40,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               const profile = userDoc.data() as UserProfile;
               setUserProfile(profile);
               setRole(profile.role);
+              router.push(profile.role === 'admin' ? '/admin' : '/client');
             } else {
-              // Handle case where user exists in Auth but not in Firestore
               setRole(null);
               setUserProfile(null);
+              router.push('/login');
             }
         } catch (error) {
             console.error("Error fetching user role:", error);
             setRole(null);
             setUserProfile(null);
+            router.push('/login');
         }
 
       } else {
@@ -57,7 +62,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [router]);
 
   return (
     <AuthContext.Provider value={{ user, userProfile, loading, role }}>

@@ -19,7 +19,7 @@ export default function DashboardLayout({
     }
   }, [user, loading, router]);
 
-  if (loading || !user) {
+  if (loading) {
     return (
       <div className="container mx-auto p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
@@ -29,6 +29,10 @@ export default function DashboardLayout({
         </div>
       </div>
     );
+  }
+
+  if (!user) {
+      return null; // Don't render anything while redirecting
   }
 
   return <>{children}</>;
