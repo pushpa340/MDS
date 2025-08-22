@@ -73,7 +73,7 @@ const services = [
     icons: [ShoppingCart, CreditCard, Printer],
   },
   {
-    title: "IT Support",
+    title: "IT Solutions",
     description: "Technical assistance and troubleshooting for your business.",
     icons: [Wrench, Server, Shield],
   },

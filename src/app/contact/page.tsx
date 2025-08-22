@@ -22,7 +22,7 @@ const services = [
     { title: "Sales Lead Management" },
     { title: "Inventory Management" },
     { title: "Point of Sale (POS) Management" },
-    { title: "IT Support" },
+    { title: "IT Solutions" },
     { title: "Event Marketing" },
 ];
 
