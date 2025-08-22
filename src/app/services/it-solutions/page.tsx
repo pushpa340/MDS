@@ -1,0 +1,87 @@
+
+import { Wrench, Server, Shield, HardHat, Network, LifeBuoy } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
+
+const features = [
+  {
+    icon: HardHat,
+    title: "Managed IT Services",
+    description: "Proactive monitoring, maintenance, and management of your IT infrastructure to prevent issues before they start."
+  },
+  {
+    icon: Network,
+    title: "Network & Infrastructure",
+    description: "Design, implementation, and management of robust and secure network solutions tailored to your business needs."
+  },
+  {
+    icon: Shield,
+    title: "Cybersecurity Solutions",
+    description: "Protect your valuable data and systems with our multi-layered security services, from firewalls to endpoint protection."
+  },
+  {
+    icon: LifeBuoy,
+    title: "24/7 Help Desk Support",
+    description: "Our team of experts is available around the clock to provide timely technical assistance and resolve any IT issues."
+  },
+];
+
+export default function ITSolutionsPage() {
+  return (
+    <div className="container mx-auto max-w-6xl px-4 py-16">
+      <header className="text-center mb-12">
+        <div className="inline-flex items-center justify-center bg-primary/10 rounded-full p-4 mb-4">
+            <Wrench className="h-8 w-8 text-primary" />
+            <Server className="h-8 w-8 text-primary mx-2" />
+            <Shield className="h-8 w-8 text-primary" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+          IT Solutions
+        </h1>
+        <p className="mt-6 text-xl text-muted-foreground">
+          Reliable, secure, and scalable technology solutions to power your business. We provide expert IT support and services so you can focus on what you do best.
+        </p>
+      </header>
+      
+      <section className="mb-16">
+        <Image
+          src="https://placehold.co/1200x500.png"
+          alt="IT professional working"
+          width={1200}
+          height={500}
+          className="rounded-lg object-cover shadow-lg"
+          data-ai-hint="server room"
+        />
+      </section>
+
+      <section className="mb-16">
+        <h2 className="text-center text-3xl font-bold mb-8">Comprehensive IT Services We Offer</h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {features.map((feature) => (
+            <Card key={feature.title}>
+              <CardHeader className="flex flex-row items-center gap-4">
+                <feature.icon className="h-10 w-10 text-primary" />
+                <CardTitle>{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="text-center bg-card p-8 rounded-lg">
+        <h2 className="text-3xl font-bold mb-4">Need a Reliable IT Partner?</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          Contact our team to learn how our IT solutions can enhance your business operations and security.
+        </p>
+        <Button size="lg" asChild>
+          <Link href="/contact">Get IT Support</Link>
+        </Button>
+      </section>
+    </div>
+  );
+}

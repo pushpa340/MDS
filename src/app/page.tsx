@@ -3,12 +3,14 @@
 
 import { useState, useEffect, type FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
+  CardFooter
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,6 +46,7 @@ import {
   Users,
   Briefcase,
   Database,
+  ArrowRight
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
@@ -55,31 +58,37 @@ const services = [
     title: "Digital Marketing",
     description: "Brand promotion, SEO Optimization, Google Analytics.",
     icons: [Megaphone, TrendingUp, LineChart],
+    href: "/services/digital-marketing"
   },
   {
     title: "IT Solutions",
     description: "Technical assistance and troubleshooting for your business.",
     icons: [Wrench, Server, Shield],
+    href: "/services/it-solutions"
   },
   {
     title: "Event Marketing",
     description: "Promote and manage your events to attract the right audience.",
     icons: [Calendar, PartyPopper, Megaphone],
+    href: "/services/event-marketing"
   },
   {
     title: "Stock Market Analysis",
     description: "In-depth analysis of market trends and stocks.",
     icons: [TrendingUp, LineChart, DollarSign],
+    href: "/services/stock-market-analysis"
   },
   {
     title: "Data Analysis Solutions",
     description: "Unlock insights from sales, inventory, and other business data to drive decisions.",
     icons: [BarChart, PieChart, BrainCircuit],
+    href: "/services/data-analysis-solutions"
   },
   {
     title: "ERP & CRM Solution",
     description: "Integrate all your business management functions into one unified system.",
     icons: [Users, Briefcase, Database],
+    href: "/services/erp-crm-solution"
   },
 ];
 
@@ -139,23 +148,30 @@ function ServicesSection() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <Card key={service.title} className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader>
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                    <div className="flex -space-x-2">
-                        {service.icons.map((Icon, index) => (
-                            <Icon key={index} className="h-6 w-6 text-primary" strokeWidth={1.5} />
-                        ))}
-                    </div>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardTitle>{service.title}</CardTitle>
-                <CardDescription className="mt-2">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <Link key={service.title} href={service.href} className="flex">
+              <Card className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full">
+                <CardHeader>
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                      <div className="flex -space-x-2">
+                          {service.icons.map((Icon, index) => (
+                              <Icon key={index} className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                          ))}
+                      </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardTitle>{service.title}</CardTitle>
+                  <CardDescription className="mt-2">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="link" className="mx-auto">
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
