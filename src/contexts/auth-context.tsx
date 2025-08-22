@@ -5,7 +5,7 @@ import { onAuthStateChanged, type User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase';
 import type { UserProfile } from '@/types';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface AuthContextType {
   user: User | null;
@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState<'admin' | 'client' | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -40,7 +41,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               const profile = userDoc.data() as UserProfile;
               setUserProfile(profile);
               setRole(profile.role);
-              router.push(profile.role === 'admin' ? '/admin' : '/client');
+              
+              const isAuthPage = pathname === '/login' || pathname === '/signup';
+              if (isAuthPage) {
+                router.push(profile.role === 'admin' ? '/admin' : '/client');
+              }
+
             } else {
               setRole(null);
               setUserProfile(null);
@@ -62,7 +68,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
 
     return () => unsubscribe();
-  }, [router]);
+  }, [router, pathname]);
 
   return (
     <AuthContext.Provider value={{ user, userProfile, loading, role }}>
