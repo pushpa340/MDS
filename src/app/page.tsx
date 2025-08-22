@@ -43,8 +43,6 @@ import {
   Wrench,
   Server,
   Shield,
-  Briefcase,
-  Lightbulb,
   Calendar,
   PartyPopper,
 } from "lucide-react";
@@ -78,11 +76,6 @@ const services = [
     title: "IT Support",
     description: "Technical assistance and troubleshooting for your business.",
     icons: [Wrench, Server, Shield],
-  },
-  {
-    title: "Consultancy",
-    description: "Expert advice to help you grow your business.",
-    icons: [Briefcase, Lightbulb, Users],
   },
   {
     title: "Event Marketing",
