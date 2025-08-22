@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -19,8 +20,6 @@ import { useToast } from "@/hooks/use-toast";
 
 const services = [
     { title: "Digital Marketing" },
-    { title: "Sales Lead Management" },
-    { title: "Inventory Management" },
     { title: "Point of Sale (POS) Management" },
     { title: "IT Solutions" },
     { title: "Event Marketing" },

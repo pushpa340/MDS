@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, type FormEvent } from "react";
@@ -29,16 +30,10 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Megaphone,
-  Target,
-  Boxes,
   ShoppingCart,
   LineChart,
-  Users,
-  Package,
   CreditCard,
   TrendingUp,
-  Filter,
-  ClipboardList,
   Printer,
   Wrench,
   Server,
@@ -62,16 +57,6 @@ const services = [
     icons: [Megaphone, TrendingUp, LineChart],
   },
   {
-    title: "Sales Lead Management",
-    description: "Generating high-quality leads for USA, Canada, Australia.",
-    icons: [Target, Users, Filter],
-  },
-  {
-    title: "Inventory Management",
-    description: "Track and manage inventory in real-time.",
-    icons: [Boxes, Package, ClipboardList],
-  },
-  {
     title: "Point of Sale (POS) Management",
     description: "Manage transactions and billing efficiently.",
     icons: [ShoppingCart, CreditCard, Printer],
@@ -93,7 +78,7 @@ const services = [
   },
   {
     title: "Data Analysis Solutions",
-    description: "Unlock insights from your data to drive decisions.",
+    description: "Unlock insights from sales, inventory, and other business data to drive decisions.",
     icons: [BarChart, PieChart, BrainCircuit],
   },
 ];
@@ -152,7 +137,7 @@ function ServicesSection() {
             We provide comprehensive solutions to streamline your business operations.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Card key={service.title} className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg">
               <CardHeader>
