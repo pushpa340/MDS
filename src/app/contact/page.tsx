@@ -22,6 +22,9 @@ const services = [
     { title: "Sales Lead Management" },
     { title: "Inventory Management" },
     { title: "Point of Sale (POS) Management" },
+    { title: "IT Support" },
+    { title: "Consultancy" },
+    { title: "Event Marketing" },
 ];
 
 export default function ContactPage() {

@@ -40,6 +40,13 @@ import {
   Filter,
   ClipboardList,
   Printer,
+  Wrench,
+  Server,
+  Shield,
+  Briefcase,
+  Lightbulb,
+  Calendar,
+  PartyPopper,
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
@@ -66,6 +73,21 @@ const services = [
     title: "Point of Sale (POS) Management",
     description: "Manage transactions and billing efficiently.",
     icons: [ShoppingCart, CreditCard, Printer],
+  },
+  {
+    title: "IT Support",
+    description: "Technical assistance and troubleshooting for your business.",
+    icons: [Wrench, Server, Shield],
+  },
+  {
+    title: "Consultancy",
+    description: "Expert advice to help you grow your business.",
+    icons: [Briefcase, Lightbulb, Users],
+  },
+  {
+    title: "Event Marketing",
+    description: "Promote and manage your events to attract the right audience.",
+    icons: [Calendar, PartyPopper, Megaphone],
   },
 ];
 
