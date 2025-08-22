@@ -86,7 +86,7 @@ export default function ContactPage() {
               <CardTitle>Email Us</CardTitle>
             </CardHeader>
             <CardContent>
-              <a href="mailto:info@example.com" className="hover:text-primary">info@example.com</a>
+              <a href="mailto:marcommarketingsolution@outlook.com" className="hover:text-primary">marcommarketingsolution@outlook.com</a>
             </CardContent>
           </Card>
           <Card>
@@ -95,7 +95,7 @@ export default function ContactPage() {
               <CardTitle>Call Us</CardTitle>
             </CardHeader>
             <CardContent>
-              <a href="tel:+15551234567" className="hover:text-primary">+1 (555) 123-4567</a>
+              <a href="tel:+918447242558" className="hover:text-primary">+91-8447242558</a>
             </CardContent>
           </Card>
         </div>

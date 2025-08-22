@@ -56,8 +56,8 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold">Contact Us</h3>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>Email: info@example.com</li>
-                <li>Phone: +1 (555) 123-4567</li>
+                <li>Email: marcommarketingsolution@outlook.com</li>
+                <li>Phone: +91-8447242558</li>
               </ul>
             </div>
              <div>
