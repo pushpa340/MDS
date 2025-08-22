@@ -45,6 +45,10 @@ import {
   Shield,
   Calendar,
   PartyPopper,
+  DollarSign,
+  BarChart,
+  PieChart,
+  BrainCircuit,
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
@@ -81,6 +85,16 @@ const services = [
     title: "Event Marketing",
     description: "Promote and manage your events to attract the right audience.",
     icons: [Calendar, PartyPopper, Megaphone],
+  },
+  {
+    title: "Stock Market Analysis",
+    description: "In-depth analysis of market trends and stocks.",
+    icons: [TrendingUp, LineChart, DollarSign],
+  },
+  {
+    title: "Data Analysis Solutions",
+    description: "Unlock insights from your data to drive decisions.",
+    icons: [BarChart, PieChart, BrainCircuit],
   },
 ];
 

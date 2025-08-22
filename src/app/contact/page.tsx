@@ -24,6 +24,8 @@ const services = [
     { title: "Point of Sale (POS) Management" },
     { title: "IT Solutions" },
     { title: "Event Marketing" },
+    { title: "Stock Market Analysis" },
+    { title: "Data Analysis Solutions" },
 ];
 
 export default function ContactPage() {
