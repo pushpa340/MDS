@@ -24,6 +24,7 @@ const services = [
     { title: "Event Marketing" },
     { title: "Stock Market Analysis" },
     { title: "Data Analysis Solutions" },
+    { title: "ERP & CRM Solution" },
 ];
 
 export default function ContactPage() {

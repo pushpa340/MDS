@@ -41,6 +41,9 @@ import {
   BarChart,
   PieChart,
   BrainCircuit,
+  Users,
+  Briefcase,
+  Database,
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
@@ -72,6 +75,11 @@ const services = [
     title: "Data Analysis Solutions",
     description: "Unlock insights from sales, inventory, and other business data to drive decisions.",
     icons: [BarChart, PieChart, BrainCircuit],
+  },
+  {
+    title: "ERP & CRM Solution",
+    description: "Integrate all your business management functions into one unified system.",
+    icons: [Users, Briefcase, Database],
   },
 ];
 
