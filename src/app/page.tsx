@@ -40,13 +40,13 @@ import {
   Calendar,
   PartyPopper,
   DollarSign,
-  BarChart,
-  PieChart,
-  BrainCircuit,
   Users,
   Briefcase,
   Database,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
+  Lock,
+  KeyRound
 } from "lucide-react";
 import type { Testimonial } from "@/types";
 import { useToast } from "@/hooks/use-toast";
@@ -79,10 +79,10 @@ const services = [
     href: "/services/stock-market-analysis"
   },
   {
-    title: "Data Analysis Solutions",
-    description: "Unlock insights from sales, inventory, and other business data to drive decisions.",
-    icons: [BarChart, PieChart, BrainCircuit],
-    href: "/services/data-analysis-solutions"
+    title: "Cyber Security Solution",
+    description: "Protect your digital assets with our advanced security solutions.",
+    icons: [ShieldCheck, Lock, KeyRound],
+    href: "/services/cyber-security-solution"
   },
   {
     title: "ERP & CRM Solution",

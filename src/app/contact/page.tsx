@@ -23,7 +23,7 @@ const services = [
     { title: "IT Solutions" },
     { title: "Event Marketing" },
     { title: "Stock Market Analysis" },
-    { title: "Data Analysis Solutions" },
+    { title: "Cyber Security Solution" },
     { title: "ERP & CRM Solution" },
 ];
 

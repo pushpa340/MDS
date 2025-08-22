@@ -1,5 +1,5 @@
 
-import { BarChart, BrainCircuit, PieChart, Database, ShoppingCart, Users } from 'lucide-react';
+import { ShieldCheck, Lock, KeyRound, Fingerprint, Network, ShieldAlert } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -7,57 +7,57 @@ import Image from 'next/image';
 
 const features = [
   {
-    icon: ShoppingCart,
-    title: "Sales & Inventory Insights",
-    description: "Analyze sales data to identify trends, forecast demand, and optimize inventory levels for maximum profitability."
+    icon: Network,
+    title: "Network Security",
+    description: "Protect your network infrastructure from unauthorized access, misuse, or theft with robust firewalls and intrusion detection systems."
   },
   {
-    icon: Users,
-    title: "Customer Behavior Analysis",
-    description: "Understand customer segments, purchase patterns, and lifetime value to tailor marketing and improve retention."
+    icon: ShieldAlert,
+    title: "Threat Intelligence",
+    description: "Stay ahead of attackers with proactive threat detection, monitoring, and analysis of potential security risks."
   },
   {
-    icon: Database,
-    title: "Data Integration",
-    description: "Consolidate data from various sources (Sales, Marketing, Operations) into a single source of truth for holistic analysis."
+    icon: Fingerprint,
+    title: "Identity & Access Management",
+    description: "Ensure that only authorized users can access sensitive data and systems with multi-factor authentication and strict access controls."
   },
   {
-    icon: BrainCircuit,
-    title: "Predictive Analytics",
-    description: "Utilize machine learning models to predict future outcomes, from customer churn to inventory shortages."
+    icon: Lock,
+    title: "Data Encryption",
+    description: "Secure your data both at rest and in transit with advanced encryption standards to prevent data breaches."
   },
 ];
 
-export default function DataAnalysisPage() {
+export default function CyberSecurityPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-16">
       <header className="text-center mb-12">
         <div className="inline-flex items-center justify-center bg-primary/10 rounded-full p-4 mb-4">
-            <BarChart className="h-8 w-8 text-primary" />
-            <PieChart className="h-8 w-8 text-primary mx-2" />
-            <BrainCircuit className="h-8 w-8 text-primary" />
+            <ShieldCheck className="h-8 w-8 text-primary" />
+            <Lock className="h-8 w-8 text-primary mx-2" />
+            <KeyRound className="h-8 w-8 text-primary" />
         </div>
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-          Data Analysis Solutions
+          Cyber Security Solutions
         </h1>
         <p className="mt-6 text-xl text-muted-foreground">
-          Turn your data into your most valuable asset. We help you unlock actionable insights to drive strategic decisions and fuel business growth.
+          Safeguard your digital assets with our comprehensive, multi-layered security strategies designed to protect your business from evolving cyber threats.
         </p>
       </header>
 
       <section className="mb-16">
         <Image
           src="https://placehold.co/1200x500.png"
-          alt="Data Analysis Dashboard"
+          alt="Cyber Security Shield"
           width={1200}
           height={500}
           className="rounded-lg object-cover shadow-lg"
-          data-ai-hint="data dashboard"
+          data-ai-hint="cyber security"
         />
       </section>
 
       <section className="mb-16">
-        <h2 className="text-center text-3xl font-bold mb-8">Our Data Analysis Capabilities</h2>
+        <h2 className="text-center text-3xl font-bold mb-8">Our Cyber Security Services</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {features.map((feature) => (
             <Card key={feature.title}>
@@ -74,12 +74,12 @@ export default function DataAnalysisPage() {
       </section>
 
       <section className="text-center bg-card p-8 rounded-lg">
-        <h2 className="text-3xl font-bold mb-4">Ready to Make Data-Driven Decisions?</h2>
+        <h2 className="text-3xl font-bold mb-4">Is Your Business Secure?</h2>
         <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Let's connect to discuss how our data analysis solutions can be tailored to your specific business needs and goals.
+          Don't wait for a breach to happen. Contact us for a comprehensive security assessment and let us fortify your defenses.
         </p>
         <Button size="lg" asChild>
-          <Link href="/contact">Get in Touch</Link>
+          <Link href="/contact">Get a Security Audit</Link>
         </Button>
       </section>
     </div>
