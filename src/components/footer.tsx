@@ -1,0 +1,78 @@
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Linkedin, Building2 } from "lucide-react";
+import { Button } from "./ui/button";
+
+const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact" },
+];
+
+const socialLinks = [
+  { href: "#", icon: Facebook, label: "Facebook" },
+  { href: "#", icon: Twitter, label: "Twitter" },
+  { href: "#", icon: Instagram, label: "Instagram" },
+  { href: "#", icon: Linkedin, label: "LinkedIn" },
+];
+
+export default function Footer() {
+  return (
+    <footer className="bg-card border-t">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div>
+            <div className="flex items-center">
+                <Building2 className="h-8 w-8 text-primary" />
+                <span className="ml-2 text-xl font-bold">LeadFlow Central</span>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Your partner in business growth and management. We provide solutions to help you succeed.
+            </p>
+            <div className="mt-6 flex space-x-4">
+              {socialLinks.map((social) => (
+                <Button key={social.label} variant="ghost" size="icon" asChild>
+                  <Link href={social.href}>
+                    <social.icon className="h-5 w-5" />
+                    <span className="sr-only">{social.label}</span>
+                  </Link>
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:grid-cols-3">
+            <div>
+              <h3 className="font-semibold">Quick Links</h3>
+              <ul className="mt-4 space-y-2">
+                {footerLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold">Contact Us</h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>Email: info@example.com</li>
+                <li>Phone: +1 (555) 123-4567</li>
+              </ul>
+            </div>
+             <div>
+              <h3 className="font-semibold">Legal</h3>
+              <ul className="mt-4 space-y-2">
+                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} LeadFlow Central. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
