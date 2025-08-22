@@ -20,7 +20,6 @@ import { useToast } from "@/hooks/use-toast";
 
 const services = [
     { title: "Digital Marketing" },
-    { title: "Point of Sale (POS) Management" },
     { title: "IT Solutions" },
     { title: "Event Marketing" },
     { title: "Stock Market Analysis" },

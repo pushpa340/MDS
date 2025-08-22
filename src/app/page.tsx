@@ -30,11 +30,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Megaphone,
-  ShoppingCart,
   LineChart,
-  CreditCard,
   TrendingUp,
-  Printer,
   Wrench,
   Server,
   Shield,
@@ -55,11 +52,6 @@ const services = [
     title: "Digital Marketing",
     description: "Brand promotion, SEO Optimization, Google Analytics.",
     icons: [Megaphone, TrendingUp, LineChart],
-  },
-  {
-    title: "Point of Sale (POS) Management",
-    description: "Manage transactions and billing efficiently.",
-    icons: [ShoppingCart, CreditCard, Printer],
   },
   {
     title: "IT Solutions",
