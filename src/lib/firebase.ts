@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "test-api-key",
-  authDomain: "test-project-id.firebaseapp.com",
-  projectId: "test-project-id",
-  storageBucket: "test-project-id.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef1234567890",
+  projectId: "leadflow-central-jt2vl",
+  appId: "1:180656532872:web:15eff92462d2be5a1d1e3d",
+  storageBucket: "leadflow-central-jt2vl.firebasestorage.app",
+  apiKey: "AIzaSyDjQDd-wOfROwuatAR695l-0_mnz8vlqqg",
+  authDomain: "leadflow-central-jt2vl.firebaseapp.com",
+  messagingSenderId: "180656532872"
 };
 
 // Initialize Firebase
