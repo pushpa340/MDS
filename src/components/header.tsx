@@ -41,7 +41,7 @@ export default function Header() {
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Building2 className="h-6 w-6 text-primary" />
-            <span className="font-bold">LeadFlow Central</span>
+            <span className="font-bold">Marcom Media Solution</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
@@ -69,7 +69,7 @@ export default function Header() {
               <SheetContent side="left">
                 <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
                   <Building2 className="h-6 w-6 text-primary" />
-                  <span className="font-bold">LeadFlow Central</span>
+                  <span className="font-bold">Marcom Media Solution</span>
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link) => (

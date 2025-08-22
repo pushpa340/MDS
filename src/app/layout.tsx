@@ -10,7 +10,7 @@ import Footer from '@/components/footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'LeadFlow Central',
+  title: 'Marcom Media Solution',
   description: 'Your partner in business growth and management.',
 };
 

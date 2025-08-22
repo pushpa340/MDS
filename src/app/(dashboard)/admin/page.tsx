@@ -43,7 +43,7 @@ export default function AdminDashboardPage() {
         <div className="container mx-auto px-4 py-12">
             <header className="mb-8">
                 <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-                <p className="text-muted-foreground">Manage all aspects of LeadFlow Central.</p>
+                <p className="text-muted-foreground">Manage all aspects of Marcom Media Solution.</p>
             </header>
             <Tabs defaultValue="queries">
                 <TabsList className="grid w-full grid-cols-4">

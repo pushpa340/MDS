@@ -95,7 +95,7 @@ function HeroSection() {
     <section className="bg-card py-20 sm:py-32">
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-          LeadFlow Central
+          Marcom Media Solution
         </h1>
         <p className="mt-6 text-lg leading-8 text-muted-foreground">
           Your Ultimate Partner for Business Growth and Management Solutions
@@ -181,7 +181,7 @@ function TestimonialsSection() {
     const fetchTestimonials = async () => {
       // MOCK DATA: Replace with Firestore fetch
       const mockTestimonials: Testimonial[] = [
-        { id: '1', name: 'Sarah L.', photoUrl: 'https://placehold.co/100x100.png', message: 'LeadFlow Central transformed our sales process. Their lead management is top-notch!', data_ai_hint: 'woman portrait' },
+        { id: '1', name: 'Sarah L.', photoUrl: 'https://placehold.co/100x100.png', message: 'Marcom Media Solution transformed our sales process. Their lead management is top-notch!', data_ai_hint: 'woman portrait' },
         { id: '2', name: 'Michael B.', photoUrl: 'https://placehold.co/100x100.png', message: 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.', data_ai_hint: 'man portrait' },
         { id: '3', name: 'Emily C.', photoUrl: 'https://placehold.co/100x100.png', message: 'Exceptional digital marketing services that delivered real results for our brand.', data_ai_hint: 'woman professional' },
         { id: '4', name: 'David R.', photoUrl: 'https://placehold.co/100x100.png', message: 'The POS system is intuitive and has streamlined our entire checkout process. Highly recommend!', data_ai_hint: 'man smiling' },
@@ -335,7 +335,7 @@ function ContactAndNewsletterSection() {
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Stay updated with the latest trends, insights, and offers from
-              LeadFlow Central.
+              Marcom Media Solution.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="mt-8 flex gap-x-2">
               <Input name="email" type="email" placeholder="Enter your email" required className="flex-1" />

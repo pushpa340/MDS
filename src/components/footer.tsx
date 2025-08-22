@@ -24,7 +24,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center">
                 <Building2 className="h-8 w-8 text-primary" />
-                <span className="ml-2 text-xl font-bold">LeadFlow Central</span>
+                <span className="ml-2 text-xl font-bold">Marcom Media Solution</span>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Your partner in business growth and management. We provide solutions to help you succeed.
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} LeadFlow Central. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Marcom Media Solution. All rights reserved.</p>
         </div>
       </div>
     </footer>
