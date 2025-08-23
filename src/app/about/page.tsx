@@ -79,7 +79,7 @@ export default function AboutPage() {
     <div className="container mx-auto max-w-5xl px-4 py-16">
       <header className="text-center">
         <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-          About Marcom Media Solution
+          About Marcom Digital Solution
         </h1>
         <p className="mt-6 text-xl text-muted-foreground">
           Empowering businesses with intelligent, streamlined solutions for growth and efficiency.
@@ -107,7 +107,7 @@ export default function AboutPage() {
         <div>
           <h2 className="text-3xl font-bold">Our History</h2>
           <p className="mt-4 text-muted-foreground">
-            Founded in 2020, Marcom Media Solution started with a small team of passionate entrepreneurs who saw a gap in the market for integrated business solutions. From a simple lead management tool, we've grown into a comprehensive platform serving clients across the globe in various industries, constantly innovating to meet their evolving needs.
+            Founded in 2020, Marcom Digital Solution started with a small team of passionate entrepreneurs who saw a gap in the market for integrated business solutions. From a simple lead management tool, we've grown into a comprehensive platform serving clients across the globe in various industries, constantly innovating to meet their evolving needs.
           </p>
         </div>
       </section>

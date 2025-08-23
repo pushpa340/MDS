@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
-                <Image src="/logo.png" alt="Marcom Media Solution Logo" width={180} height={50} />
+                <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={180} height={50} />
             </div>
             <p className="mt-4 text-sm text-blue-200">
               Your partner in business growth and management. We provide solutions to help you succeed.
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-blue-900/50 pt-8 text-center text-sm text-blue-200">
-          <p>&copy; {new Date().getFullYear()} Marcom Media Solution. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Marcom Digital Solution. All rights reserved.</p>
         </div>
       </div>
     </footer>

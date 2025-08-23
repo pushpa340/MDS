@@ -129,7 +129,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <Image src="/logo.png" alt="Marcom Media Solution Logo" width={150} height={40} />
+                <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={150} height={40} />
               </Link>
               <nav className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
@@ -158,8 +158,8 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
-                    <Image src="/logo.png" alt="Marcom Media Solution Logo" width={180} height={50} className="hidden md:inline-block" />
-                    <Image src="/logo.png" alt="Marcom Media Solution Logo" width={150} height={40} className="md:hidden" />
+                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={180} height={50} className="hidden md:inline-block" />
+                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={150} height={40} className="md:hidden" />
                 </Link>
             </div>
             
