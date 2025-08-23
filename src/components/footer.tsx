@@ -19,19 +19,19 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t">
+    <footer className="bg-footer-blue text-white border-t border-blue-900/50">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
                 <Image src="/logo.png" alt="Marcom Media Solution Logo" width={180} height={50} />
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-blue-200">
               Your partner in business growth and management. We provide solutions to help you succeed.
             </p>
             <div className="mt-6 flex space-x-4">
               {socialLinks.map((social) => (
-                <Button key={social.label} variant="ghost" size="icon" asChild>
+                <Button key={social.label} variant="ghost" size="icon" asChild className="text-blue-200 hover:bg-white/10 hover:text-white">
                   <Link href={social.href}>
                     <social.icon className="h-5 w-5" />
                     <span className="sr-only">{social.label}</span>
@@ -42,11 +42,11 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 lg:col-span-2 lg:grid-cols-3">
             <div>
-              <h3 className="font-semibold">Quick Links</h3>
+              <h3 className="font-semibold text-white">Quick Links</h3>
               <ul className="mt-4 space-y-2">
                 {footerLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                    <Link href={link.href} className="text-sm text-blue-200 hover:text-white">
                       {link.label}
                     </Link>
                   </li>
@@ -54,22 +54,22 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold">Contact Us</h3>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <h3 className="font-semibold text-white">Contact Us</h3>
+              <ul className="mt-4 space-y-2 text-sm text-blue-200">
                 <li>Email: marcommarketingsolution@outlook.com</li>
                 <li>Phone: +91-8447242558</li>
               </ul>
             </div>
              <div>
-              <h3 className="font-semibold">Legal</h3>
+              <h3 className="font-semibold text-white">Legal</h3>
               <ul className="mt-4 space-y-2">
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</Link></li>
+                <li><Link href="#" className="text-sm text-blue-200 hover:text-white">Privacy Policy</Link></li>
+                <li><Link href="#" className="text-sm text-blue-200 hover:text-white">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-blue-900/50 pt-8 text-center text-sm text-blue-200">
           <p>&copy; {new Date().getFullYear()} Marcom Media Solution. All rights reserved.</p>
         </div>
       </div>

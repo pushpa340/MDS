@@ -57,7 +57,7 @@ export default function Header() {
   const servicesMenu = (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="transition-all hover:text-primary hover:scale-105 px-0 sm:px-2">
+        <Button variant="ghost" className="transition-all hover:text-primary hover:scale-105 px-0 sm:px-2 text-white hover:text-white">
           Services
           <ChevronDown className="relative top-[1px] ml-1 h-3 w-3" />
         </Button>
@@ -75,7 +75,7 @@ export default function Header() {
   const userMenu = (
     <DropdownMenu>
         <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-white hover:text-white hover:bg-white/10">
                 <User className="h-5 w-5" />
                 <span className="sr-only">User Menu</span>
             </Button>
@@ -116,13 +116,13 @@ export default function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-header-blue text-white">
       <div className="container flex h-16 items-center">
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-white hover:text-white hover:bg-white/10">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
