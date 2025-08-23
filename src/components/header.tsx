@@ -117,66 +117,69 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Building2 className="h-6 w-6 text-primary" />
-            <span className="font-bold">Marcom Media Solution</span>
-          </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link href="/" className="transition-colors hover:text-primary">Home</Link>
-            <Link href="/about" className="transition-colors hover:text-primary">About</Link>
-            {servicesMenu}
-            <Link href="/careers" className="transition-colors hover:text-primary">Careers</Link>
-            <Link href="/contact" className="transition-colors hover:text-primary">Contact</Link>
-          </nav>
+        {/* Mobile Nav */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
+                <Building2 className="h-6 w-6 text-primary" />
+                <span className="font-bold">Marcom Media Solution</span>
+              </Link>
+              <nav className="flex flex-col space-y-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                {/* Add services links to mobile menu too */}
+                 <div className="flex flex-col space-y-2 pl-4 border-l">
+                   <p className="font-semibold">Services</p>
+                  {services.map((service) => (
+                      <Link key={service.href} href={service.href} className="transition-colors hover:text-primary text-sm">
+                      {service.label}
+                      </Link>
+                  ))}
+                 </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          {/* Mobile Nav */}
-          <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle Menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left">
-                <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                  <Building2 className="h-6 w-6 text-primary" />
-                  <span className="font-bold">Marcom Media Solution</span>
+        <div className="flex w-full items-center justify-between">
+            <div className="flex items-center">
+                 <Link href="/" className="flex items-center space-x-2">
+                    <Building2 className="h-6 w-6 text-primary" />
+                    <span className="font-bold md:hidden lg:inline-block">Marcom Media Solution</span>
                 </Link>
-                <nav className="flex flex-col space-y-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="transition-colors hover:text-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                  {/* Add services links to mobile menu too */}
-                   <div className="flex flex-col space-y-2 pl-4 border-l">
-                     <p className="font-semibold">Services</p>
-                    {services.map((service) => (
-                        <Link key={service.href} href={service.href} className="transition-colors hover:text-primary text-sm">
-                        {service.label}
-                        </Link>
-                    ))}
-                   </div>
+            </div>
+            
+            <div className="hidden md:flex flex-1 justify-center">
+                <nav className="flex items-center space-x-6 text-sm font-medium">
+                    <Link href="/" className="transition-colors hover:text-primary">Home</Link>
+                    <Link href="/about" className="transition-colors hover:text-primary">About</Link>
+                    {servicesMenu}
+                    <Link href="/careers" className="transition-colors hover:text-primary">Careers</Link>
+                    <Link href="/contact" className="transition-colors hover:text-primary">Contact</Link>
                 </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
+            </div>
           
-          <nav className="flex items-center">
+          <div className="flex items-center">
             {loading ? (
               <div className="h-8 w-8 animate-pulse rounded-full bg-muted" />
             ) : (
                 userMenu
             )}
-          </nav>
+          </div>
         </div>
       </div>
     </header>
