@@ -158,8 +158,8 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
-                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={180} height={50} className="hidden md:inline-block" />
-                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={150} height={40} className="md:hidden" />
+                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={50} height={50} className="hidden md:inline-block" />
+                    <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={40} height={40} className="md:hidden" />
                 </Link>
             </div>
             
