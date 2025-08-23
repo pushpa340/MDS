@@ -56,7 +56,7 @@ export default function Header() {
   const servicesMenu = (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="transition-colors hover:text-primary px-0 sm:px-2">
+        <Button variant="ghost" className="transition-all hover:text-primary hover:scale-105 px-0 sm:px-2">
           Services
           <ChevronDown className="relative top-[1px] ml-1 h-3 w-3" />
         </Button>
@@ -165,11 +165,11 @@ export default function Header() {
             
             <div className="hidden md:flex flex-1 justify-center">
                 <nav className="flex items-center space-x-6 text-sm font-medium">
-                    <Link href="/" className="transition-colors hover:text-primary">Home</Link>
-                    <Link href="/about" className="transition-colors hover:text-primary">About</Link>
+                    <Link href="/" className="transition-all hover:text-primary hover:scale-105">Home</Link>
+                    <Link href="/about" className="transition-all hover:text-primary hover:scale-105">About</Link>
                     {servicesMenu}
-                    <Link href="/careers" className="transition-colors hover:text-primary">Careers</Link>
-                    <Link href="/contact" className="transition-colors hover:text-primary">Contact</Link>
+                    <Link href="/careers" className="transition-all hover:text-primary hover:scale-105">Careers</Link>
+                    <Link href="/contact" className="transition-all hover:text-primary hover:scale-105">Contact</Link>
                 </nav>
             </div>
           
