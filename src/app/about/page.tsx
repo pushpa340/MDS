@@ -1,6 +1,32 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import {
+    Megaphone,
+    LineChart,
+    TrendingUp,
+    Wrench,
+    Server,
+    Shield,
+    Calendar,
+    PartyPopper,
+    DollarSign,
+    Users,
+    Briefcase,
+    Database,
+    ArrowRight,
+    ShieldCheck,
+    Lock,
+    KeyRound
+  } from "lucide-react";
 
 const teamMembers = [
   { name: "Alice Johnson", role: "CEO & Founder", bio: "Alice drives the company's vision and strategy, with over 15 years of experience in digital marketing.", photoUrl: "https://placehold.co/400x400.png", data_ai_hint: "woman CEO" },
@@ -8,6 +34,45 @@ const teamMembers = [
   { name: "Charlie Brown", role: "Head of Sales", bio: "Charlie leads our sales team, focusing on building strong client relationships and driving growth.", photoUrl: "https://placehold.co/400x400.png", data_ai_hint: "man sales" },
   { name: "Diana Prince", role: "Lead Developer", bio: "Diana is a full-stack expert, ensuring our products are robust, secure, and user-friendly.", photoUrl: "https://placehold.co/400x400.png", data_ai_hint: "woman developer" },
 ];
+
+const services = [
+    {
+      title: "Digital Marketing",
+      description: "Brand promotion, SEO Optimization, Google Analytics.",
+      icons: [Megaphone, TrendingUp, LineChart],
+      href: "/services/digital-marketing"
+    },
+    {
+      title: "IT Solutions",
+      description: "Technical assistance and troubleshooting for your business.",
+      icons: [Wrench, Server, Shield],
+      href: "/services/it-solutions"
+    },
+    {
+      title: "Event Marketing",
+      description: "Promote and manage your events to attract the right audience.",
+      icons: [Calendar, PartyPopper, Megaphone],
+      href: "/services/event-marketing"
+    },
+    {
+      title: "Stock Market Analysis",
+      description: "In-depth analysis of market trends and stocks.",
+      icons: [TrendingUp, LineChart, DollarSign],
+      href: "/services/stock-market-analysis"
+    },
+    {
+      title: "Cyber Security Solution",
+      description: "Protect your digital assets with our advanced security solutions.",
+      icons: [ShieldCheck, Lock, KeyRound],
+      href: "/services/cyber-security-solution"
+    },
+    {
+      title: "ERP & CRM Solution",
+      description: "Integrate all your business management functions into one unified system.",
+      icons: [Users, Briefcase, Database],
+      href: "/services/erp-crm-solution"
+    },
+  ];
 
 export default function AboutPage() {
   return (
@@ -45,6 +110,34 @@ export default function AboutPage() {
             Founded in 2020, Marcom Media Solution started with a small team of passionate entrepreneurs who saw a gap in the market for integrated business solutions. From a simple lead management tool, we've grown into a comprehensive platform serving clients across the globe in various industries, constantly innovating to meet their evolving needs.
           </p>
         </div>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="text-center text-3xl font-bold">Our Services</h2>
+        <Accordion type="single" collapsible className="w-full mt-8">
+            {services.map((service) => (
+            <AccordionItem key={service.title} value={service.title}>
+                <AccordionTrigger className="text-xl font-semibold">
+                    <div className="flex items-center gap-4">
+                        <div className="flex -space-x-2">
+                            {service.icons.map((Icon, index) => (
+                                <Icon key={index} className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                            ))}
+                        </div>
+                        {service.title}
+                    </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    <Button asChild variant="link">
+                        <Link href={service.href}>
+                            Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                    </Button>
+                </AccordionContent>
+            </AccordionItem>
+            ))}
+        </Accordion>
       </section>
       
       <section className="mt-16">
