@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, LogOut, LayoutDashboard, Building2, ChevronDown } from "lucide-react";
+import { Menu, LogOut, LayoutDashboard, Building2, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -67,6 +68,49 @@ export default function Header() {
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
+    </DropdownMenu>
+  );
+
+  const userMenu = (
+    <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+                <span className="sr-only">User Menu</span>
+            </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+            {user ? (
+                <>
+                    <DropdownMenuItem asChild>
+                        <Link href={getDashboardHref()}>
+                            <LayoutDashboard className="mr-2 h-4 w-4" />
+                            Dashboard
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Logout
+                    </DropdownMenuItem>
+                </>
+            ) : (
+                <>
+                    <DropdownMenuItem asChild>
+                        <Link href="/login">
+                            <LogIn className="mr-2 h-4 w-4" />
+                            Login
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href="/signup">
+                            <UserPlus className="mr-2 h-4 w-4" />
+                            Sign Up
+                        </Link>
+                    </DropdownMenuItem>
+                </>
+            )}
+        </DropdownMenuContent>
     </DropdownMenu>
   );
 
@@ -128,28 +172,9 @@ export default function Header() {
           
           <nav className="flex items-center">
             {loading ? (
-              <div className="h-8 w-24 animate-pulse rounded-md bg-muted" />
-            ) : user ? (
-              <>
-                <Button variant="ghost" asChild>
-                  <Link href={getDashboardHref()}>
-                    <LayoutDashboard className="mr-2 h-4 w-4" />
-                    Dashboard
-                  </Link>
-                </Button>
-                <Button variant="ghost" size="icon" onClick={handleLogout}>
-                  <LogOut className="h-4 w-4" />
-                </Button>
-              </>
+              <div className="h-8 w-8 animate-pulse rounded-full bg-muted" />
             ) : (
-              <div className="space-x-2">
-                <Button variant="ghost" asChild>
-                  <Link href="/login">Login</Link>
-                </Button>
-                <Button asChild className="bg-primary hover:bg-primary/90">
-                  <Link href="/signup">Sign Up</Link>
-                </Button>
-              </div>
+                userMenu
             )}
           </nav>
         </div>
