@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, LogOut, LayoutDashboard, Building2, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
+import { Menu, LogOut, LayoutDashboard, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +16,7 @@ import {
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -128,8 +129,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <Building2 className="h-6 w-6 text-primary" />
-                <span className="font-bold">Marcom Media Solution</span>
+                <Image src="/logo.png" alt="Marcom Media Solution Logo" width={150} height={40} />
               </Link>
               <nav className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
@@ -158,8 +158,8 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
-                    <Building2 className="h-6 w-6 text-primary" />
-                    <span className="font-bold md:hidden lg:inline-block">Marcom Media Solution</span>
+                    <Image src="/logo.png" alt="Marcom Media Solution Logo" width={180} height={50} className="hidden md:inline-block" />
+                    <Image src="/logo.png" alt="Marcom Media Solution Logo" width={150} height={40} className="md:hidden" />
                 </Link>
             </div>
             

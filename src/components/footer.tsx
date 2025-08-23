@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, Building2 } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -23,8 +24,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
-                <Building2 className="h-8 w-8 text-primary" />
-                <span className="ml-2 text-xl font-bold">Marcom Media Solution</span>
+                <Image src="/logo.png" alt="Marcom Media Solution Logo" width={180} height={50} />
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Your partner in business growth and management. We provide solutions to help you succeed.
