@@ -116,21 +116,21 @@ export default function Home() {
 
 const heroSlides = [
     {
-        image: "/hero-1.jpg",
+        image: "https://picsum.photos/1920/1080",
         alt: "Business Growth",
         title: "Drive Your Business Growth",
         description: "Innovative strategies and solutions to take your business to the next level.",
         hint: "business meeting",
     },
     {
-        image: "/hero-2.jpg",
+        image: "https://picsum.photos/1920/1081",
         alt: "Digital Transformation",
         title: "Embrace Digital Transformation",
         description: "Leverage technology to streamline operations and enhance customer experience.",
         hint: "modern office",
     },
     {
-        image: "/hero-3.jpg",
+        image: "https://picsum.photos/1920/1082",
         alt: "Marketing Solutions",
         title: "Creative Marketing Solutions",
         description: "Engage your audience with compelling campaigns that deliver results.",
