@@ -181,6 +181,10 @@ export default function Header() {
                      <div className="md:hidden">
                         <Logo size={32} />
                     </div>
+                    <div className="flex flex-col">
+                        <span className="text-xl font-bold leading-none">MDS</span>
+                        <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
+                    </div>
                 </Link>
             </div>
             
