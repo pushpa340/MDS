@@ -17,6 +17,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { TypingEffect } from "./ui/typing-effect";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -125,7 +126,7 @@ export default function Header() {
   const Logo = ({size = 32}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
-        <div className="bg-transparent rounded-full relative p-1">
+        <div className="bg-transparent rounded-full relative">
             <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
     </div>
@@ -182,7 +183,7 @@ export default function Header() {
                         <Logo size={32} />
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-bold tracking-tight leading-none text-base">MARCOM DIGITAL SOLUTION</span>
+                        <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" />
                         <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
                     </div>
                 </Link>
