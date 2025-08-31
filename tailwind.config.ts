@@ -25,8 +25,8 @@ const config = {
         headline: ['Inter', 'sans-serif'],
       },
       colors: {
-        'header-blue': '#162447',
-        'footer-blue': '#162447',
+        'header-blue': '#0C3C60',
+        'footer-blue': '#0C3C60',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
