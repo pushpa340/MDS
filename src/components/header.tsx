@@ -122,10 +122,10 @@ export default function Header() {
     </DropdownMenu>
   );
 
-  const Logo = ({size = 36}: {size?: number}) => (
+  const Logo = ({size = 32}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
-        <div className="bg-transparent rounded-full relative">
+        <div className="bg-transparent rounded-full relative p-1">
             <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
     </div>
@@ -182,7 +182,7 @@ export default function Header() {
                         <Logo size={32} />
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold leading-none">MDS</span>
+                        <span className="font-bold tracking-tight leading-none text-base">MARCOM DIGITAL SOLUTION</span>
                         <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
                     </div>
                 </Link>
