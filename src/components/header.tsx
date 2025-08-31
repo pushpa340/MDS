@@ -130,7 +130,7 @@ export default function Header() {
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
                 <div className="bg-white rounded-full p-1">
-                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={40} height={40} />
+                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
                 </div>
                 <span className="font-bold text-lg text-black">Marcom Digital</span>
               </Link>
@@ -162,10 +162,10 @@ export default function Header() {
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
                     <div className="bg-white rounded-full p-1 hidden md:block">
-                      <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={40} height={40} />
+                      <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
                     </div>
                      <div className="bg-white rounded-full p-1 md:hidden">
-                        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
+                        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={28} height={28} />
                     </div>
                 </Link>
             </div>

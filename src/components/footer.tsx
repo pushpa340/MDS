@@ -26,7 +26,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center">
                 <div className="bg-white rounded-full p-1">
-                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={40} height={40} />
+                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
                 </div>
             </div>
             <p className="mt-4 text-sm text-blue-200">
