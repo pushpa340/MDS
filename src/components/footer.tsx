@@ -25,8 +25,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
-                <div className="bg-white rounded-full p-1">
-                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
+                <div className="bg-white rounded-full p-1 group">
+                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
                 </div>
             </div>
             <p className="mt-4 text-sm text-blue-200">

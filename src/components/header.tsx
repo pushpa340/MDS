@@ -161,11 +161,11 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
-                    <div className="bg-white rounded-full p-1 hidden md:block">
-                      <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
+                    <div className="bg-white rounded-full p-1 hidden md:block group">
+                      <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
                     </div>
-                     <div className="bg-white rounded-full p-1 md:hidden">
-                        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={28} height={28} />
+                     <div className="bg-white rounded-full p-1 md:hidden group">
+                        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={28} height={28} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
                     </div>
                 </Link>
             </div>
