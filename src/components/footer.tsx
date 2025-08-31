@@ -18,17 +18,18 @@ const socialLinks = [
   { href: "#", icon: Linkedin, label: "LinkedIn" },
 ];
 
-const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.4l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2.4l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+        <circle cx="12" cy="12" r="3"/>
     </svg>
 );
 
 const Logo = ({size = 32}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
-        <StarIcon className="text-white absolute h-12 w-12" />
+        <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
         <div className="bg-transparent rounded-full p-1 relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} />
         </div>
     </div>
 );
