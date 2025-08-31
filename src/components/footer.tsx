@@ -25,11 +25,11 @@ const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const Logo = ({size = 32}: {size?: number}) => (
+const Logo = ({size = 36}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
         <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full p-1" />
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
     </div>
 );

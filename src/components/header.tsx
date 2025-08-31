@@ -122,11 +122,11 @@ export default function Header() {
     </DropdownMenu>
   );
 
-  const Logo = ({size = 32}: {size?: number}) => (
+  const Logo = ({size = 36}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
         <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full p-1" />
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
     </div>
   );
@@ -145,7 +145,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <Logo size={32} />
+                <Logo size={36} />
                 <span className="font-bold text-lg text-black">Marcom Digital</span>
               </Link>
               <nav className="flex flex-col space-y-4">
@@ -176,10 +176,10 @@ export default function Header() {
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
                     <div className="hidden md:block">
-                        <Logo size={32} />
+                        <Logo size={36} />
                     </div>
                      <div className="md:hidden">
-                        <Logo size={28} />
+                        <Logo size={32} />
                     </div>
                 </Link>
             </div>
