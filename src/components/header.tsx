@@ -18,6 +18,7 @@ import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { TypingEffect } from "./ui/typing-effect";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -46,6 +47,7 @@ const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function Header() {
   const { user, role, loading } = useAuth();
   const router = useRouter();
+  const [isTyping, setIsTyping] = useState(true);
 
   const handleLogout = async () => {
     try {
@@ -123,9 +125,9 @@ export default function Header() {
     </DropdownMenu>
   );
 
-  const Logo = ({size = 32}: {size?: number}) => (
+  const Logo = ({size = 32, isTyping}: {size?: number, isTyping: boolean}) => (
     <div className="relative group flex items-center justify-center">
-        <SettingsIcon className="text-white absolute h-12 w-12 transition-transform duration-2000 group-hover:rotate-[360deg]" />
+        <SettingsIcon className={`text-white absolute h-12 w-12 transition-transform duration-2000 ${isTyping ? 'animate-spin-slow' : ''} group-hover:rotate-[360deg]`} />
         <div className="bg-transparent rounded-full relative">
             <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
@@ -146,7 +148,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <Logo size={36} />
+                <Logo size={36} isTyping={isTyping} />
                 <span className="font-bold text-lg text-black">Marcom Digital</span>
               </Link>
               <nav className="flex flex-col space-y-4">
@@ -177,13 +179,13 @@ export default function Header() {
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
                     <div className="hidden md:block">
-                        <Logo size={36} />
+                        <Logo size={36} isTyping={isTyping} />
                     </div>
                      <div className="md:hidden">
-                        <Logo size={32} />
+                        <Logo size={32} isTyping={isTyping} />
                     </div>
                     <div className="flex flex-col">
-                        <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" />
+                        <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" onComplete={() => setIsTyping(false)} />
                         <TypingEffect text="marcomdigitalsolution.com" className="text-xs text-blue-200" />
                     </div>
                 </Link>
