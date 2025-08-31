@@ -35,6 +35,12 @@ const services = [
   { href: "/services/erp-crm-solution", label: "ERP & CRM Solution" },
 ];
 
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+);
+  
 export default function Header() {
   const { user, role, loading } = useAuth();
   const router = useRouter();
@@ -115,6 +121,15 @@ export default function Header() {
     </DropdownMenu>
   );
 
+  const Logo = ({size = 32}: {size?: number}) => (
+    <div className="relative group flex items-center justify-center">
+        <StarIcon className="text-white absolute h-12 w-12" />
+        <div className="bg-transparent rounded-full p-1 relative">
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
+        </div>
+    </div>
+  );
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-header-blue text-white">
       <div className="container flex h-16 items-center">
@@ -129,9 +144,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <div className="bg-white rounded-full p-1">
-                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} />
-                </div>
+                <Logo size={32} />
                 <span className="font-bold text-lg text-black">Marcom Digital</span>
               </Link>
               <nav className="flex flex-col space-y-4">
@@ -161,11 +174,11 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
-                    <div className="bg-white rounded-full p-1 hidden md:block group">
-                      <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
+                    <div className="hidden md:block">
+                        <Logo size={32} />
                     </div>
-                     <div className="bg-white rounded-full p-1 md:hidden group">
-                        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={28} height={28} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
+                     <div className="md:hidden">
+                        <Logo size={28} />
                     </div>
                 </Link>
             </div>

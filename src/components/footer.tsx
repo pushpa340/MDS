@@ -18,6 +18,22 @@ const socialLinks = [
   { href: "#", icon: Linkedin, label: "LinkedIn" },
 ];
 
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+);
+
+const Logo = ({size = 32}: {size?: number}) => (
+    <div className="relative group flex items-center justify-center">
+        <StarIcon className="text-white absolute h-12 w-12" />
+        <div className="bg-transparent rounded-full p-1 relative">
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
+        </div>
+    </div>
+);
+
+
 export default function Footer() {
   return (
     <footer className="bg-footer-blue text-white border-t border-blue-900/50">
@@ -25,9 +41,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
-                <div className="bg-white rounded-full p-1 group">
-                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={32} height={32} className="transition-transform duration-2000 group-hover:rotate-[360deg]" />
-                </div>
+                <Logo />
             </div>
             <p className="mt-4 text-sm text-blue-200">
               Your partner in business growth and management. We provide solutions to help you succeed.
