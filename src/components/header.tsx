@@ -184,7 +184,7 @@ export default function Header() {
                     </div>
                     <div className="flex flex-col">
                         <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" />
-                        <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
+                        <TypingEffect text="marcomdigitalsolution.com" className="text-xs text-blue-200" />
                     </div>
                 </Link>
             </div>
