@@ -25,7 +25,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center">
-                <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={50} height={50} />
+                <div className="bg-white rounded-full p-1">
+                  <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={40} height={40} />
+                </div>
             </div>
             <p className="mt-4 text-sm text-blue-200">
               Your partner in business growth and management. We provide solutions to help you succeed.
