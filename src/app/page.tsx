@@ -116,21 +116,21 @@ export default function Home() {
 
 const heroSlides = [
     {
-        image: "/cover-img/photo-1.jpg",
+        image: "/img/photo-1.jpg",
         alt: "Business Growth",
         title: "Drive Your Business Growth",
         description: "Innovative strategies and solutions to take your business to the next level.",
         hint: "business meeting",
     },
     {
-        image: "/cover-img/photo-2.jpg",
+        image: "/img/photo-2.jpg",
         alt: "Digital Transformation",
         title: "Embrace Digital Transformation",
         description: "Leverage technology to streamline operations and enhance customer experience.",
         hint: "modern office",
     },
     {
-        image: "/cover-img/photo-3.jpg",
+        image: "/img/photo-3.jpg",
         alt: "Marketing Solutions",
         title: "Creative Marketing Solutions",
         description: "Engage your audience with compelling campaigns that deliver results.",
