@@ -60,42 +60,42 @@ const services = [
     description: "Brand promotion, SEO Optimization, Google Analytics.",
     icons: [Megaphone, TrendingUp, LineChart],
     href: "/services/digital-marketing",
-    image: { src: "/cover-img/digital-marketing.jpg", hint: "marketing chart" },
+    image: { src: "https://picsum.photos/300/300?random=1", hint: "marketing chart" },
   },
   {
     title: "IT Solutions",
     description: "Technical assistance and troubleshooting for your business.",
     icons: [Wrench, Server, Shield],
     href: "/services/it-solutions",
-    image: { src: "/cover-img/it-solutions.jpg", hint: "server room" },
+    image: { src: "https://picsum.photos/300/300?random=2", hint: "server room" },
   },
   {
     title: "Event Marketing",
     description: "Promote and manage your events to attract the right audience.",
     icons: [Calendar, PartyPopper, Megaphone],
     href: "/services/event-marketing",
-    image: { src: "/cover-img/event-marketing.jpg", hint: "concert crowd" },
+    image: { src: "https://picsum.photos/300/300?random=3", hint: "concert crowd" },
   },
   {
     title: "Stock Market Analysis",
     description: "In-depth analysis of market trends and stocks.",
     icons: [TrendingUp, LineChart, DollarSign],
     href: "/services/stock-market-analysis",
-    image: { src: "/cover-img/stock-market-analysis.jpg", hint: "stock charts" },
+    image: { src: "https://picsum.photos/300/300?random=4", hint: "stock charts" },
   },
   {
     title: "Cyber Security Solution",
     description: "Protect your digital assets with our advanced security solutions.",
     icons: [ShieldCheck, Lock, KeyRound],
     href: "/services/cyber-security-solution",
-    image: { src: "/cover-img/cyber-security-solution.jpg", hint: "cyber lock" },
+    image: { src: "https://picsum.photos/300/300?random=5", hint: "cyber lock" },
   },
   {
     title: "ERP & CRM Solution",
     description: "Integrate all your business management functions into one unified system.",
     icons: [Users, Briefcase, Database],
     href: "/services/erp-crm-solution",
-    image: { src: "/cover-img/erp-crm-solution.jpg", hint: "business meeting" },
+    image: { src: "https://picsum.photos/300/300?random=6", hint: "business meeting" },
   },
 ];
 
@@ -126,7 +126,7 @@ function HeroSection() {
       <section className="relative w-full overflow-hidden py-12">
         <div className="absolute inset-0">
           <Image
-            src="/cover-img/hero-background.jpg"
+            src="/cover-img/photo-1.jpg"
             alt="Business Growth"
             fill
             className="object-cover"
