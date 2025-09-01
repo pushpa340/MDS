@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -118,7 +118,7 @@ function HeroSection() {
         <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
             <div className="relative h-full w-full">
                 <Image
-                    src="https://picsum.photos/1920/1080?random=1"
+                    src="/img/photo-1.jpg"
                     alt="Business Growth"
                     fill
                     className="object-cover"
