@@ -1,5 +1,6 @@
 import type {NextConfig} from 'next';
 
+// This is a configuration file for Next.js.
 const nextConfig: NextConfig = {
   /* config options here */
   typescript: {
@@ -9,17 +10,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    remotePatterns: [],
   },
 };
 
 export default nextConfig;
-
-    
