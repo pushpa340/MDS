@@ -134,6 +134,10 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-black/70 z-10" />
         <div className="container mx-auto px-4 z-20 relative">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">MARCOM DIGITAL SOLUTION</h1>
+            <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">Empowering startups with digital, tech, and growth tools.</p>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center">
             {services.map((service) => {
