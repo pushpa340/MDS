@@ -154,15 +154,15 @@ function ServicesRibbon() {
         <div className="animate-marquee whitespace-nowrap flex">
           {services.map((service, index) => (
             <span key={index} className="text-lg mx-6 flex items-center">
-               <service.icons[0] className="mr-2 h-5 w-5" />
+              <service.icons[0] className="mr-2 h-5 w-5" />
               {service.title}
             </span>
           ))}
         </div>
         <div className="animate-marquee whitespace-nowrap flex absolute top-0">
-           {services.map((service, index) => (
+          {services.map((service, index) => (
             <span key={index + services.length} className="text-lg mx-6 flex items-center">
-               <service.icons[0] className="mr-2 h-5 w-5" />
+              <service.icons[0] className="mr-2 h-5 w-5" />
               {service.title}
             </span>
           ))}
@@ -171,6 +171,7 @@ function ServicesRibbon() {
     </section>
   );
 }
+
 
 function ServicesSection() {
   return (
