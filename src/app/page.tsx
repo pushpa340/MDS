@@ -152,20 +152,26 @@ function ServicesRibbon() {
     <section className="bg-primary text-primary-foreground py-4 overflow-hidden">
       <div className="relative flex">
         <div className="animate-marquee whitespace-nowrap flex">
-          {services.map((service, index) => (
-            <span key={index} className="text-lg mx-6 flex items-center">
-              <service.icons[0] className="mr-2 h-5 w-5" />
-              {service.title}
-            </span>
-          ))}
+          {services.map((service, index) => {
+            const Icon = service.icons[0];
+            return (
+              <span key={index} className="text-lg mx-6 flex items-center">
+                <Icon className="mr-2 h-5 w-5" />
+                {service.title}
+              </span>
+            );
+          })}
         </div>
         <div className="animate-marquee whitespace-nowrap flex absolute top-0">
-          {services.map((service, index) => (
-            <span key={index + services.length} className="text-lg mx-6 flex items-center">
-              <service.icons[0] className="mr-2 h-5 w-5" />
-              {service.title}
-            </span>
-          ))}
+          {services.map((service, index) => {
+            const Icon = service.icons[0];
+            return (
+              <span key={index + services.length} className="text-lg mx-6 flex items-center">
+                <Icon className="mr-2 h-5 w-5" />
+                {service.title}
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>
