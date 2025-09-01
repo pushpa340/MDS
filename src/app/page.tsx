@@ -144,8 +144,8 @@ function HeroSection() {
                     className="relative bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white overflow-hidden"
                     style={{
                       width: '120px',
-                      height: '140px',
-                      clipPath: 'polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)',
+                      height: '120px',
+                      clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
                     }}
                   >
                      {service.image && (
