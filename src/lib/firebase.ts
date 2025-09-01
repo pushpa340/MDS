@@ -7,6 +7,7 @@ import { getFirestore } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   projectId: "leadflow-central-jt2vl",
+  databaseURL: "https://leadflow-central-jt2vl.firebaseio.com",
   appId: "1:180656532872:web:15eff92462d2be5a1d1e3d",
   storageBucket: "leadflow-central-jt2vl.firebasestorage.app",
   apiKey: "AIzaSyDjQDd-wOfROwuatAR695l-0_mnz8vlqqg",
