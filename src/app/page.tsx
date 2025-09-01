@@ -116,41 +116,47 @@ export default function Home() {
 }
 
 function HeroSection() {
-  return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
-      <div className="container mx-auto px-4 z-20">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
-            Our Core Services
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
-            Explore our comprehensive solutions designed to empower your business for growth and success.
-          </p>
+    return (
+      <section className="relative w-full overflow-hidden py-20 md:py-32">
+        <Image
+          src="/cover-img/photo-1.jpg"
+          alt="Business Growth"
+          fill
+          className="object-cover"
+          data-ai-hint="business meeting"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/70 z-10" />
+        <div className="container mx-auto px-4 z-20 relative">
+          <div className="text-center mb-12">
+            <p className="mt-6 text-lg leading-8 text-blue-200 max-w-2xl mx-auto">
+              Explore our comprehensive solutions designed to empower your business for growth and success.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center">
+            {services.map((service) => {
+              const Icon = service.icons[0];
+              return (
+                <Link href={service.href} key={service.title} className="group flex flex-col items-center text-center">
+                  <div
+                    className="bg-primary/80 hover:bg-primary text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border border-white/20"
+                    style={{
+                      width: '140px',
+                      height: '160px',
+                      clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                    }}
+                  >
+                    <Icon className="h-12 w-12" />
+                  </div>
+                  <h3 className="mt-4 font-semibold text-lg text-white">{service.title}</h3>
+                </Link>
+              )
+            })}
+          </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center">
-          {services.map((service) => {
-            const Icon = service.icons[0];
-            return (
-              <Link href={service.href} key={service.title} className="group flex flex-col items-center text-center">
-                <div 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2"
-                  style={{
-                    width: '140px',
-                    height: '160px',
-                    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-                  }}
-                >
-                  <Icon className="h-12 w-12" />
-                </div>
-                <h3 className="mt-4 font-semibold text-lg">{service.title}</h3>
-              </Link>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function ServicesRibbon() {
   return (
@@ -431,5 +437,3 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
-
-    
