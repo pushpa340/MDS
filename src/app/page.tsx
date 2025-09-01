@@ -135,7 +135,7 @@ function HeroSection() {
           />
           <div className="absolute inset-0 bg-black/70 z-10" />
         </div>
-        <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start min-h-[calc(100vh-4rem)] py-12">
+        <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start py-12">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">MARCOM DIGITAL SOLUTION</h1>
                 <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">Empowering startups with digital, tech, and growth tools.</p>
