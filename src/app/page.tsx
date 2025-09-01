@@ -123,56 +123,58 @@ export default function Home() {
 
 function HeroSection() {
     return (
-      <section className="relative w-full overflow-hidden py-20 md:py-32">
-        <Image
-          src="/cover-img/photo-1.jpg"
-          alt="Business Growth"
-          fill
-          className="object-cover"
-          data-ai-hint="business meeting"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/70 z-10" />
-        <div className="container mx-auto px-4 z-20 relative">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">MARCOM DIGITAL SOLUTION</h1>
-            <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">Empowering startups with digital, tech, and growth tools.</p>
-          </div>
+      <section className="relative w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/cover-img/photo-1.jpg"
+            alt="Business Growth"
+            fill
+            className="object-cover"
+            data-ai-hint="business meeting"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70 z-10" />
+        </div>
+        <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start min-h-[calc(100vh-4rem)] py-12">
+            <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">MARCOM DIGITAL SOLUTION</h1>
+                <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">Empowering startups with digital, tech, and growth tools.</p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center">
-            {services.map((service) => {
-              const Icon = service.icons[0];
-              return (
-                <Link href={service.href} key={service.title} className="group flex flex-col items-center text-center">
-                  <div
-                    className="relative bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white overflow-hidden"
-                    style={{
-                      width: '120px',
-                      height: '120px',
-                      clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
-                    }}
-                  >
-                     {service.image && (
-                        <>
-                          <Image
-                            src={service.image.src}
-                            alt={service.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-125"
-                            data-ai-hint={service.image.hint}
-                          />
-                          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-                        </>
-                      )}
-                    <div className="z-10 flex flex-col items-center justify-center p-2">
-                      <Icon className="h-10 w-10" />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center mt-8">
+                {services.map((service) => {
+                const Icon = service.icons[0];
+                return (
+                    <Link href={service.href} key={service.title} className="group flex flex-col items-center text-center">
+                    <div
+                        className="relative bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white overflow-hidden"
+                        style={{
+                        width: '120px',
+                        height: '120px',
+                        clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
+                        }}
+                    >
+                        {service.image && (
+                            <>
+                            <Image
+                                src={service.image.src}
+                                alt={service.title}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-125"
+                                data-ai-hint={service.image.hint}
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
+                            </>
+                        )}
+                        <div className="z-10 flex flex-col items-center justify-center p-2">
+                        <Icon className="h-10 w-10" />
+                        </div>
                     </div>
-                  </div>
-                  <h3 className="mt-4 font-semibold text-lg text-white">{service.title}</h3>
-                </Link>
-              )
-            })}
-          </div>
+                    <h3 className="mt-4 font-semibold text-lg text-white">{service.title}</h3>
+                    </Link>
+                )
+                })}
+            </div>
         </div>
       </section>
     );
