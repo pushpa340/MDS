@@ -29,6 +29,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Megaphone,
@@ -113,34 +114,78 @@ export default function Home() {
   );
 }
 
+const heroSlides = [
+    {
+        image: "/cover-img/photo-1.jpg",
+        alt: "Business Growth",
+        title: "Drive Your Business Growth",
+        description: "Innovative strategies and solutions to take your business to the next level.",
+        hint: "business meeting",
+    },
+    {
+        image: "/cover-img/photo-2.jpg",
+        alt: "Digital Transformation",
+        title: "Embrace Digital Transformation",
+        description: "Leverage technology to streamline operations and enhance customer experience.",
+        hint: "modern office",
+    },
+    {
+        image: "/cover-img/photo-3.jpg",
+        alt: "Marketing Solutions",
+        title: "Creative Marketing Solutions",
+        description: "Engage your audience with compelling campaigns that deliver results.",
+        hint: "marketing team",
+    }
+];
+
 function HeroSection() {
+    const plugin = useRef(
+      Autoplay({ delay: 3000, stopOnInteraction: true })
+    );
+
     return (
         <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
-            <div className="relative h-full w-full">
-                <Image
-                    src="/img/photo-1.jpg"
-                    alt="Business Growth"
-                    fill
-                    className="object-cover"
-                    data-ai-hint="business meeting"
-                    priority
-                />
-                <div className="absolute inset-0 bg-black/60" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                        Drive Your Business Growth
-                    </h1>
-                    <p className="mt-6 text-lg leading-8 text-blue-200 max-w-2xl">
-                        Innovative strategies and solutions to take your business to the next level.
-                    </p>
-                    <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <Button size="lg" className="bg-primary hover:bg-primary/90">Get Started</Button>
-                        <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
-                            Learn More &rarr;
-                        </Button>
-                    </div>
-                </div>
-            </div>
+            <Carousel 
+                className="w-full h-full"
+                plugins={[plugin.current]}
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+                opts={{ loop: true }}
+            >
+                <CarouselContent className="h-full">
+                    {heroSlides.map((slide, index) => (
+                        <CarouselItem key={index} className="h-full">
+                            <div className="relative h-full w-full">
+                                <Image
+                                    src={slide.image}
+                                    alt={slide.alt}
+                                    fill
+                                    className="object-cover"
+                                    data-ai-hint={slide.hint}
+                                    priority={index === 0}
+                                />
+                                <div className="absolute inset-0 bg-black/60" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
+                                    <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+                                        {slide.title}
+                                    </h1>
+                                    <p className="mt-6 text-lg leading-8 text-blue-200 max-w-2xl">
+                                        {slide.description}
+                                    </p>
+                                    <div className="mt-10 flex items-center justify-center gap-x-6">
+                                        <Button size="lg" className="bg-primary hover:bg-primary/90">Get Started</Button>
+                                        <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                                            Learn More &rarr;
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/20 hover:bg-black/50 border-none" />
+                <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/20 hover:bg-black/50 border-none" />
+            </Carousel>
         </section>
     );
 }
