@@ -1,16 +1,10 @@
 
-
 "use client";
 
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { Button } from '@/components/ui/button';
-
-
-
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Card,
   CardContent,
@@ -112,6 +106,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      <ServicesRibbon />
       <ServicesSection />
       <BrandLogosSection />
       <TestimonialsSection />
@@ -120,104 +115,78 @@ export default function Home() {
   );
 }
 
-
-
-
-const slides = [
-  {
-    image: "/cover-img/photo-1.jpg",
-    alt: "Business Growth",
-    title: "Drive Your Business Growth",
-    description: "Innovative strategies and solutions to take your business to the next level.",
-    hint: "business meeting",
-  },
-  {
-    image: "/cover-img/photo-2.jpg",
-    alt: "Digital Transformation",
-    title: "Embrace Digital Transformation",
-    description: "Leverage technology to streamline operations and enhance customer experience.",
-    hint: "modern office",
-  },
-  {
-    image: "/cover-img/photo-3.jpg",
-    alt: "Marketing Solutions",
-    title: "Creative Marketing Solutions",
-    description: "Engage your audience with compelling campaigns that deliver results.",
-    hint: "marketing team",
-  },
-];
-
-export default function HeroSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
+function HeroSection() {
   return (
     <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
-      <div className="overflow-hidden h-full w-full" ref={emblaRef}>
-        <div className="flex h-full">
-          {slides.map((slide, index) => (
-            <div
-              className="relative min-w-full h-full flex-shrink-0"
-              key={index}
-            >
-              <Image
-                src={slide.image}
-                alt={slide.alt}
+        <div className="relative h-full w-full">
+            <Image
+                src="/cover-img/photo-1.jpg"
+                alt="Business Growth"
                 fill
                 className="object-cover"
-                priority={index === 0}
-                data-ai-hint={slide.hint}
-              />
-              <div className="absolute inset-0 bg-black/60 z-10" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 z-20">
+                data-ai-hint="business meeting"
+                priority
+            />
+            <div className="absolute inset-0 bg-black/60 z-10" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 z-20">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                  {slide.title}
+                    Drive Your Business Growth
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-blue-200 max-w-2xl">
-                  {slide.description}
+                    Innovative strategies and solutions to take your business to the next level.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    Get Started
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
-                  >
-                    Learn More &rarr;
-                  </Button>
+                    <Button size="lg" className="bg-primary hover:bg-primary/90">Get Started</Button>
+                    <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                        Learn More &rarr;
+                    </Button>
                 </div>
-              </div>
             </div>
-          ))}
         </div>
-      </div>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={scrollPrev}
-        className="absolute left-4 top-1/2 z-30 -translate-y-1/2 text-white bg-black/30 hover:bg-black/60 p-2 rounded-full"
-      >
-        &#8592;
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-4 top-1/2 z-30 -translate-y-1/2 text-white bg-black/30 hover:bg-black/60 p-2 rounded-full"
-      >
-        &#8594;
-      </button>
     </section>
   );
 }
+
+function ServicesRibbon() {
+  return (
+    <section className="bg-primary text-primary-foreground py-4 overflow-hidden">
+      <div className="relative flex">
+        <div className="animate-marquee whitespace-nowrap flex">
+          {services.map((service, index) => (
+            <span key={index} className="text-lg mx-6 flex items-center">
+              <StarIcon className="mr-2 h-5 w-5" />
+              {service.title}
+            </span>
+          ))}
+        </div>
+        <div className="animate-marquee whitespace-nowrap flex absolute top-0">
+           {services.map((service, index) => (
+            <span key={index + services.length} className="text-lg mx-6 flex items-center">
+               <StarIcon className="mr-2 h-5 w-5" />
+              {service.title}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="0" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+);
 
 
 function ServicesSection() {
   return (
     <section id="services" className="py-16 sm:py-24">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Services</h2>
+            <p className="mt-4 text-lg text-muted-foreground">Comprehensive solutions to power your business.</p>
+        </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Link key={service.title} href={service.href} className="flex">
