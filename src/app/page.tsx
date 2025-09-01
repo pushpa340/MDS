@@ -143,8 +143,8 @@ function HeroSection() {
                   <div
                     className="relative bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white overflow-hidden"
                     style={{
-                      width: '140px',
-                      height: '160px',
+                      width: '120px',
+                      height: '140px',
                       clipPath: 'polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)',
                     }}
                   >
@@ -161,7 +161,7 @@ function HeroSection() {
                         </>
                       )}
                     <div className="z-10 flex flex-col items-center justify-center p-2">
-                      <Icon className="h-12 w-12" />
+                      <Icon className="h-10 w-10" />
                     </div>
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-white">{service.title}</h3>
