@@ -59,37 +59,43 @@ const services = [
     title: "Digital Marketing",
     description: "Brand promotion, SEO Optimization, Google Analytics.",
     icons: [Megaphone, TrendingUp, LineChart],
-    href: "/services/digital-marketing"
+    href: "/services/digital-marketing",
+    image: { src: "https://picsum.photos/300/300?random=1", hint: "marketing chart" },
   },
   {
     title: "IT Solutions",
     description: "Technical assistance and troubleshooting for your business.",
     icons: [Wrench, Server, Shield],
-    href: "/services/it-solutions"
+    href: "/services/it-solutions",
+    image: { src: "https://picsum.photos/300/300?random=2", hint: "server room" },
   },
   {
     title: "Event Marketing",
     description: "Promote and manage your events to attract the right audience.",
     icons: [Calendar, PartyPopper, Megaphone],
-    href: "/services/event-marketing"
+    href: "/services/event-marketing",
+    image: { src: "https://picsum.photos/300/300?random=3", hint: "concert crowd" },
   },
   {
     title: "Stock Market Analysis",
     description: "In-depth analysis of market trends and stocks.",
     icons: [TrendingUp, LineChart, DollarSign],
-    href: "/services/stock-market-analysis"
+    href: "/services/stock-market-analysis",
+    image: { src: "https://picsum.photos/300/300?random=4", hint: "stock charts" },
   },
   {
     title: "Cyber Security Solution",
     description: "Protect your digital assets with our advanced security solutions.",
     icons: [ShieldCheck, Lock, KeyRound],
-    href: "/services/cyber-security-solution"
+    href: "/services/cyber-security-solution",
+    image: { src: "https://picsum.photos/300/300?random=5", hint: "cyber lock" },
   },
   {
     title: "ERP & CRM Solution",
     description: "Integrate all your business management functions into one unified system.",
     icons: [Users, Briefcase, Database],
-    href: "/services/erp-crm-solution"
+    href: "/services/erp-crm-solution",
+    image: { src: "https://picsum.photos/300/300?random=6", hint: "business meeting" },
   },
 ];
 
@@ -135,14 +141,28 @@ function HeroSection() {
               return (
                 <Link href={service.href} key={service.title} className="group flex flex-col items-center text-center">
                   <div
-                    className="bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white"
+                    className="relative bg-transparent hover:bg-white/10 text-primary-foreground flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 backdrop-blur-sm border-2 border-white overflow-hidden"
                     style={{
                       width: '140px',
                       height: '160px',
                       clipPath: 'polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%)',
                     }}
                   >
-                    <Icon className="h-12 w-12" />
+                     {service.image && (
+                        <>
+                          <Image
+                            src={service.image.src}
+                            alt={service.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-125"
+                            data-ai-hint={service.image.hint}
+                          />
+                          <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
+                        </>
+                      )}
+                    <div className="z-10 flex flex-col items-center justify-center p-2">
+                      <Icon className="h-12 w-12" />
+                    </div>
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-white">{service.title}</h3>
                 </Link>
