@@ -26,6 +26,8 @@ import { useToast } from "@/hooks/use-toast";
 import type { JobOpening, JobApplication } from "@/types";
 import { db } from "@/lib/firebase";
 import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
+
 
 function ApplicationForm({ job }: { job: JobOpening }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -141,34 +143,42 @@ export default function CareersPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16">
       <header className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-          Join Our Team
-        </h1>
-        <p className="mt-6 text-xl text-muted-foreground">
-          We're looking for passionate people to join us on our mission.
-        </p>
+        <MotionWrapper>
+          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+            Join Our Team
+          </h1>
+        </MotionWrapper>
+        <MotionWrapper delay={0.2}>
+          <p className="mt-6 text-xl text-muted-foreground">
+            We're looking for passionate people to join us on our mission.
+          </p>
+        </MotionWrapper>
       </header>
 
       <div className="mt-12 space-y-8">
         {isLoading ? (
             <p className="text-center">Loading job openings...</p>
         ) : jobOpenings.length > 0 ? (
-            jobOpenings.map((job) => (
-                <Card key={job.id} className="transition-shadow duration-300 hover:shadow-md">
-                    <CardHeader>
-                        <CardTitle>{job.title}</CardTitle>
-                        <CardDescription>{job.location}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-sm text-muted-foreground">{job.description}</p>
-                    </CardContent>
-                    <CardFooter>
-                        <ApplicationForm job={job} />
-                    </CardFooter>
-                </Card>
+            jobOpenings.map((job, index) => (
+                <MotionWrapper key={job.id} delay={0.1 * (index + 1)}>
+                  <Card className="transition-shadow duration-300 hover:shadow-md">
+                      <CardHeader>
+                          <CardTitle>{job.title}</CardTitle>
+                          <CardDescription>{job.location}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-sm text-muted-foreground">{job.description}</p>
+                      </CardContent>
+                      <CardFooter>
+                          <ApplicationForm job={job} />
+                      </CardFooter>
+                  </Card>
+                </MotionWrapper>
             ))
         ) : (
+          <MotionWrapper>
             <p className="text-center text-muted-foreground">There are currently no open positions. Please check back later.</p>
+          </MotionWrapper>
         )}
       </div>
     </div>
