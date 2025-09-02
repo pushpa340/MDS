@@ -2,20 +2,15 @@
 "use client";
 
 import Link from "next/link";
-import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, LogOut, LayoutDashboard, ChevronDown, User, LogIn, UserPlus } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { TypingEffect } from "./ui/typing-effect";
 import { useState } from "react";
@@ -45,24 +40,7 @@ const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
   
 export default function Header() {
-  const { user, role, loading } = useAuth();
-  const router = useRouter();
   const [isTyping, setIsTyping] = useState(true);
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      router.push("/");
-    } catch (error) {
-      console.error("Failed to log out", error);
-    }
-  };
-
-  const getDashboardHref = () => {
-    if (role === 'admin') return '/admin';
-    if (role === 'client') return '/client';
-    return '/login';
-  }
 
   const servicesMenu = (
     <DropdownMenu>
@@ -79,49 +57,6 @@ export default function Header() {
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
-    </DropdownMenu>
-  );
-
-  const userMenu = (
-    <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" className="text-white hover:text-white hover:bg-white/10">
-                <User className="h-5 w-5" />
-                <span className="sr-only">User Menu</span>
-            </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-            {user ? (
-                <>
-                    <DropdownMenuItem asChild>
-                        <Link href={getDashboardHref()}>
-                            <LayoutDashboard className="mr-2 h-4 w-4" />
-                            Dashboard
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleLogout}>
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Logout
-                    </DropdownMenuItem>
-                </>
-            ) : (
-                <>
-                    <DropdownMenuItem asChild>
-                        <Link href="/login">
-                            <LogIn className="mr-2 h-4 w-4" />
-                            Login
-                        </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                        <Link href="/signup">
-                            <UserPlus className="mr-2 h-4 w-4" />
-                            Sign Up
-                        </Link>
-                    </DropdownMenuItem>
-                </>
-            )}
-        </DropdownMenuContent>
     </DropdownMenu>
   );
 
@@ -202,11 +137,7 @@ export default function Header() {
             </div>
           
           <div className="flex items-center">
-            {loading ? (
-              <div className="h-8 w-8 animate-pulse rounded-full bg-muted" />
-            ) : (
-                userMenu
-            )}
+            {/* User menu removed */}
           </div>
         </div>
       </div>
