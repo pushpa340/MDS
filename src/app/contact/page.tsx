@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -15,8 +14,6 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 
 const services = [
@@ -31,6 +28,7 @@ const services = [
 export default function ContactPage() {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,18 +38,27 @@ export default function ContactPage() {
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
-        service: formData.get("service"),
+        service: selectedService,
         message: formData.get("message"),
-        submittedAt: serverTimestamp(),
     };
 
     try {
-        await addDoc(collection(db, "queries"), data);
+        const response = await fetch('/api/queries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send message');
+        }
+
         toast({
             title: "Message Sent!",
             description: "Thanks for reaching out. We'll be in touch soon.",
         });
         (e.target as HTMLFormElement).reset();
+        setSelectedService("");
     } catch (error) {
         console.error("Error submitting query: ", error);
         toast({
@@ -128,7 +135,7 @@ export default function ContactPage() {
                   <Input name="name" placeholder="Name" required />
                   <Input name="email" type="email" placeholder="Email" required />
                   <Input name="phone" type="tel" placeholder="Phone" />
-                  <Select name="service" required>
+                  <Select name="service" required value={selectedService} onValueChange={setSelectedService}>
                       <SelectTrigger>
                           <SelectValue placeholder="Select a service" />
                       </SelectTrigger>

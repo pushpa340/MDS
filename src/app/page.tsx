@@ -52,12 +52,7 @@ import {
 import type { Testimonial } from '@/types';
 import { useToast } from '@/hooks/use-toast';
 import { db } from '@/lib/firebase';
-import {
-  collection,
-  addDoc,
-  getDocs,
-  serverTimestamp,
-} from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 
 const services = [
@@ -174,8 +169,7 @@ function HeroSection() {
               MARCOM DIGITAL SOLUTION
             </h1>
             <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
-              Empowering <span className="text-primary">Business Growth</span>{' '}
-              with Scalable Digital IT Solutions
+              Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
             </p>
           </div>
         </MotionWrapper>
@@ -543,6 +537,7 @@ function ContactAndNewsletterSection() {
   const { toast } = useToast();
   const [isSubmittingContact, setIsSubmittingContact] = useState(false);
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -552,19 +547,28 @@ function ContactAndNewsletterSection() {
       name: formData.get('name'),
       email: formData.get('email'),
       phone: formData.get('phone'),
-      service: formData.get('service'),
+      service: selectedService,
       message: formData.get('message'),
-      submittedAt: serverTimestamp(),
     };
 
     try {
-      await addDoc(collection(db, 'queries'), data);
+      const response = await fetch('/api/queries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit query');
+      }
+
       toast({
         title: 'Query Submitted!',
         description:
           "Thank you for reaching out. We'll get back to you soon.",
       });
       (e.target as HTMLFormElement).reset();
+      setSelectedService("");
     } catch (error) {
       console.error('Error submitting query: ', error);
       toast({
@@ -583,11 +587,19 @@ function ContactAndNewsletterSection() {
     const formData = new FormData(e.currentTarget);
     const data = {
       email: formData.get('email'),
-      subscribedAt: serverTimestamp(),
     };
 
     try {
-      await addDoc(collection(db, 'newsletter'), data);
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe');
+      }
+
       toast({
         title: 'Subscribed!',
         description: 'Thanks for joining our newsletter.',
@@ -622,7 +634,7 @@ function ContactAndNewsletterSection() {
                 <Input name="name" placeholder="Name" required />
                 <Input name="email" type="email" placeholder="Email" required />
                 <Input name="phone" type="tel" placeholder="Phone" />
-                <Select name="service" required>
+                <Select name="service" required value={selectedService} onValueChange={setSelectedService}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a service you're interested in" />
                   </SelectTrigger>

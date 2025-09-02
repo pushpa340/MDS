@@ -23,9 +23,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import type { JobOpening, JobApplication } from "@/types";
+import type { JobOpening } from "@/types";
 import { db } from "@/lib/firebase";
-import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 
 
@@ -46,11 +46,19 @@ function ApplicationForm({ job }: { job: JobOpening }) {
       email: formData.get("email") as string,
       linkedin: formData.get("linkedin") as string,
       resumeUrl: formData.get("resumeUrl") as string,
-      submittedAt: serverTimestamp(),
     };
 
     try {
-        await addDoc(collection(db, "job_applications"), applicationData);
+        const response = await fetch('/api/applications', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(applicationData),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to submit application');
+        }
+
         toast({
             title: "Application Sent!",
             description: `Your application for the ${job.title} position has been submitted.`,

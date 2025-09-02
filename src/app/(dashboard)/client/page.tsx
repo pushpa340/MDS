@@ -71,8 +71,16 @@ function ProfileSection() {
         if (!user) return;
         setIsLoading(true);
         try {
-            const userRef = doc(db, "users", user.uid);
-            await updateDoc(userRef, { name });
+            const response = await fetch('/api/profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ uid: user.uid, name }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update profile');
+            }
+            
             toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
         } catch (error) {
             console.error(error);
@@ -145,13 +153,21 @@ function TestimonialFormSection() {
         setIsLoading(true);
 
         try {
-            await addDoc(collection(db, "testimonials"), {
-                name: userProfile.name,
-                message: message,
-                photoUrl: user.photoURL || `https://placehold.co/100x100.png?text=${userProfile.name.charAt(0)}`,
-                userId: user.uid,
-                createdAt: serverTimestamp(),
+            const response = await fetch('/api/testimonials', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: userProfile.name,
+                    message: message,
+                    photoUrl: user.photoURL || `https://placehold.co/100x100.png?text=${userProfile.name.charAt(0)}`,
+                    userId: user.uid,
+                }),
             });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit testimonial');
+            }
+
             toast({ title: "Testimonial Submitted", description: "Thank you for your feedback!" });
             setMessage("");
         } catch (error) {

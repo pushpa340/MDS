@@ -2,6 +2,7 @@ import type {NextConfig} from 'next';
 
 // This is a configuration file for Next.js.
 const nextConfig: NextConfig = {
+  output: 'export',
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
@@ -10,6 +11,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

@@ -28,5 +28,4 @@ export interface JobApplication {
     email: string;
     linkedin: string;
     resumeUrl: string;
-    submittedAt: Date;
 }
