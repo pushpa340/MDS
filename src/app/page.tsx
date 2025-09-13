@@ -250,14 +250,14 @@ function ServicesSection() {
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
               <Link href={service.href} className="flex h-full">
-                <Card className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full overflow-hidden">
+                <Card className="group flex flex-col text-center w-full overflow-hidden transition-all duration-300 hover:shadow-xl">
                   <CardHeader className="p-0">
-                    <div className="relative h-48 w-full">
+                    <div className="relative h-40 w-full overflow-hidden">
                       <Image
                         src={service.image.src}
                         alt={service.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
                         data-ai-hint={service.image.hint}
                       />
                     </div>
