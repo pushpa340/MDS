@@ -19,11 +19,7 @@ const socialLinks = [
 ];
 
 const Logo = ({size = 36}: {size?: number}) => (
-    <div className="relative group flex items-center justify-center">
-        <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
-        </div>
-    </div>
+    <div />
 );
 
 
@@ -35,6 +31,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center">
                 <Logo />
+                 <div className="flex flex-col">
+                    <span className="font-bold tracking-tight leading-none text-base">MARCOM DIGITAL SOLUTION</span>
+                    <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
+                </div>
             </div>
             <p className="mt-4 text-sm text-blue-200">
               Your partner in business growth and management. We provide solutions to help you succeed.

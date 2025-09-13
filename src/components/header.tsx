@@ -50,11 +50,7 @@ export default function Header() {
   );
 
   const Logo = ({size = 32}: {size?: number}) => (
-    <div className="relative group flex items-center justify-center">
-        <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
-        </div>
-    </div>
+    <div />
   );
 
   return (
