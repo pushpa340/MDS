@@ -60,13 +60,13 @@ const services = [
 
 function ServicesRibbon() {
   return (
-    <section className="bg-primary text-primary-foreground py-2 overflow-hidden">
+    <section className="bg-primary text-primary-foreground py-1 overflow-hidden">
       <div className="relative flex">
         <div className="animate-marquee whitespace-nowrap flex">
           {services.map((service, index) => {
             const Icon = service.icons[0];
             return (
-              <span key={index} className="text-sm mx-6 flex items-center">
+              <span key={index} className="text-xs mx-6 flex items-center">
                 <Icon className="mr-2 h-4 w-4" />
                 {service.title}
               </span>
@@ -79,7 +79,7 @@ function ServicesRibbon() {
             return (
               <span
                 key={index + services.length}
-                className="text-sm mx-6 flex items-center"
+                className="text-xs mx-6 flex items-center"
               >
                 <Icon className="mr-2 h-4 w-4" />
                 {service.title}
