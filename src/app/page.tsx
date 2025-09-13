@@ -173,7 +173,7 @@ function HeroSection() {
       </div>
       <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
-          <div className="mb-8 text-left">
+          <div className="mb-8 text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
                 <span className="inline-block bg-header-blue px-4 py-2 text-white">MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> <span className="text-white">SOLUTION</span>
               </h1>
@@ -553,15 +553,13 @@ function ContactAndNewsletterSection() {
     e.preventDefault();
     setIsSubmittingNewsletter(true);
     const formData = new FormData(e.currentTarget);
-    const data = {
-      email: formData.get('email'),
-    };
+    const email = formData.get('email') as string;
 
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ email }),
       });
 
       if (!response.ok) {
@@ -570,11 +568,11 @@ function ContactAndNewsletterSection() {
 
       toast({
         title: 'Subscribed!',
-        description: 'Thanks for joining our newsletter.',
+        description: 'You have been added to our newsletter.',
       });
       (e.target as HTMLFormElement).reset();
     } catch (error) {
-      console.error('Error subscribing: ', error);
+      console.error('Error subscribing to newsletter: ', error);
       toast({
         title: 'Subscription Failed',
         description: 'Could not subscribe. Please try again.',
@@ -586,74 +584,61 @@ function ContactAndNewsletterSection() {
   };
 
   return (
-    <section id="contact" className="bg-card py-16 sm:py-24">
+    <section id="contact" className="py-16 sm:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <MotionWrapper>
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">
-                Get in Touch
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Have a question or want to work with us? Fill out the form and
-                we'll get back to you.
-              </p>
-              <form onSubmit={handleContactSubmit} className="mt-8 space-y-4">
-                <Input name="name" placeholder="Name" required />
-                <Input name="email" type="email" placeholder="Email" required />
-                <Input name="phone" type="tel" placeholder="Phone" />
-                <Select name="service" required value={selectedService} onValueChange={setSelectedService}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a service you're interested in" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {services.map(s => (
-                      <SelectItem key={s.title} value={s.title}>
-                        {s.title}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Textarea name="message" placeholder="Message" required />
-                <Button
-                  type="submit"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                  disabled={isSubmittingContact}
-                >
-                  {isSubmittingContact ? 'Submitting...' : 'Send Message'}
-                </Button>
-              </form>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Contact Us</CardTitle>
+                <CardDescription>
+                  Have a question? We'd love to hear from you.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <Input name="name" placeholder="Name" required disabled={isSubmittingContact} />
+                  <Input name="email" type="email" placeholder="Email" required disabled={isSubmittingContact} />
+                  <Input name="phone" type="tel" placeholder="Phone" disabled={isSubmittingContact} />
+                   <Select name="service" required value={selectedService} onValueChange={setSelectedService} disabled={isSubmittingContact}>
+                      <SelectTrigger>
+                          <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                          {services.map(s => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
+                      </SelectContent>
+                  </Select>
+                  <Textarea name="message" placeholder="Your Message" required disabled={isSubmittingContact} />
+                  <Button type="submit" className="w-full" disabled={isSubmittingContact}>
+                    {isSubmittingContact ? 'Submitting...' : 'Submit'}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </MotionWrapper>
           <MotionWrapper delay={0.2}>
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">
-                Subscribe to our Newsletter
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Stay updated with the latest trends, insights, and offers from
-                Marcom Digital Solution.
-              </p>
-              <form
-                onSubmit={handleNewsletterSubmit}
-                className="mt-8 flex gap-x-2"
-              >
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1"
-                />
-                <Button
-                  type="submit"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90"
-                  disabled={isSubmittingNewsletter}
-                >
-                  {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe'}
-                </Button>
-              </form>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Subscribe to our Newsletter</CardTitle>
+                <CardDescription>
+                  Stay up to date with our latest news and offers.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    disabled={isSubmittingNewsletter}
+                  />
+                  <Button type="submit" disabled={isSubmittingNewsletter}>
+                    {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe'}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </MotionWrapper>
         </div>
       </div>
