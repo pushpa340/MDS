@@ -173,11 +173,11 @@ function HeroSection() {
       </div>
       <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start">
         <MotionWrapper>
-          <div className="text-center mb-8">
+          <div className="text-left mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
               <span style={{ color: '#0C3C60' }}>MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> SOLUTION
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
+            <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl">
               Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
             </p>
           </div>
@@ -204,7 +204,7 @@ function HeroSection() {
           ))}
         </div>
         <MotionWrapper delay={0.5}>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-start gap-4">
             <Button
               size="lg"
               asChild
@@ -657,3 +657,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    
