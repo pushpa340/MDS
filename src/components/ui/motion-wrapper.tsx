@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, type Variants } from 'framer-motion';
@@ -11,8 +12,8 @@ interface MotionWrapperProps {
 }
 
 const defaultVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
 };
 
 export function MotionWrapper({
