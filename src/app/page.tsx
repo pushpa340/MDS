@@ -178,20 +178,25 @@ function HeroSection() {
             const Icon = service.icons[0];
             return (
               <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
-                <Link
-                  href={service.href}
-                  className="group flex flex-col items-center text-center"
-                >
-                  <div
-                    className="relative flex items-center justify-center bg-transparent backdrop-blur-sm border-2 border-white text-primary-foreground transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      width: '120px',
-                      height: '120px',
-                      clipPath:
-                        'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
-                    }}
-                  >
-                    <Icon className="h-10 w-10 text-white" />
+                <Link href={service.href} className="group flex flex-col items-center text-center perspective">
+                  <div className="relative w-[120px] h-[120px] transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+                    {/* Front face */}
+                    <div className="absolute w-full h-full backface-hidden" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
+                       <div className="flex items-center justify-center bg-transparent backdrop-blur-sm border-2 border-white text-primary-foreground h-full">
+                          <Icon className="h-10 w-10 text-white" />
+                        </div>
+                    </div>
+                    {/* Back face */}
+                    <div className="absolute w-full h-full backface-hidden rotate-y-180" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
+                       <Image
+                          src={service.image.src}
+                          alt={service.title}
+                          width={120}
+                          height={120}
+                          className="object-cover w-full h-full"
+                          data-ai-hint={service.image.hint}
+                        />
+                    </div>
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-white">
                     {service.title}
