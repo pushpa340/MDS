@@ -180,9 +180,13 @@ function HeroSection() {
               <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
                 <Link href={service.href} className="group flex flex-col items-center text-center">
                   <div className="relative w-[120px] h-[120px] transition-transform duration-300 group-hover:scale-110" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
-                    <div className="flex items-center justify-center bg-transparent backdrop-blur-sm border-2 border-white text-primary-foreground h-full">
-                       <Icon className="h-10 w-10 text-white" />
-                     </div>
+                    <Image
+                        src={service.image.src}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={service.image.hint}
+                    />
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-white">
                     {service.title}
