@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, PhoneCall } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -124,8 +124,11 @@ export default function Header() {
           
           <div className="flex items-center">
             <div className="flex-col text-center hidden sm:flex">
-              <Button size="sm" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105">
-                  <Link href="/contact">Get in Touch</Link>
+              <Button size="icon" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105 rounded-full">
+                  <Link href="tel:+918447242558">
+                    <PhoneCall className="h-5 w-5" />
+                    <span className="sr-only">Call Support</span>
+                  </Link>
               </Button>
               <span className="text-xs mt-1">24x7 Support</span>
             </div>
