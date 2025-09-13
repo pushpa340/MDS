@@ -173,12 +173,10 @@ function HeroSection() {
       </div>
       <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
-          <div className="mb-8">
-            <div className="inline-block bg-header-blue px-4 py-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight text-left">
-                <span className="text-white">MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> <span className="text-white">SOLUTION</span>
+          <div className="mb-8 text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                <span className="inline-block bg-header-blue px-4 py-2 text-white">MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> <span className="text-white">SOLUTION</span>
               </h1>
-            </div>
             <div className="text-center">
                 <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
                 Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
