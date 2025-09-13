@@ -133,6 +133,16 @@ const brandLogos = [
     alt: 'Brand 6',
     hint: 'logo design',
   },
+  {
+    src: 'https://placehold.co/150x60.png',
+    alt: 'Brand 7',
+    hint: 'logo design',
+  },
+  {
+    src: 'https://placehold.co/150x60.png',
+    alt: 'Brand 8',
+    hint: 'logo design',
+  },
 ];
 
 export default function Home() {
@@ -174,27 +184,24 @@ function HeroSection() {
         </MotionWrapper>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center mt-8">
-          {services.map((service, index) => {
-            const Icon = service.icons[0];
-            return (
-              <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
-                <Link href={service.href} className="group flex flex-col items-center text-center">
-                  <div className="relative w-[120px] h-[120px] transition-transform duration-300 group-hover:scale-110" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
-                    <Image
-                        src={service.image.src}
-                        alt={service.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={service.image.hint}
-                    />
-                  </div>
-                  <h3 className="mt-4 font-semibold text-lg text-white">
-                    {service.title}
-                  </h3>
-                </Link>
-              </MotionWrapper>
-            );
-          })}
+          {services.map((service, index) => (
+            <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
+              <Link href={service.href} className="group flex flex-col items-center text-center">
+                <div className="relative w-[120px] h-[120px] transition-transform duration-300 group-hover:scale-110" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
+                  <Image
+                      src={service.image.src}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={service.image.hint}
+                  />
+                </div>
+                <h3 className="mt-4 font-semibold text-lg text-white">
+                  {service.title}
+                </h3>
+              </Link>
+            </MotionWrapper>
+          ))}
         </div>
         <MotionWrapper delay={0.5}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -285,19 +292,31 @@ function BrandLogosSection() {
           </h2>
         </MotionWrapper>
         <MotionWrapper delay={0.2}>
-          <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            {brandLogos.map(brand => (
-              <Image
-                key={brand.alt}
-                className="col-span-1 max-h-12 w-full object-contain"
-                src={brand.src}
-                alt={brand.alt}
-                width={158}
-                height={48}
-                data-ai-hint={brand.hint}
-              />
-            ))}
-          </div>
+          <Carousel
+            opts={{ align: 'start', loop: true }}
+            plugins={[Autoplay({ delay: 2000, stopOnInteraction: false })]}
+            className="w-full mt-10"
+          >
+            <CarouselContent>
+              {brandLogos.map((brand, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                >
+                  <div className="flex justify-center p-4">
+                    <Image
+                      src={brand.src}
+                      alt={brand.alt}
+                      width={158}
+                      height={48}
+                      className="object-contain"
+                      data-ai-hint={brand.hint}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </MotionWrapper>
       </div>
     </section>
@@ -638,3 +657,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    
