@@ -182,30 +182,16 @@ function HeroSection() {
                   href={service.href}
                   className="group flex flex-col items-center text-center"
                 >
-                  <div className="flip-card" style={{ width: '120px', height: '120px' }}>
-                    <div className="flip-card-inner group-hover:rotate-y-180">
-                      {/* Front face */}
-                      <div className="flip-card-front" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
-                        <div className="absolute inset-0 bg-transparent backdrop-blur-sm border-2 border-white flex items-center justify-center text-primary-foreground">
-                          <Icon className="h-10 w-10 text-white" />
-                        </div>
-                      </div>
-                      {/* Back face */}
-                      <div className="flip-card-back" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
-                        {service.image && (
-                           <>
-                            <Image
-                              src={service.image.src}
-                              alt={service.title}
-                              fill
-                              className="object-cover"
-                              data-ai-hint={service.image.hint}
-                            />
-                             <div className="absolute inset-0 bg-black/40" />
-                          </>
-                        )}
-                      </div>
-                    </div>
+                  <div
+                    className="relative flex items-center justify-center bg-transparent backdrop-blur-sm border-2 border-white text-primary-foreground transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      width: '120px',
+                      height: '120px',
+                      clipPath:
+                        'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
+                    }}
+                  >
+                    <Icon className="h-10 w-10 text-white" />
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-white">
                     {service.title}
@@ -657,5 +643,3 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
-
-    
