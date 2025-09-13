@@ -126,11 +126,11 @@ export default function Header() {
             <div className="flex-col text-center hidden sm:flex">
               <Button size="icon" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105 rounded-full">
                   <Link href="tel:+918447242558">
-                    <PhoneCall className="h-5 w-5" />
+                    <PhoneCall className="h-5 w-5 text-white" />
                     <span className="sr-only">Call Support</span>
                   </Link>
               </Button>
-              <span className="text-xs mt-1">24x7 Support</span>
+              <span className="text-xs text-blue-200 mt-1">24x7 Support</span>
             </div>
           </div>
         </div>
