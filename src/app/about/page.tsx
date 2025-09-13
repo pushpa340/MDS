@@ -112,7 +112,7 @@ export default function AboutPage() {
       <header className="text-center">
         <MotionWrapper>
           <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            About Marcom Digital Solution
+            About Marcom
           </h1>
         </MotionWrapper>
         <MotionWrapper delay={0.2}>

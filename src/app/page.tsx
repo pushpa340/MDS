@@ -250,21 +250,19 @@ function ServicesSection() {
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
               <Link href={service.href} className="flex h-full">
-                <Card className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full">
-                  <CardHeader>
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                      <div className="flex -space-x-2">
-                        {service.icons.map((Icon, index) => (
-                          <Icon
-                            key={index}
-                            className="h-6 w-6 text-primary"
-                            strokeWidth={1.5}
-                          />
-                        ))}
-                      </div>
+                <Card className="flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg w-full overflow-hidden">
+                  <CardHeader className="p-0">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={service.image.src}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={service.image.hint}
+                      />
                     </div>
                   </CardHeader>
-                  <CardContent className="flex-grow">
+                  <CardContent className="flex-grow pt-6">
                     <CardTitle>{service.title}</CardTitle>
                     <CardDescription className="mt-2">
                       {service.description}
