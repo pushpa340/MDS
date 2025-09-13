@@ -174,9 +174,11 @@ function HeroSection() {
       <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
           <div className="mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight text-left">
-              <span style={{ color: '#0C3C60' }}>MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> SOLUTION
-            </h1>
+            <div className="inline-block bg-header-blue px-4 py-2">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight text-left">
+                <span className="text-white">MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> <span className="text-white">SOLUTION</span>
+              </h1>
+            </div>
             <div className="text-center">
                 <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
                 Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
@@ -419,7 +421,7 @@ function TestimonialsSection() {
             photoUrl: '/testimonial/T-3.jpg',
             message:
               'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
-            data_ai_hint: 'man smiling',
+              data_ai_hint: 'man smiling',
           },
           {
             id: '3',
