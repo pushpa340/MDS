@@ -159,6 +159,7 @@ export default function Home() {
 }
 
 function HeroSection() {
+  const [isDigitalTyped, setIsDigitalTyped] = useState(false);
   return (
     <section className="relative w-full overflow-hidden py-16">
       <div className="absolute inset-0">
@@ -181,9 +182,16 @@ function HeroSection() {
               </span>{' '}
               <span>
                 <TypingEffect
-                  text="DIGITAL SOLUTION"
+                  text="DIGITAL "
                   className="text-yellow-400"
+                  onComplete={() => setIsDigitalTyped(true)}
                 />
+                 {isDigitalTyped && (
+                  <TypingEffect
+                    text="SOLUTION"
+                    className="text-white"
+                  />
+                )}
               </span>
             </h1>
             <div className="text-center">
@@ -662,3 +670,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    
