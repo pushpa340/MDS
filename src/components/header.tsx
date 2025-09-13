@@ -50,8 +50,8 @@ export default function Header() {
   );
 
   const Logo = ({size = 32}: {size?: number}) => (
-    <div className="bg-white rounded-full flex items-center justify-center" style={{width: size, height: size}}>
-        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} />
+    <div className="bg-white rounded-full" style={{width: size, height: size}}>
+        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
     </div>
   );
 
