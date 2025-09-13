@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -59,14 +60,14 @@ const services = [
 
 function ServicesRibbon() {
   return (
-    <section className="bg-primary text-primary-foreground py-4 overflow-hidden">
+    <section className="bg-primary text-primary-foreground py-2 overflow-hidden">
       <div className="relative flex">
         <div className="animate-marquee whitespace-nowrap flex">
           {services.map((service, index) => {
             const Icon = service.icons[0];
             return (
-              <span key={index} className="text-lg mx-6 flex items-center">
-                <Icon className="mr-2 h-5 w-5" />
+              <span key={index} className="text-sm mx-6 flex items-center">
+                <Icon className="mr-2 h-4 w-4" />
                 {service.title}
               </span>
             );
@@ -78,9 +79,9 @@ function ServicesRibbon() {
             return (
               <span
                 key={index + services.length}
-                className="text-lg mx-6 flex items-center"
+                className="text-sm mx-6 flex items-center"
               >
-                <Icon className="mr-2 h-5 w-5" />
+                <Icon className="mr-2 h-4 w-4" />
                 {service.title}
               </span>
             );
