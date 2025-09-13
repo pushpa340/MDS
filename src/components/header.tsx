@@ -12,8 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import { TypingEffect } from "./ui/typing-effect";
-import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -33,8 +31,6 @@ const services = [
 ];
   
 export default function Header() {
-  const [isTyping, setIsTyping] = useState(true);
-
   const servicesMenu = (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -56,7 +52,7 @@ export default function Header() {
   const Logo = ({size = 32}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
         </div>
     </div>
   );
@@ -112,8 +108,8 @@ export default function Header() {
                         <Logo size={32} />
                     </div>
                     <div className="flex flex-col">
-                        <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" onComplete={() => setIsTyping(false)} />
-                        <TypingEffect text="marcomdigitalsolution.com" className="text-xs text-blue-200" />
+                        <span className="font-bold tracking-tight leading-none text-base">MARCOM DIGITAL SOLUTION</span>
+                        <span className="text-xs text-blue-200">marcomdigitalsolution.com</span>
                     </div>
                 </Link>
             </div>

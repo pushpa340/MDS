@@ -21,7 +21,7 @@ const socialLinks = [
 const Logo = ({size = 36}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
         <div className="bg-transparent rounded-full relative">
-            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
+            <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
         </div>
     </div>
 );
