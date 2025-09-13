@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import {
   Megaphone,
@@ -27,6 +28,9 @@ import {
   ShieldCheck,
   Lock,
   KeyRound,
+  Info,
+  Rocket,
+  Eye,
 } from 'lucide-react';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 
@@ -132,31 +136,54 @@ export default function AboutPage() {
         </section>
       </MotionWrapper>
 
-      <section className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+      <section className="mt-16">
         <MotionWrapper>
-          <div>
-            <h2 className="text-3xl font-bold">Our Mission</h2>
-            <p className="mt-4 text-muted-foreground">
-              Our mission is to provide businesses of all sizes with powerful,
-              easy-to-use tools for marketing, sales, and management. We
-              believe that the right technology can unlock immense potential,
-              and we are dedicated to being the catalyst for our clients'
-              success by simplifying complexities and fostering growth.
-            </p>
-          </div>
-        </MotionWrapper>
-        <MotionWrapper delay={0.2}>
-          <div>
-            <h2 className="text-3xl font-bold">Our History</h2>
-            <p className="mt-4 text-muted-foreground">
-              Founded in 2020, Marcom Digital Solution started with a small team
-              of passionate entrepreneurs who saw a gap in the market for
-              integrated business solutions. From a simple lead management
-              tool, we've grown into a comprehensive platform serving clients
-              across the globe in various industries, constantly innovating to
-              meet their evolving needs.
-            </p>
-          </div>
+          <Tabs defaultValue="about" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="about">
+                <Info className="mr-2 h-4 w-4" /> About Us
+              </TabsTrigger>
+              <TabsTrigger value="mission">
+                <Rocket className="mr-2 h-4 w-4" /> Mission
+              </TabsTrigger>
+              <TabsTrigger value="vision">
+                <Eye className="mr-2 h-4 w-4" /> Vision
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="about" className="mt-4 text-muted-foreground">
+              <p>
+                Indo Global Technologies delivers comprehensive digital
+                solutions, specializing in Website Development, Social Media
+                Marketing, SEO, Graphic Design, UI/UX Design, and Paid
+                Advertising. We create impactful websites, build strong brands,
+                and drive measurable growth with tailored strategies, ensuring
+                innovative, scalable results that transform businesses across
+                industries while simplifying technology for client success.
+              </p>
+            </TabsContent>
+            <TabsContent value="mission" className="mt-4 text-muted-foreground">
+              <p>
+                Our mission is to <b>empower businesses</b> by providing{' '}
+                <b>cutting-edge IT solutions</b> that help them grow and succeed
+                in the digital age. We are committed to delivering{' '}
+                <b>high-quality, customized services</b> that drive brand
+                visibility, enhance user engagement, and increase business
+                performance. Through constant innovation and a customer-first
+                approach, we aim to be your trusted partner in{' '}
+                <b>digital transformation</b>.
+              </p>
+            </TabsContent>
+            <TabsContent value="vision" className="mt-4 text-muted-foreground">
+              <p>
+                To be a <b>global leader</b> in providing{' '}
+                <b>innovative digital solutions</b> that enable businesses to
+                thrive in an ever-evolving digital landscape. Our vision is to
+                create lasting, positive impacts through{' '}
+                <b>customized technology</b>, empowering businesses to achieve
+                their goals and expand their reach.
+              </p>
+            </TabsContent>
+          </Tabs>
         </MotionWrapper>
       </section>
 
