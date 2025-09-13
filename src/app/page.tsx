@@ -138,7 +138,6 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <ServicesRibbon />
       <ServicesSection />
       <BrandLogosSection />
       <TestimonialsSection />
@@ -149,7 +148,7 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden py-12">
+    <section className="relative w-full overflow-hidden py-8">
       <div className="absolute inset-0">
         <Image
           src="/cover-img/photo-1.jpg"
@@ -163,7 +162,7 @@ function HeroSection() {
       </div>
       <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start">
         <MotionWrapper>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
               MARCOM DIGITAL SOLUTION
             </h1>
@@ -216,7 +215,7 @@ function HeroSection() {
           })}
         </div>
         <MotionWrapper delay={0.5}>
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
               asChild
@@ -234,40 +233,6 @@ function HeroSection() {
             </Button>
           </div>
         </MotionWrapper>
-      </div>
-    </section>
-  );
-}
-
-function ServicesRibbon() {
-  return (
-    <section className="bg-primary text-primary-foreground py-4 overflow-hidden">
-      <div className="relative flex">
-        <div className="animate-marquee whitespace-nowrap flex">
-          {services.map((service, index) => {
-            const Icon = service.icons[0];
-            return (
-              <span key={index} className="text-lg mx-6 flex items-center">
-                <Icon className="mr-2 h-5 w-5" />
-                {service.title}
-              </span>
-            );
-          })}
-        </div>
-        <div className="animate-marquee whitespace-nowrap flex absolute top-0">
-          {services.map((service, index) => {
-            const Icon = service.icons[0];
-            return (
-              <span
-                key={index + services.length}
-                className="text-lg mx-6 flex items-center"
-              >
-                <Icon className="mr-2 h-5 w-5" />
-                {service.title}
-              </span>
-            );
-          })}
-        </div>
       </div>
     </section>
   );
