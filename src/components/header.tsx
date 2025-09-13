@@ -31,13 +31,6 @@ const services = [
   { href: "/services/cyber-security-solution", label: "Cyber Security Solution" },
   { href: "/services/erp-crm-solution", label: "ERP & CRM Solution" },
 ];
-
-const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2.4l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2.4l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-        <circle cx="12" cy="12" r="3"/>
-    </svg>
-);
   
 export default function Header() {
   const [isTyping, setIsTyping] = useState(true);
@@ -60,9 +53,8 @@ export default function Header() {
     </DropdownMenu>
   );
 
-  const Logo = ({size = 32, isTyping}: {size?: number, isTyping: boolean}) => (
+  const Logo = ({size = 32}: {size?: number}) => (
     <div className="relative group flex items-center justify-center">
-        <SettingsIcon className={`text-white absolute h-12 w-12 transition-transform duration-2000 ${isTyping ? 'animate-spin-slow' : ''} group-hover:rotate-[360deg]`} />
         <div className="bg-transparent rounded-full relative">
             <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="bg-white rounded-full" />
         </div>
@@ -83,7 +75,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <Logo size={36} isTyping={isTyping} />
+                <Logo size={36} />
                 <span className="font-bold text-lg text-black">Marcom Digital</span>
               </Link>
               <nav className="flex flex-col space-y-4">
@@ -114,10 +106,10 @@ export default function Header() {
             <div className="flex items-center">
                  <Link href="/" className="flex items-center space-x-2">
                     <div className="hidden md:block">
-                        <Logo size={36} isTyping={isTyping} />
+                        <Logo size={36} />
                     </div>
                      <div className="md:hidden">
-                        <Logo size={32} isTyping={isTyping} />
+                        <Logo size={32} />
                     </div>
                     <div className="flex flex-col">
                         <TypingEffect text="MARCOM DIGITAL SOLUTION" className="font-bold tracking-tight leading-none text-base" onComplete={() => setIsTyping(false)} />
