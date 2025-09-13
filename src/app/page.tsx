@@ -54,6 +54,7 @@ import { useToast } from '@/hooks/use-toast';
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
+import { TypingEffect } from '@/components/ui/typing-effect';
 
 const services = [
   {
@@ -174,13 +175,23 @@ function HeroSection() {
       <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
           <div className="mb-8 text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                <span className="inline-block bg-header-blue px-4 py-2 text-white">MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> <span className="text-white">SOLUTION</span>
-              </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+              <span className="inline-block bg-header-blue px-4 py-2 text-white">
+                MARCOM
+              </span>{' '}
+              <span>
+                <TypingEffect
+                  text="DIGITAL SOLUTION"
+                  className="text-yellow-400"
+                />
+              </span>
+            </h1>
             <div className="text-center">
-                <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
-                Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
-                </p>
+              <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
+                Empowering{' '}
+                <span className="text-primary">Business Growth</span> with
+                Scalable Digital IT Solutions
+              </p>
             </div>
           </div>
         </MotionWrapper>
@@ -188,14 +199,23 @@ function HeroSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center mt-8">
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
-              <Link href={service.href} className="group flex flex-col items-center text-center">
-                <div className="relative w-[120px] h-[120px] transition-transform duration-300 group-hover:scale-110" style={{ clipPath: 'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)' }}>
+              <Link
+                href={service.href}
+                className="group flex flex-col items-center text-center"
+              >
+                <div
+                  className="relative w-[120px] h-[120px] transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    clipPath:
+                      'polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%)',
+                  }}
+                >
                   <Image
-                      src={service.image.src}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={service.image.hint}
+                    src={service.image.src}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={service.image.hint}
                   />
                 </div>
                 <h3 className="mt-4 font-semibold text-lg text-white">
@@ -228,7 +248,6 @@ function HeroSection() {
     </section>
   );
 }
-
 
 function ServicesSection() {
   return (
