@@ -50,14 +50,14 @@ export default function Header() {
   );
 
   const Logo = ({size = 32}: {size?: number}) => (
-    <div className="bg-white rounded-full" style={{width: size, height: size}}>
+    <div className="bg-white rounded-full flex items-center justify-center" style={{width: size, height: size}}>
         <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} className="rounded-full" />
     </div>
   );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-header-blue text-white">
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-14 items-center">
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet>
