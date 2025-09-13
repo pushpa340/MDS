@@ -50,7 +50,9 @@ export default function Header() {
   );
 
   const Logo = ({size = 32}: {size?: number}) => (
-    <div />
+    <div className="bg-white rounded-full p-1">
+        <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} />
+    </div>
   );
 
   return (
