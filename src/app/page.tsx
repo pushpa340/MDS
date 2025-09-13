@@ -171,15 +171,17 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-black/70 z-10" />
       </div>
-      <div className="container mx-auto px-4 z-20 relative flex flex-col justify-start">
+      <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
-          <div className="text-left mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+          <div className="mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight text-left">
               <span style={{ color: '#0C3C60' }}>MARCOM</span> <span style={{ color: 'yellow' }}>DIGITAL</span> SOLUTION
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl">
-              Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
-            </p>
+            <div className="text-center">
+                <p className="mt-4 text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">
+                Empowering <span className="text-primary">Business Growth</span> with Scalable Digital IT Solutions
+                </p>
+            </div>
           </div>
         </MotionWrapper>
 
@@ -204,7 +206,7 @@ function HeroSection() {
           ))}
         </div>
         <MotionWrapper delay={0.5}>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-start gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
               asChild
@@ -226,6 +228,7 @@ function HeroSection() {
     </section>
   );
 }
+
 
 function ServicesSection() {
   return (
@@ -657,5 +660,3 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
-
-    
