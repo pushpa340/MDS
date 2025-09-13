@@ -123,7 +123,9 @@ export default function Header() {
             </div>
           
           <div className="flex items-center">
-            {/* User menu removed */}
+            <Button size="sm" asChild className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105">
+                <Link href="/contact">Get in Touch</Link>
+            </Button>
           </div>
         </div>
       </div>
