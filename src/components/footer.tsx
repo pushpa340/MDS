@@ -19,7 +19,7 @@ const socialLinks = [
 ];
 
 const Logo = ({size = 36}: {size?: number}) => (
-    <div className="bg-white rounded-full">
+    <div className="bg-white rounded-full flex items-center justify-center" style={{width: size, height: size}}>
         <Image src="/logo.png" alt="Marcom Digital Solution Logo" width={size} height={size} />
     </div>
 );
