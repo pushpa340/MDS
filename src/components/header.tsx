@@ -57,7 +57,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-header-blue text-white">
-      <div className="container flex h-14 items-center">
+      <div className="container flex h-20 items-center">
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet>
@@ -123,9 +123,12 @@ export default function Header() {
             </div>
           
           <div className="flex items-center">
-            <Button size="sm" asChild className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105">
-                <Link href="/contact">Get in Touch</Link>
-            </Button>
+            <div className="flex-col text-center hidden sm:flex">
+              <Button size="sm" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105">
+                  <Link href="/contact">Get in Touch</Link>
+              </Button>
+              <span className="text-xs mt-1">24x7 Support</span>
+            </div>
           </div>
         </div>
       </div>
