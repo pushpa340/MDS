@@ -264,49 +264,30 @@ function ServicesSection() {
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
-              <div className="group perspective h-[350px]">
-                <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000">
-                  {/* Front Side */}
-                  <div className="absolute backface-hidden w-full h-full">
-                     <Card className="flex flex-col text-center w-full h-full overflow-hidden">
-                      <CardHeader className="p-0">
-                        <div className="relative h-48 w-full overflow-hidden">
-                          <Image
-                            src={service.image.src}
-                            alt={service.title}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={service.image.hint}
-                          />
-                        </div>
-                      </CardHeader>
-                      <CardContent className="flex-grow flex items-center justify-center p-6">
-                        <CardTitle>{service.title}</CardTitle>
-                      </CardContent>
-                     </Card>
-                  </div>
-                  {/* Back Side */}
-                  <div className="absolute rotate-y-180 backface-hidden w-full h-full overflow-hidden">
-                    <Card className="flex flex-col text-center w-full h-full bg-primary text-primary-foreground">
-                        <CardHeader>
-                          <CardTitle>{service.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                          <CardDescription className="text-primary-foreground/80">
-                            {service.description}
-                          </CardDescription>
-                        </CardContent>
-                        <CardFooter>
-                          <Button variant="outline" asChild className="mx-auto bg-transparent border-white text-white hover:bg-white hover:text-primary">
-                            <Link href={service.href}>
-                              Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                  </div>
+              <Card className="group relative h-[350px] w-full overflow-hidden rounded-lg shadow-lg">
+                <Image
+                  src={service.image.src}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  data-ai-hint={service.image.hint}
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/60" />
+
+                <div className="absolute bottom-0 left-0 w-full p-6">
+                   <CardTitle className="text-white text-2xl font-bold">{service.title}</CardTitle>
                 </div>
-              </div>
+
+                <div className="absolute inset-0 flex translate-y-full flex-col items-center justify-center bg-black/70 p-6 text-center transition-transform duration-500 ease-in-out group-hover:translate-y-0">
+                  <CardTitle className="text-primary mb-2 text-2xl font-bold">{service.title}</CardTitle>
+                  <p className="mb-4 text-sm text-primary-foreground/80">{service.description}</p>
+                  <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Link href={service.href}>
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
             </MotionWrapper>
           ))}
         </div>
