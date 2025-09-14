@@ -48,6 +48,7 @@ import {
   ShieldCheck,
   Lock,
   KeyRound,
+  MailCheck,
 } from 'lucide-react';
 import type { Testimonial } from '@/types';
 import { useToast } from '@/hooks/use-toast';
@@ -597,7 +598,7 @@ function ContactAndNewsletterSection() {
   return (
     <section id="contact" className="py-16 sm:py-24 bg-card">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12">
           <MotionWrapper>
             <Card>
               <CardHeader>
@@ -627,35 +628,37 @@ function ContactAndNewsletterSection() {
               </CardContent>
             </Card>
           </MotionWrapper>
+          
           <MotionWrapper delay={0.2}>
-            <Card>
-              <CardHeader>
-                <CardTitle>Subscribe to our Newsletter</CardTitle>
-                <CardDescription>
-                  Stay up to date with our latest news and offers.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                    disabled={isSubmittingNewsletter}
-                  />
-                  <Button type="submit" disabled={isSubmittingNewsletter}>
-                    {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <div className="rounded-lg bg-header-blue p-8 text-white">
+                <div className="flex flex-col items-center text-center gap-6 sm:flex-row sm:text-left sm:gap-8">
+                    <div className="flex-shrink-0">
+                        <MailCheck className="h-16 w-16 text-yellow-400" />
+                    </div>
+                    <div>
+                        <h3 className="text-2xl font-bold">Subscribe to Our Newsletter</h3>
+                        <p className="mt-2 text-blue-200">
+                        Get the latest updates on digital trends, exclusive tips, and special offers delivered straight to your inbox.
+                        </p>
+                    </div>
+                    <form onSubmit={handleNewsletterSubmit} className="w-full sm:w-auto flex-shrink-0 flex sm:flex-col gap-2">
+                        <Input
+                            name="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                            disabled={isSubmittingNewsletter}
+                            className="bg-white/10 text-white placeholder:text-blue-200 border-blue-800 focus:ring-yellow-400 min-w-[200px]"
+                        />
+                        <Button type="submit" disabled={isSubmittingNewsletter} className="bg-yellow-400 text-header-blue hover:bg-yellow-500">
+                            {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe'}
+                        </Button>
+                    </form>
+                </div>
+            </div>
           </MotionWrapper>
         </div>
       </div>
     </section>
   );
 }
-
-    
-    
