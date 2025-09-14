@@ -12,8 +12,8 @@ import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Marcom Digital Solution',
-  description: 'Your partner in business growth and management.',
+  title: 'Home | MDS-Your All in one Business Partner',
+  description: 'Your ai partner in business growth and management.',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/logo.png" />
+        <link rel=" " href="/logo.png" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
       </head>
       <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
