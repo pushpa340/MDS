@@ -57,6 +57,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { TypingEffect } from '@/components/ui/typing-effect';
 import { WhatWeDoSection } from '@/components/what-we-do';
+import { AiBackground } from '@/components/ai-background';
 
 const services = [
   {
@@ -64,28 +65,28 @@ const services = [
     description: 'Brand promotion, SEO Optimization, Google Analytics.',
     icons: [Megaphone, TrendingUp, LineChart],
     href: '/services/digital-marketing',
-    image: { src: '/services-icon/1.avif', hint: 'marketing chart' },
+    image: { src: 'https://picsum.photos/seed/service1/600/400', hint: 'marketing chart' },
   },
   {
     title: 'IT Solutions',
     description: 'Technical assistance and troubleshooting for your business.',
     icons: [Wrench, Server, Shield],
     href: '/services/it-solutions',
-    image: { src: '/services-icon/2.avif', hint: 'server room' },
+    image: { src: 'https://picsum.photos/seed/service2/600/400', hint: 'server room' },
   },
   {
     title: 'Event Marketing',
     description: 'Promote and manage your events to attract the right audience.',
     icons: [Calendar, PartyPopper, Megaphone],
     href: '/services/event-marketing',
-    image: { src: '/services-icon/3.avif', hint: 'concert crowd' },
+    image: { src: 'https://picsum.photos/seed/service3/600/400', hint: 'concert crowd' },
   },
   {
     title: 'Stock Market',
     description: 'In-depth analysis of market trends and stocks.',
     icons: [TrendingUp, LineChart, DollarSign],
     href: '/services/stock-market-analysis',
-    image: { src: '/services-icon/4.avif', hint: 'stock charts' },
+    image: { src: 'https://picsum.photos/seed/service4/600/400', hint: 'stock charts' },
   },
   {
     title: 'Cyber Security',
@@ -93,7 +94,7 @@ const services = [
       'Protect your digital assets with our advanced security solutions.',
     icons: [ShieldCheck, Lock, KeyRound],
     href: '/services/cyber-security-solution',
-    image: { src: '/services-icon/5.avif', hint: 'cyber lock' },
+    image: { src: 'https://picsum.photos/seed/service5/600/400', hint: 'cyber lock' },
   },
   {
     title: 'ERP & CRM',
@@ -101,7 +102,7 @@ const services = [
       'Integrate all your business management functions into one unified system.',
     icons: [Users, Briefcase, Database],
     href: '/services/erp-crm-solution',
-    image: { src: '/services-icon/6.avif', hint: 'business meeting' },
+    image: { src: 'https://picsum.photos/seed/service6/600/400', hint: 'business meeting' },
   },
 ];
 
@@ -150,17 +151,8 @@ function HeroSection() {
   const [isDigitalTyped, setIsDigitalTyped] = useState(false);
   return (
     <section className="relative w-full overflow-hidden py-16">
-      <div className="absolute inset-0">
-        <Image
-          src="/cover-img/photo-1.jpg"
-          alt="Business Growth"
-          fill
-          className="object-cover"
-          data-ai-hint="business meeting"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/70 z-10" />
-      </div>
+      <AiBackground />
+      <div className="absolute inset-0 bg-black/70 z-10" />
       <div className="container mx-auto px-4 z-20 relative flex flex-col">
         <MotionWrapper>
           <div className="mb-8 text-center">
@@ -351,7 +343,7 @@ function TestimonialsSection() {
             {
               id: '0',
               name: 'Promila - DigitalVerse India',
-              photoUrl: '/testimonial/T1.jfif',
+              photoUrl: 'https://picsum.photos/seed/person1/100/100',
               message:
                 'They’re always available when we need them. Their support and custom solutions helped our business grow.',
               data_ai_hint: 'man portrait',
@@ -359,7 +351,7 @@ function TestimonialsSection() {
             {
               id: '1',
               name: 'Sarah L.',
-              photoUrl: '/testimonial/T2.jfif',
+              photoUrl: 'https://picsum.photos/seed/person2/100/100',
               message:
                 'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
               data_ai_hint: 'woman portrait',
@@ -367,7 +359,7 @@ function TestimonialsSection() {
             {
               id: '2',
               name: 'Michael B.',
-              photoUrl: '/testimonial/T3.jfif',
+              photoUrl: 'https://picsum.photos/seed/person3/100/100',
               message:
                 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
@@ -375,7 +367,7 @@ function TestimonialsSection() {
             {
               id: '3',
               name: 'Jass P.',
-              photoUrl: '/testimonial/T4.jfif',
+              photoUrl: 'https://picsum.photos/seed/person4/100/100',
               message:
                 'Their digital marketing strategies doubled our online engagement in just three months!',
               data_ai_hint: 'woman smiling',
@@ -383,7 +375,7 @@ function TestimonialsSection() {
             {
               id: '4',
               name: 'David C.',
-              photoUrl: '/testimonial/T6.jfif',
+              photoUrl: 'https://picsum.photos/seed/person5/100/100',
               message:
                 'The IT solutions provided were seamless and significantly improved our workflow.',
               data_ai_hint: 'man professional',
@@ -391,7 +383,7 @@ function TestimonialsSection() {
             {
               id: '5',
               name: 'Emily R.',
-              photoUrl: '/testimonial/T5.jfif',
+              photoUrl: 'https://picsum.photos/seed/person6/100/100',
               message:
                 'Exceptional event marketing services that made our annual conference a huge success.',
               data_ai_hint: 'woman professional',
@@ -412,7 +404,7 @@ function TestimonialsSection() {
           {
             id: '0',
             name: 'Maloni Sharma',
-            photoUrl: '/testimonial/T1.jfif',
+            photoUrl: 'https://picsum.photos/seed/person1/100/100',
             message:
               'They’re always available when we need them. Their support and custom solutions have really helped our business grow.',
             data_ai_hint: 'man portrait',
@@ -420,7 +412,7 @@ function TestimonialsSection() {
           {
             id: '1',
             name: 'Sarah L.',
-            photoUrl: '/testimonial/T2.jfif',
+            photoUrl: 'https://picsum.photos/seed/person2/100/100',
             message:
               'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
             data_ai_hint: 'woman portrait',
@@ -428,7 +420,7 @@ function TestimonialsSection() {
           {
             id: '2',
             name: 'Michael B.',
-            photoUrl: '/testimonial/T3.jfif',
+            photoUrl: 'https://picsum.photos/seed/person3/100/100',
             message:
               'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
@@ -436,7 +428,7 @@ function TestimonialsSection() {
           {
             id: '3',
             name: 'Jessica P.',
-            photoUrl: '/testimonial/T4.jfif',
+            photoUrl: 'https://picsum.photos/seed/person4/100/100',
             message:
               'Their digital marketing strategies doubled our online engagement in just three months!',
             data_ai_hint: 'woman smiling',
