@@ -62,7 +62,7 @@ const services = [
 
 function ServicesRibbon() {
   return (
-    <section className="bg-primary text-primary-foreground py-1 overflow-hidden">
+    <section className="bg-white/20 text-primary-foreground py-1 overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
         {services.concat(services).map((service, index) => {
           const Icon = service.icons[0];
