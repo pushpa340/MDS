@@ -14,7 +14,7 @@ const tabs = [
 
 const content = {
   about: 'We are a next-generation IT and digital services company focused on empowering startups and growing businesses through AI-powered solutions and smart automation. Our integrated offerings cover everything from software development, digital and event marketing, to ERP/CRM implementation, cybersecurity, and even stock market technology solutions.',
-  mission: 'Our mission is to empower businesses with cutting-edge technology solutions that drive digital transformation. We strive to deliver exceptional value through innovative web development, strategic marketing, and creative design services that help our clients achieve sustainable growth and competitive advantage in the digital marketplace.',
+  mission: 'To empower startups and growing businesses by delivering AI-driven IT and digital services that drive innovation, efficiency, and sustainable growth. We aim to simplify complex operations through automation, enhance customer engagement, and provide secure, scalable solutions that evolve with your business.',
   vision: 'To be the leading technology partner for businesses worldwide, recognized for our innovative solutions, exceptional service, and commitment to client success. We envision a future where technology seamlessly integrates with business operations, creating opportunities for growth, efficiency, and meaningful connections with customers.',
 };
 
