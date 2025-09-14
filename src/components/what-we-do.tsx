@@ -22,7 +22,7 @@ export function WhatWeDoSection() {
   const [activeTab, setActiveTab] = useState('about');
 
   return (
-    <section className="bg-gradient-to-br from-[#1a1a1a] to-[#2c2c2c] min-h-screen flex items-center relative overflow-hidden">
+    <section className="bg-primary min-h-screen flex items-center relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-10 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           
@@ -80,7 +80,7 @@ export function WhatWeDoSection() {
             </div>
 
             {/* Content Description */}
-            <div className="text-gray-400 text-base leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+            <div className="text-gray-200 text-base leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
               {Object.entries(content).map(([key, value]) => (
                  <div key={key} className={cn("transition-opacity duration-300", activeTab === key ? 'block' : 'hidden')}>
                     {value}
@@ -94,7 +94,7 @@ export function WhatWeDoSection() {
                 <i className="fas fa-phone text-black text-xl"></i>
               </div>
               <div>
-                <p className="text-gray-400 text-sm mb-1">Contact Number</p>
+                <p className="text-gray-200 text-sm mb-1">Contact Number</p>
                 <a href="tel:+918447242558" className="text-yellow-400 text-lg font-bold hover:text-orange-400 transition-colors">
                   +91-8447242558
                 </a>
