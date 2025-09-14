@@ -95,8 +95,8 @@ export function WhatWeDoSection() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm mb-1">Contact Number</p>
-                <a href="tel:+919811099599" className="text-yellow-400 text-lg font-bold hover:text-orange-400 transition-colors">
-                  +91- 9811099599
+                <a href="tel:+918447242558" className="text-yellow-400 text-lg font-bold hover:text-orange-400 transition-colors">
+                  +91-8447242558
                 </a>
               </div>
             </div>
