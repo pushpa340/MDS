@@ -14,8 +14,8 @@ const footerLinks = [
 const socialLinks = [
   { href: "#", icon: Facebook, label: "Facebook" },
   { href: "#", icon: Twitter, label: "Twitter" },
-  { href: "#", icon: Instagram, label: "Instagram" },
-  { href: "#", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://www.instagram.com/marcomdigitalsolution/?igsh=MWtmdWhxODlkejZlOA%3D%3D#", icon: Instagram, label: "Instagram" },
+  { href: "https://www.linkedin.com/company/marcom-digital-solution/", icon: Linkedin, label: "LinkedIn" },
 ];
 
 const Logo = ({size = 36}: {size?: number}) => (

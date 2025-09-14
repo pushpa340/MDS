@@ -265,15 +265,14 @@ function HeroSection() {
             <Button
               size="lg"
               asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-transform duration-300 hover:scale-105"
+              className="bg-header-blue text-white hover:bg-blue-900 transition-transform duration-300 hover:scale-105"
             >
               <Link href="/contact">Get in Touch</Link>
             </Button>
             <Button
               size="lg"
-              variant="outline"
               asChild
-              className="border-white text-white hover:bg-white hover:text-primary transition-transform duration-300 hover:scale-105"
+              className="bg-yellow-400 text-header-blue hover:bg-yellow-500 transition-transform duration-300 hover:scale-105"
             >
               <Link href="/about">Know More</Link>
             </Button>
