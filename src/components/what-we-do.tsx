@@ -22,7 +22,7 @@ export function WhatWeDoSection() {
   const [activeTab, setActiveTab] = useState('about');
 
   return (
-    <section className="bg-primary min-h-screen flex items-center relative overflow-hidden">
+    <section className="bg-header-blue min-h-screen flex items-center relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-10 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           
