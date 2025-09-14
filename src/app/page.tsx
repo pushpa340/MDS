@@ -106,43 +106,28 @@ const services = [
 
 const brandLogos = [
   {
-    src: 'https://placehold.co/150x60.png',
+    src: '/brands/brand-1.png',
     alt: 'Brand 1',
     hint: 'logo design',
   },
   {
-    src: 'https://placehold.co/150x60.png',
+    src: '/brands/brand-2.png',
     alt: 'Brand 2',
     hint: 'logo design',
   },
   {
-    src: 'https://placehold.co/150x60.png',
+    src: '/brands/brand-3.png',
     alt: 'Brand 3',
     hint: 'logo design',
   },
   {
-    src: 'https://placehold.co/150x60.png',
+    src: '/brands/brand-4.png',
     alt: 'Brand 4',
     hint: 'logo design',
   },
   {
-    src: 'https://placehold.co/150x60.png',
+    src: '/brands/brand-5.png',
     alt: 'Brand 5',
-    hint: 'logo design',
-  },
-  {
-    src: 'https://placehold.co/150x60.png',
-    alt: 'Brand 6',
-    hint: 'logo design',
-  },
-  {
-    src: 'https://placehold.co/150x60.png',
-    alt: 'Brand 7',
-    hint: 'logo design',
-  },
-  {
-    src: 'https://placehold.co/150x60.png',
-    alt: 'Brand 8',
     hint: 'logo design',
   },
 ];
@@ -690,3 +675,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    
