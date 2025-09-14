@@ -55,6 +55,7 @@ import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { TypingEffect } from '@/components/ui/typing-effect';
+import { WhatWeDoSection } from '@/components/what-we-do';
 
 const services = [
   {
@@ -151,6 +152,7 @@ export default function Home() {
     <div className="flex flex-col">
       <HeroSection />
       <ServicesSection />
+      <WhatWeDoSection />
       <BrandLogosSection />
       <TestimonialsSection />
       <ContactAndNewsletterSection />
@@ -670,5 +672,3 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
-
-    
