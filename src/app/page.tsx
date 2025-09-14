@@ -343,7 +343,7 @@ function TestimonialsSection() {
             {
               id: '0',
               name: 'Promila - DigitalVerse India',
-              photoUrl: 'https://picsum.photos/seed/person1/100/100',
+              photoUrl: '/testimonial/T1.jfif',
               message:
                 'They’re always available when we need them. Their support and custom solutions helped our business grow.',
               data_ai_hint: 'man portrait',
@@ -351,7 +351,7 @@ function TestimonialsSection() {
             {
               id: '1',
               name: 'Sarah L.',
-              photoUrl: 'https://picsum.photos/seed/person2/100/100',
+              photoUrl: '/testimonial/T2.jfif',
               message:
                 'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
               data_ai_hint: 'woman portrait',
@@ -359,7 +359,7 @@ function TestimonialsSection() {
             {
               id: '2',
               name: 'Michael B.',
-              photoUrl: 'https://picsum.photos/seed/person3/100/100',
+              photoUrl: '/testimonial/T3.jfif',
               message:
                 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
@@ -367,7 +367,7 @@ function TestimonialsSection() {
             {
               id: '3',
               name: 'Jass P.',
-              photoUrl: 'https://picsum.photos/seed/person4/100/100',
+              photoUrl: '/testimonial/T4.jfif',
               message:
                 'Their digital marketing strategies doubled our online engagement in just three months!',
               data_ai_hint: 'woman smiling',
@@ -375,7 +375,7 @@ function TestimonialsSection() {
             {
               id: '4',
               name: 'David C.',
-              photoUrl: 'https://picsum.photos/seed/person5/100/100',
+              photoUrl: '/testimonial/T5.jfif',
               message:
                 'The IT solutions provided were seamless and significantly improved our workflow.',
               data_ai_hint: 'man professional',
@@ -383,7 +383,7 @@ function TestimonialsSection() {
             {
               id: '5',
               name: 'Emily R.',
-              photoUrl: 'https://picsum.photos/seed/person6/100/100',
+              photoUrl: '/testimonial/T6.jfif',
               message:
                 'Exceptional event marketing services that made our annual conference a huge success.',
               data_ai_hint: 'woman professional',
@@ -404,7 +404,7 @@ function TestimonialsSection() {
           {
             id: '0',
             name: 'Maloni Sharma',
-            photoUrl: 'https://picsum.photos/seed/person1/100/100',
+            photoUrl: '/testimonial/T1.jfif',
             message:
               'They’re always available when we need them. Their support and custom solutions have really helped our business grow.',
             data_ai_hint: 'man portrait',
@@ -412,7 +412,7 @@ function TestimonialsSection() {
           {
             id: '1',
             name: 'Sarah L.',
-            photoUrl: 'https://picsum.photos/seed/person2/100/100',
+            photoUrl: '/testimonial/T2.jfif',
             message:
               'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
             data_ai_hint: 'woman portrait',
@@ -420,7 +420,7 @@ function TestimonialsSection() {
           {
             id: '2',
             name: 'Michael B.',
-            photoUrl: 'https://picsum.photos/seed/person3/100/100',
+            photoUrl: '/testimonial/T3.jfif',
             message:
               'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
@@ -428,7 +428,7 @@ function TestimonialsSection() {
           {
             id: '3',
             name: 'Jessica P.',
-            photoUrl: 'https://picsum.photos/seed/person4/100/100',
+            photoUrl: '/testimonial/T4.jfif',
             message:
               'Their digital marketing strategies doubled our online engagement in just three months!',
             data_ai_hint: 'woman smiling',
