@@ -65,28 +65,28 @@ const services = [
     description: 'Brand promotion, SEO Optimization, Google Analytics.',
     icons: [Megaphone, TrendingUp, LineChart],
     href: '/services/digital-marketing',
-    image: { src: 'https://picsum.photos/seed/service1/600/400', hint: 'marketing chart' },
+    image: { src: '/services-icon/1.avif', hint: 'marketing chart' },
   },
   {
     title: 'IT Solutions',
     description: 'Technical assistance and troubleshooting for your business.',
     icons: [Wrench, Server, Shield],
     href: '/services/it-solutions',
-    image: { src: 'https://picsum.photos/seed/service2/600/400', hint: 'server room' },
+    image: { src: '/services-icon/2.avif', hint: 'server room' },
   },
   {
     title: 'Event Marketing',
     description: 'Promote and manage your events to attract the right audience.',
     icons: [Calendar, PartyPopper, Megaphone],
     href: '/services/event-marketing',
-    image: { src: 'https://picsum.photos/seed/service3/600/400', hint: 'concert crowd' },
+    image: { src: '/services-icon/3.avif', hint: 'concert crowd' },
   },
   {
     title: 'Stock Market',
     description: 'In-depth analysis of market trends and stocks.',
     icons: [TrendingUp, LineChart, DollarSign],
     href: '/services/stock-market-analysis',
-    image: { src: 'https://picsum.photos/seed/service4/600/400', hint: 'stock charts' },
+    image: { src: '/services-icon/4.avif', hint: 'stock charts' },
   },
   {
     title: 'Cyber Security',
@@ -94,7 +94,7 @@ const services = [
       'Protect your digital assets with our advanced security solutions.',
     icons: [ShieldCheck, Lock, KeyRound],
     href: '/services/cyber-security-solution',
-    image: { src: 'https://picsum.photos/seed/service5/600/400', hint: 'cyber lock' },
+    image: { src: '/services-icon/5.avif', hint: 'cyber lock' },
   },
   {
     title: 'ERP & CRM',
@@ -102,7 +102,7 @@ const services = [
       'Integrate all your business management functions into one unified system.',
     icons: [Users, Briefcase, Database],
     href: '/services/erp-crm-solution',
-    image: { src: 'https://picsum.photos/seed/service6/600/400', hint: 'business meeting' },
+    image: { src: '/services-icon/6.avif', hint: 'business meeting' },
   },
 ];
 
