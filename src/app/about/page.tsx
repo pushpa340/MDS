@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -33,13 +32,14 @@ import {
   Eye,
 } from 'lucide-react';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
+import { AboutHero } from '@/components/about-hero';
 
 const teamMembers = [
   {
     name: 'Alice Johnson',
     role: 'CEO & Founder',
     bio: "Alice drives the company's vision and strategy, with over 15 years of experience in digital marketing.",
-    photoUrl: 'https://placehold.co/400x400.png',
+    photoUrl: '',
     data_ai_hint: 'woman CEO',
   },
   {
@@ -117,22 +117,14 @@ export default function AboutPage() {
         </MotionWrapper>
         <MotionWrapper delay={0.2}>
           <p className="mt-6 text-xl text-muted-foreground">
-            Empowering businesses with intelligent, streamlined solutions for
-            growth and efficiency.
+          Unlock the Power of Technology and Business Transformation with our modernized Engineering
           </p>
         </MotionWrapper>
       </header>
 
       <MotionWrapper delay={0.4}>
         <section className="mt-16">
-          <Image
-            src="https://placehold.co/1200x500.png"
-            alt="Company team working together"
-            width={1200}
-            height={500}
-            className="rounded-lg object-cover"
-            data-ai-hint="team meeting"
-          />
+          <AboutHero />
         </section>
       </MotionWrapper>
 
@@ -152,13 +144,8 @@ export default function AboutPage() {
             </TabsList>
             <TabsContent value="about" className="mt-4 text-muted-foreground">
               <p>
-                Indo Global Technologies delivers comprehensive digital
-                solutions, specializing in Website Development, Social Media
-                Marketing, SEO, Graphic Design, UI/UX Design, and Paid
-                Advertising. We create impactful websites, build strong brands,
-                and drive measurable growth with tailored strategies, ensuring
-                innovative, scalable results that transform businesses across
-                industries while simplifying technology for client success.
+              We are a next-generation IT and digital services company focused on empowering startups and growing businesses through AI-powered solutions and smart automation. Our integrated offerings cover everything from software development, digital and event marketing, to ERP/CRM implementation, cybersecurity, and even stock market technology solutions.
+              By blending human expertise with the latest in artificial intelligence and automation, we help you streamline operations, optimize performance, and accelerate growth — all while reducing cost and complexity. Whether you're launching a new venture or scaling your operations, we are your strategic tech partner, delivering agile, intelligent, and impactful results.
               </p>
             </TabsContent>
             <TabsContent value="mission" className="mt-4 text-muted-foreground">

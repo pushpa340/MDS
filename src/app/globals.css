@@ -256,4 +256,193 @@
     0% { transform: translateY(-50px); opacity: 1; }
     100% { transform: translateY(100vh); opacity: 0; }
 }
-    
+
+/* About Page Hero Animation */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23f0f2f5"/><circle cx="900" cy="150" r="100" fill="%23e0e0e0" opacity="0.5"/><circle cx="1050" cy="300" r="80" fill="%23d0d0d0" opacity="0.3"/><circle cx="800" cy="400" r="60" fill="%23c0c0c0" opacity="0.4"/></svg>');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    padding: 0 50px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.main-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: slideInLeft 1s ease-out;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    padding: 30px 40px;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 1.2s ease-out 0.3s both;
+}
+
+.highlight-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.highlight-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.tech-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tech-particles .particle {
+    animation: floatUp 8s linear infinite;
+}
+
+.tech-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: rotate360 10s linear infinite;
+    color: #60a5fa;
+}
+
+.data-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    animation: dataFlow 4s linear infinite;
+    opacity: 0.6;
+}
+
+.circuit-pattern {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.05;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+}
+
+@keyframes rotate360 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.geometric-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.geometric-bg .triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 52px solid #3b82f6;
+    animation: floatShape 6s ease-in-out infinite;
+}
+
+.geometric-bg .square {
+    width: 40px;
+    height: 40px;
+    background: #dc2626;
+    transform: rotate(45deg);
+    animation: floatShape 8s ease-in-out infinite reverse;
+}
+
+.geometric-bg .circle {
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: floatShape 7s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.figure-silhouette {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    clip-path: polygon(40% 0%, 60% 0%, 65% 20%, 75% 30%, 85% 50%, 90% 70%, 95% 100%, 5% 100%, 10% 70%, 15% 50%, 25% 30%, 35% 20%);
+    animation: glow 3s ease-in-out infinite alternate;
+    z-index: 3;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+}
