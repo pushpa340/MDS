@@ -62,13 +62,13 @@ const services = [
 
 function ServicesRibbon() {
   return (
-    <section className="bg-white/20 text-primary-foreground py-1 overflow-hidden">
+    <section className="bg-white/20 text-foreground py-1 overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
         {services.concat(services).map((service, index) => {
           const Icon = service.icons[0];
           return (
             <span key={index} className="text-xs mx-6 flex items-center">
-              <Icon className="mr-2 h-4 w-4" />
+              <Icon className="mr-2 h-4 w-4 text-primary" />
               {service.title}
             </span>
           );
