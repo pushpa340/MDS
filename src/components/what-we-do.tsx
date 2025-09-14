@@ -13,7 +13,7 @@ const tabs = [
 ];
 
 const content = {
-  about: 'Indo Global Technologies delivers comprehensive digital solutions, specializing in Website Development, Social Media Marketing, SEO, Graphic Design, UI/UX Design, and Paid Advertising. We create impactful websites, build strong brands, and drive measurable growth with tailored strategies, ensuring innovative, scalable results that transform businesses across industries while simplifying technology for client success.',
+  about: 'We are a next-generation IT and digital services company focused on empowering startups and growing businesses through AI-powered solutions and smart automation. Our integrated offerings cover everything from software development, digital and event marketing, to ERP/CRM implementation, cybersecurity, and even stock market technology solutions.',
   mission: 'Our mission is to empower businesses with cutting-edge technology solutions that drive digital transformation. We strive to deliver exceptional value through innovative web development, strategic marketing, and creative design services that help our clients achieve sustainable growth and competitive advantage in the digital marketplace.',
   vision: 'To be the leading technology partner for businesses worldwide, recognized for our innovative solutions, exceptional service, and commitment to client success. We envision a future where technology seamlessly integrates with business operations, creating opportunities for growth, efficiency, and meaningful connections with customers.',
 };
