@@ -110,19 +110,19 @@ export function ChatbotWidget() {
         .chat-button {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: #0C3C60;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 4px 12px rgba(12, 60, 96, 0.4);
             transition: all 0.3s ease;
             border: none;
         }
         .chat-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+            box-shadow: 0 6px 20px rgba(12, 60, 96, 0.5);
         }
         .chat-button i {
             color: white;
@@ -152,7 +152,7 @@ export function ChatbotWidget() {
             visibility: visible;
         }
         .chat-header {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: #0C3C60;
             color: white;
             padding: 20px;
             display: flex;
@@ -254,9 +254,9 @@ export function ChatbotWidget() {
         }
         .form-control:focus {
             outline: none;
-            border-color: #e74c3c;
+            border-color: #0C3C60;
             background: white;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+            box-shadow: 0 0 0 3px rgba(12, 60, 96, 0.1);
         }
         .form-control::placeholder {
             color: #aaa;
@@ -291,7 +291,7 @@ export function ChatbotWidget() {
         .submit-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: #0C3C60;
             color: white;
             border: none;
             border-radius: 8px;
@@ -304,7 +304,7 @@ export function ChatbotWidget() {
         }
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 12px rgba(12, 60, 96, 0.3);
         }
         .submit-btn:disabled {
             opacity: 0.6;
@@ -338,9 +338,9 @@ export function ChatbotWidget() {
             50% { transform: translateY(-5px); }
         }
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-          70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+          0% { box-shadow: 0 0 0 0 rgba(12, 60, 96, 0.4); }
+          70% { box-shadow: 0 0 0 10px rgba(12, 60, 96, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(12, 60, 96, 0); }
         }
         .chat-button {
           animation: pulse 2s infinite;
@@ -415,7 +415,7 @@ export function ChatbotWidget() {
                     required
                     value={phone}
                     onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, '');
+                      const value = e.target.value.replace(/\\D/g, '');
                       if (value.length <= 10) {
                         setPhone(value);
                       }
@@ -451,4 +451,3 @@ export function ChatbotWidget() {
     </>
   );
 }
-
