@@ -33,51 +33,6 @@ export const metadata: Metadata = {
   description: 'Your partner in business growth and management.',
 };
 
-const services = [
-  {
-    title: 'Digital Marketing',
-    icons: [Megaphone, TrendingUp, LineChart],
-  },
-  {
-    title: 'IT Solutions',
-    icons: [Wrench, Server, Shield],
-  },
-  {
-    title: 'Event Marketing',
-    icons: [Calendar, PartyPopper, Megaphone],
-  },
-  {
-    title: 'Stock Market',
-    icons: [TrendingUp, LineChart, DollarSign],
-  },
-  {
-    title: 'Cyber Security',
-    icons: [ShieldCheck, Lock, KeyRound],
-  },
-  {
-    title: 'ERP & CRM',
-    icons: [Users, Briefcase, Database],
-  },
-];
-
-function ServicesRibbon() {
-  return (
-    <section className="bg-white/20 text-foreground py-1 overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {services.concat(services).map((service, index) => {
-          const Icon = service.icons[0];
-          return (
-            <span key={index} className="text-xs mx-6 flex items-center">
-              <Icon className="mr-2 h-4 w-4 text-primary" />
-              {service.title}
-            </span>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -91,7 +46,6 @@ export default function RootLayout({
       <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
         <div className="relative flex min-h-dvh flex-col">
           <Header />
-          <ServicesRibbon />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

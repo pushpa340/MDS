@@ -147,6 +147,52 @@ export default function Home() {
   );
 }
 
+const ribbonServices = [
+  {
+    title: 'Digital Marketing',
+    icons: [Megaphone, TrendingUp, LineChart],
+  },
+  {
+    title: 'IT Solutions',
+    icons: [Wrench, Server, Shield],
+  },
+  {
+    title: 'Event Marketing',
+    icons: [Calendar, PartyPopper, Megaphone],
+  },
+  {
+    title: 'Stock Market',
+    icons: [TrendingUp, LineChart, DollarSign],
+  },
+  {
+    title: 'Cyber Security',
+    icons: [ShieldCheck, Lock, KeyRound],
+  },
+  {
+    title: 'ERP & CRM',
+    icons: [Users, Briefcase, Database],
+  },
+];
+
+function ServicesRibbon() {
+  return (
+    <section className="bg-black/20 text-white py-1 overflow-hidden mt-16">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {ribbonServices.concat(ribbonServices).map((service, index) => {
+          const Icon = service.icons[0];
+          return (
+            <span key={index} className="text-xs mx-6 flex items-center">
+              <Icon className="mr-2 h-4 w-4 text-yellow-400" />
+              {service.title}
+            </span>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+
 function HeroSection() {
   const [isDigitalTyped, setIsDigitalTyped] = useState(false);
   return (
@@ -234,6 +280,7 @@ function HeroSection() {
           </div>
         </MotionWrapper>
       </div>
+      <ServicesRibbon />
     </section>
   );
 }
