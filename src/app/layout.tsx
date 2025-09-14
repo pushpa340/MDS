@@ -23,6 +23,8 @@ import {
   Lock,
   KeyRound,
 } from 'lucide-react';
+import { ChatbotWidget } from '@/components/chatbot-widget';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -83,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+      </head>
       <body className={cn('min-h-screen bg-background font-sans antialiased', inter.variable)}>
         <div className="relative flex min-h-dvh flex-col">
           <Header />
@@ -91,6 +96,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <ChatbotWidget />
       </body>
     </html>
   );
