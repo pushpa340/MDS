@@ -349,16 +349,16 @@ function TestimonialsSection() {
           const mockTestimonials: Testimonial[] = [
             {
               id: '0',
-              name: 'Mohit Sharma - DigitalVerse India',
-              photoUrl: '/testimonial/T-1.jpg',
+              name: 'Promila - DigitalVerse India',
+              photoUrl: '/testimonial/T1.jfif',
               message:
-                'They’re always available when we need them. Their support and custom solutions have really helped our business grow.',
+                'They’re always available when we need them. Their support and custom solutions helped our business grow.',
               data_ai_hint: 'man portrait',
             },
             {
               id: '1',
               name: 'Sarah L.',
-              photoUrl: '/testimonial/T-2.jpg',
+              photoUrl: '/testimonial/T2.jfif',
               message:
                 'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
               data_ai_hint: 'woman portrait',
@@ -366,15 +366,15 @@ function TestimonialsSection() {
             {
               id: '2',
               name: 'Michael B.',
-              photoUrl: '/testimonial/T-3.jpg',
+              photoUrl: '/testimonial/T3.jfif',
               message:
                 'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
             },
             {
               id: '3',
-              name: 'Jessica P.',
-              photoUrl: '/testimonial/T-4.jpg',
+              name: 'Jass P.',
+              photoUrl: '/testimonial/T4.jfif',
               message:
                 'Their digital marketing strategies doubled our online engagement in just three months!',
               data_ai_hint: 'woman smiling',
@@ -382,7 +382,7 @@ function TestimonialsSection() {
             {
               id: '4',
               name: 'David C.',
-              photoUrl: 'https://picsum.photos/100/100?random=10',
+              photoUrl: '/testimonial/T6.jfif',
               message:
                 'The IT solutions provided were seamless and significantly improved our workflow.',
               data_ai_hint: 'man professional',
@@ -390,7 +390,7 @@ function TestimonialsSection() {
             {
               id: '5',
               name: 'Emily R.',
-              photoUrl: 'https://picsum.photos/100/100?random=11',
+              photoUrl: '/testimonial/T5.jfif',
               message:
                 'Exceptional event marketing services that made our annual conference a huge success.',
               data_ai_hint: 'woman professional',
@@ -410,8 +410,8 @@ function TestimonialsSection() {
         const mockTestimonials: Testimonial[] = [
           {
             id: '0',
-            name: 'Mohit Sharma - DigitalVerse India',
-            photoUrl: '/testimonial/T-1.jpg',
+            name: 'Maloni Sharma',
+            photoUrl: '/testimonial/T1.jfif',
             message:
               'They’re always available when we need them. Their support and custom solutions have really helped our business grow.',
             data_ai_hint: 'man portrait',
@@ -419,7 +419,7 @@ function TestimonialsSection() {
           {
             id: '1',
             name: 'Sarah L.',
-            photoUrl: '/testimonial/T-2.jpg',
+            photoUrl: '/testimonial/T2.jfif',
             message:
               'Marcom Digital Solution transformed our sales process. Their lead management is top-notch!',
             data_ai_hint: 'woman portrait',
@@ -427,7 +427,7 @@ function TestimonialsSection() {
           {
             id: '2',
             name: 'Michael B.',
-            photoUrl: '/testimonial/T-3.jpg',
+            photoUrl: '/testimonial/T3.jfif',
             message:
               'The inventory system is a lifesaver. We have perfect clarity on our stock levels now.',
               data_ai_hint: 'man smiling',
@@ -435,7 +435,7 @@ function TestimonialsSection() {
           {
             id: '3',
             name: 'Jessica P.',
-            photoUrl: '/testimonial/T-4.jpg',
+            photoUrl: '/testimonial/T4.jfif',
             message:
               'Their digital marketing strategies doubled our online engagement in just three months!',
             data_ai_hint: 'woman smiling',
@@ -448,16 +448,16 @@ function TestimonialsSection() {
   }, []);
 
   return (
-    <section id="testimonials" className="py-16 sm:py-24">
+    <section id="testimonials" className="py-16 sm:py-24 bg-[#1e4a5f]">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <MotionWrapper>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
               What Our Clients Say
             </h2>
           </MotionWrapper>
           <MotionWrapper delay={0.2}>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-gray-300">
               Real stories from businesses we've helped succeed.
             </p>
           </MotionWrapper>
@@ -657,4 +657,5 @@ function ContactAndNewsletterSection() {
   );
 }
 
+    
     
