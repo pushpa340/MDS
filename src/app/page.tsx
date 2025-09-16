@@ -249,8 +249,8 @@ function HeroSection() {
   };
 
   const iconItemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1 },
   };
 
   return (
@@ -293,7 +293,8 @@ function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-8 justify-items-center mt-8"
           variants={iconContainerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true }}
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={iconItemVariants}>
@@ -775,4 +776,5 @@ function ContactAndNewsletterSection() {
   );
 }
 
+    
     
