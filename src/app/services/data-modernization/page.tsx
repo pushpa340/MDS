@@ -50,18 +50,18 @@ export default function DataModernizationPage() {
         </MotionWrapper>
       </header>
 
-      <MotionWrapper delay={0.4}>
-        <section className="mb-16">
-          <Image
-            src="https://picsum.photos/seed/datamodern/1200/500"
-            alt="Data Modernization with Microsoft Fabric and GCP"
-            width={1200}
-            height={500}
-            className="rounded-lg object-cover shadow-lg"
-            data-ai-hint="data cloud"
-          />
-        </section>
-      </MotionWrapper>
+    <MotionWrapper delay={0.4}>
+          <section className="mb-16">
+            <Image
+              src="/services-icon/7.avif"
+              alt="Cyber Security Shield"
+              width={1200}
+              height={200}
+              className="rounded-lg shadow-lg object-cover"
+              data-ai-hint="cyber security"
+            />
+          </section>
+        </MotionWrapper>
 
        <section className="mb-16">
         <MotionWrapper>

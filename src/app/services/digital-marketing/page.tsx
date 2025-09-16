@@ -53,7 +53,7 @@ export default function DigitalMarketingPage() {
       <MotionWrapper delay={0.4}>
         <section className="mb-16">
           <Image
-            src="https://placehold.co/1200x500.png"
+            src="/services-icon/1.avif"
             alt="Digital Marketing Campaign"
             width={1200}
             height={500}

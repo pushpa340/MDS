@@ -51,17 +51,17 @@ export default function CyberSecurityPage() {
       </header>
 
       <MotionWrapper delay={0.4}>
-        <section className="mb-16">
-          <Image
-            src="https://placehold.co/1200x500.png"
-            alt="Cyber Security Shield"
-            width={1200}
-            height={500}
-            className="rounded-lg object-cover shadow-lg"
-            data-ai-hint="cyber security"
-          />
-        </section>
-      </MotionWrapper>
+      <section className="mb-16">
+        <Image
+          src="/services-icon/5.avif"
+          alt="Cyber Security Shield"
+          width={1200}
+          height={200}
+          className="rounded-lg shadow-lg object-cover"
+          data-ai-hint="cyber security"
+        />
+      </section>
+    </MotionWrapper>
 
       <section className="mb-16">
         <MotionWrapper>

@@ -53,10 +53,10 @@ export default function StockMarketAnalysisPage() {
       <MotionWrapper delay={0.4}>
         <section className="mb-16">
           <Image
-            src="https://placehold.co/1200x500.png"
+            src="/services-icon/4.avif"
             alt="Stock market chart"
             width={1200}
-            height={500}
+            height={300}
             className="rounded-lg object-cover shadow-lg"
             data-ai-hint="stock market"
           />

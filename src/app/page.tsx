@@ -112,14 +112,14 @@ const services = [
       'Unified Data Modernization with Microsoft Fabric & GCP.',
     icons: [DatabaseZap, Server, ShieldCheck],
     href: '/services/data-modernization',
-    image: { src: 'https://picsum.photos/seed/datamodern/400/400', hint: 'data cloud' },
+    image: { src: '/services-icon/7.avif', hint: 'data cloud' },
   },
   {
     title: 'Hiring Talent',
     description: 'Find the right talent to power your data and tech vision.',
     icons: [Users2, Briefcase, ArrowRight],
     href: '/services/hiring-talent-services',
-    image: { src: 'https://picsum.photos/seed/hiring/400/400', hint: 'team recruitment' },
+    image: { src: '/services-icon/8.avif', hint: 'team recruitment' },
   },
 ];
 

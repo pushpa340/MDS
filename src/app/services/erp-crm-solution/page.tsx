@@ -53,10 +53,10 @@ export default function ErpCrmPage() {
       <MotionWrapper delay={0.4}>
         <section className="mb-16">
           <Image
-            src="https://placehold.co/1200x500.png"
+            src="/services-icon/6.avif"
             alt="Integrated ERP and CRM system"
             width={1200}
-            height={500}
+            height={300}
             className="rounded-lg object-cover shadow-lg"
             data-ai-hint="business software"
           />

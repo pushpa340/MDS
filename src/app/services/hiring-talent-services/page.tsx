@@ -28,10 +28,10 @@ export default function HiringTalentServicesPage() {
       <MotionWrapper delay={0.4}>
         <section className="mb-16">
           <Image
-            src="https://picsum.photos/seed/hiring/1200/500"
+            src="/services-icon/8.avif"
             alt="Team of professionals in a meeting"
             width={1200}
-            height={500}
+            height={200}
             className="rounded-lg object-cover shadow-lg"
             data-ai-hint="team meeting"
           />
