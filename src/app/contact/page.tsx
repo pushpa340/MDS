@@ -16,6 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { type Variants } from "framer-motion";
 
 const services = [
     { title: "Digital Marketing" },
@@ -27,6 +28,22 @@ const services = [
     { title: "Data Modernization" },
     { title: "Hiring Talent Services" },
 ];
+
+const slideInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 },
+};
+
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -91,7 +108,7 @@ export default function ContactPage() {
 
       <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div className="space-y-8">
-          <MotionWrapper>
+          <MotionWrapper variants={slideInLeft}>
             <Card>
               <CardHeader className="flex flex-row items-center gap-4">
                 <MapPin className="h-8 w-8 text-primary" />
@@ -103,7 +120,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
           </MotionWrapper>
-          <MotionWrapper delay={0.1}>
+          <MotionWrapper delay={0.1} variants={slideInLeft}>
             <Card>
               <CardHeader className="flex flex-row items-center gap-4">
                 <Mail className="h-8 w-8 text-primary" />
@@ -114,7 +131,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
           </MotionWrapper>
-          <MotionWrapper delay={0.2}>
+          <MotionWrapper delay={0.2} variants={slideInLeft}>
             <Card>
               <CardHeader className="flex flex-row items-center gap-4">
                 <Phone className="h-8 w-8 text-primary" />
@@ -127,7 +144,7 @@ export default function ContactPage() {
           </MotionWrapper>
         </div>
 
-        <MotionWrapper delay={0.3}>
+        <MotionWrapper delay={0.3} variants={slideInRight}>
           <div>
             <Card>
               <CardHeader>
@@ -157,7 +174,7 @@ export default function ContactPage() {
         </MotionWrapper>
       </div>
 
-      <MotionWrapper delay={0.4}>
+      <MotionWrapper delay={0.4} variants={slideInUp}>
        <div className="mt-16">
           <h2 className="text-center text-3xl font-bold">Our Location</h2>
           <div className="mt-6 aspect-video w-full rounded-lg bg-muted flex items-center justify-center">

@@ -5,6 +5,17 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
+import { type Variants } from 'framer-motion';
+
+const zoomIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const slideInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function HiringTalentServicesPage() {
   return (
@@ -25,7 +36,7 @@ export default function HiringTalentServicesPage() {
         </MotionWrapper>
       </header>
       
-      <MotionWrapper delay={0.4}>
+      <MotionWrapper delay={0.4} variants={zoomIn}>
         <section className="mb-16">
           <Image
             src="/services-icon/8.avif"
@@ -39,7 +50,7 @@ export default function HiringTalentServicesPage() {
       </MotionWrapper>
 
       <section className="mb-16">
-         <MotionWrapper>
+         <MotionWrapper variants={slideInUp}>
             <Card>
                 <CardHeader>
                     <CardTitle className="text-2xl">Your transformation journey needs more than technology—it needs the right people.</CardTitle>
@@ -56,7 +67,7 @@ export default function HiringTalentServicesPage() {
 
       <section className="mb-16 bg-muted p-8 rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <MotionWrapper>
+            <MotionWrapper variants={zoomIn}>
                 <Card>
                     <CardHeader>
                         <div className="flex items-center gap-4">
@@ -74,7 +85,7 @@ export default function HiringTalentServicesPage() {
                     </CardContent>
                 </Card>
             </MotionWrapper>
-            <MotionWrapper>
+            <MotionWrapper delay={0.1} variants={zoomIn}>
                 <Card>
                     <CardHeader>
                         <div className="flex items-center gap-4">
@@ -95,7 +106,7 @@ export default function HiringTalentServicesPage() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-start">
-             <MotionWrapper>
+             <MotionWrapper variants={zoomIn}>
                 <Card>
                     <CardHeader>
                         <div className="flex items-center gap-4">
@@ -114,7 +125,7 @@ export default function HiringTalentServicesPage() {
                     </CardContent>
                 </Card>
             </MotionWrapper>
-             <MotionWrapper>
+             <MotionWrapper delay={0.1} variants={zoomIn}>
                 <Card className="bg-primary/5 border-primary/20">
                     <CardHeader>
                         <div className="flex items-center gap-4">

@@ -35,6 +35,7 @@ import {
 } from 'lucide-react';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { AboutHero } from '@/components/about-hero';
+import { type Variants } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -121,6 +122,21 @@ const services = [
   },
 ];
 
+const slideInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const zoomIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 },
+};
+
 export default function AboutPage() {
   return (
     <div className="container mx-auto max-w-5xl px-4 py-16">
@@ -137,14 +153,14 @@ export default function AboutPage() {
         </MotionWrapper>
       </header>
 
-      <MotionWrapper delay={0.4}>
+      <MotionWrapper delay={0.4} variants={zoomIn}>
         <section className="mt-16">
           <AboutHero />
         </section>
       </MotionWrapper>
 
       <section className="mt-16">
-        <MotionWrapper>
+        <MotionWrapper variants={slideInUp}>
           <Tabs defaultValue="about" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="about">
@@ -193,7 +209,7 @@ export default function AboutPage() {
         <MotionWrapper>
           <h2 className="text-center text-3xl font-bold">Our Services</h2>
         </MotionWrapper>
-        <MotionWrapper delay={0.2}>
+        <MotionWrapper delay={0.2} variants={slideInUp}>
           <Accordion type="single" collapsible className="w-full mt-8">
             {services.map(service => (
               <AccordionItem key={service.title} value={service.title}>
@@ -232,7 +248,7 @@ export default function AboutPage() {
           <h2 className="text-center text-3xl font-bold">Our Values</h2>
         </MotionWrapper>
         <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <MotionWrapper delay={0.2}>
+          <MotionWrapper delay={0.2} variants={zoomIn}>
             <Card>
               <CardHeader>
                 <CardTitle>Customer-Centric</CardTitle>
@@ -244,7 +260,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </MotionWrapper>
-          <MotionWrapper delay={0.3}>
+          <MotionWrapper delay={0.3} variants={zoomIn}>
             <Card>
               <CardHeader>
                 <CardTitle>Innovation</CardTitle>
@@ -255,7 +271,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </MotionWrapper>
-          <MotionWrapper delay={0.4}>
+          <MotionWrapper delay={0.4} variants={zoomIn}>
             <Card>
               <CardHeader>
                 <CardTitle>Integrity</CardTitle>
@@ -277,7 +293,7 @@ export default function AboutPage() {
         </MotionWrapper>
         <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member, index) => (
-            <MotionWrapper key={member.name} delay={0.1 * (index + 1)}>
+            <MotionWrapper key={member.name} delay={0.1 * (index + 1)} variants={slideInUp}>
               <div className="text-center">
                 <Avatar className="mx-auto h-32 w-32">
                   <AvatarImage

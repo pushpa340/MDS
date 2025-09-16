@@ -60,6 +60,7 @@ import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { TypingEffect } from '@/components/ui/typing-effect';
 import { WhatWeDoSection } from '@/components/what-we-do';
 import { AiBackground } from '@/components/ai-background';
+import { type Variants } from 'framer-motion';
 
 const services = [
   {
@@ -150,6 +151,22 @@ const brandLogos = [
     hint: 'logo design',
   },
 ];
+
+const zoomIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 },
+};
+
 
 export default function Home() {
   return (
@@ -327,7 +344,7 @@ function ServicesSection() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
+            <MotionWrapper key={service.title} delay={0.1 * (index + 1)} variants={zoomIn}>
               <Card className="group relative h-[350px] w-full overflow-hidden rounded-lg shadow-lg">
                 <Image
                   src={service.image.src}
@@ -673,7 +690,7 @@ function ContactAndNewsletterSection() {
     <section id="contact" className="py-16 sm:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-12">
-          <MotionWrapper>
+          <MotionWrapper variants={slideInLeft}>
             <Card>
               <CardHeader>
                 <CardTitle>Contact Us</CardTitle>
@@ -703,7 +720,7 @@ function ContactAndNewsletterSection() {
             </Card>
           </MotionWrapper>
           
-          <MotionWrapper delay={0.2}>
+          <MotionWrapper delay={0.2} variants={slideInRight}>
             <div className="rounded-lg bg-header-blue p-8 text-white">
                 <div className="flex flex-col items-center text-center gap-6 sm:flex-row sm:text-left sm:gap-8">
                     <div className="flex-shrink-0">

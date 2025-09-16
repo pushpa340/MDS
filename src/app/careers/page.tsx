@@ -27,6 +27,12 @@ import type { JobOpening } from "@/types";
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { type Variants } from "framer-motion";
+
+const slideInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 
 function ApplicationForm({ job }: { job: JobOpening }) {
@@ -168,7 +174,7 @@ export default function CareersPage() {
             <p className="text-center">Loading job openings...</p>
         ) : jobOpenings.length > 0 ? (
             jobOpenings.map((job, index) => (
-                <MotionWrapper key={job.id} delay={0.1 * (index + 1)}>
+                <MotionWrapper key={job.id} delay={0.1 * (index + 1)} variants={slideInUp}>
                   <Card className="transition-shadow duration-300 hover:shadow-md">
                       <CardHeader>
                           <CardTitle>{job.title}</CardTitle>

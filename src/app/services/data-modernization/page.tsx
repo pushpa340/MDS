@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
+import { type Variants } from 'framer-motion';
 
 const teamCapabilities = [
   {
@@ -29,6 +30,16 @@ const teamCapabilities = [
   }
 ];
 
+const zoomIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const slideInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function DataModernizationPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-16">
@@ -50,7 +61,7 @@ export default function DataModernizationPage() {
         </MotionWrapper>
       </header>
 
-    <MotionWrapper delay={0.4}>
+    <MotionWrapper delay={0.4} variants={zoomIn}>
           <section className="mb-16">
             <Image
               src="/services-icon/7.avif"
@@ -64,7 +75,7 @@ export default function DataModernizationPage() {
         </MotionWrapper>
 
        <section className="mb-16">
-        <MotionWrapper>
+        <MotionWrapper variants={slideInUp}>
           <Card className="bg-card">
              <CardHeader>
                 <div className="flex items-center gap-4">
@@ -85,7 +96,7 @@ export default function DataModernizationPage() {
       </section>
 
       <section className="mb-16">
-        <MotionWrapper>
+        <MotionWrapper variants={zoomIn}>
             <Card className="bg-primary/5 border-primary/20">
                 <CardHeader>
                     <div className="flex items-center gap-4">
@@ -109,7 +120,7 @@ export default function DataModernizationPage() {
         </MotionWrapper>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {teamCapabilities.map((capability, index) => (
-            <MotionWrapper key={capability.role} delay={0.1 * (index + 1)}>
+            <MotionWrapper key={capability.role} delay={0.1 * (index + 1)} variants={zoomIn}>
               <Card className="h-full">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <capability.icon className="h-10 w-10 text-primary" />
