@@ -1,5 +1,5 @@
 
-import { DatabaseZap, BrainCircuit, ShieldCheck, Milestone, Star, Users, Briefcase } from 'lucide-react';
+import { DatabaseZap, BrainCircuit, ShieldCheck, Milestone, Star, Users, Briefcase, Check } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -145,5 +145,3 @@ export default function DataModernizationPage() {
     </div>
   );
 }
-
-    
