@@ -49,6 +49,7 @@ import {
   Lock,
   KeyRound,
   MailCheck,
+  DatabaseZap,
 } from 'lucide-react';
 import type { Testimonial } from '@/types';
 import { useToast } from '@/hooks/use-toast';
@@ -103,6 +104,14 @@ const services = [
     icons: [Users, Briefcase, Database],
     href: '/services/erp-crm-solution',
     image: { src: '/services-icon/6.avif', hint: 'business meeting' },
+  },
+  {
+    title: 'Data Modernization',
+    description:
+      'Unified Data Modernization with Microsoft Fabric & GCP.',
+    icons: [DatabaseZap, Server, ShieldCheck],
+    href: '/services/data-modernization',
+    image: { src: 'https://picsum.photos/seed/datamodern/400/400', hint: 'data cloud' },
   },
 ];
 
@@ -172,6 +181,10 @@ const ribbonServices = [
     title: 'ERP & CRM',
     icons: [Users, Briefcase, Database],
   },
+  {
+    title: 'Data Modernization',
+    icons: [DatabaseZap, Server, ShieldCheck],
+  },
 ];
 
 function ServicesRibbon() {
@@ -231,7 +244,7 @@ function HeroSection() {
           </div>
         </MotionWrapper>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 justify-items-center mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-8 justify-items-center mt-8">
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
               <Link
@@ -300,7 +313,7 @@ function ServicesSection() {
             </p>
           </MotionWrapper>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
               <Card className="group relative h-[350px] w-full overflow-hidden rounded-lg shadow-lg">
@@ -700,3 +713,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    

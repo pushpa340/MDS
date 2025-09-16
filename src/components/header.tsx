@@ -28,6 +28,7 @@ const services = [
   { href: "/services/stock-market-analysis", label: "Stock Market Analysis" },
   { href: "/services/cyber-security-solution", label: "Cyber Security Solution" },
   { href: "/services/erp-crm-solution", label: "ERP & CRM Solution" },
+  { href: "/services/data-modernization", label: "Data Modernization" },
 ];
   
 export default function Header() {
@@ -137,3 +138,5 @@ export default function Header() {
     </header>
   );
 }
+
+    

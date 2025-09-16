@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -23,6 +24,7 @@ const services = [
     { title: "Stock Market Analysis" },
     { title: "Cyber Security Solution" },
     { title: "ERP & CRM Solution" },
+    { title: "Data Modernization" },
 ];
 
 export default function ContactPage() {
@@ -167,3 +169,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+    

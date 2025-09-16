@@ -30,6 +30,7 @@ import {
   Info,
   Rocket,
   Eye,
+  DatabaseZap,
 } from 'lucide-react';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { AboutHero } from '@/components/about-hero';
@@ -103,6 +104,13 @@ const services = [
       'Integrate all your business management functions into one unified system.',
     icons: [Users, Briefcase, Database],
     href: '/services/erp-crm-solution',
+  },
+  {
+    title: 'Data Modernization',
+    description:
+      'Unified Data Modernization with Microsoft Fabric & GCP.',
+    icons: [DatabaseZap, Server, ShieldCheck],
+    href: '/services/data-modernization',
   },
 ];
 
@@ -290,3 +298,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+    
