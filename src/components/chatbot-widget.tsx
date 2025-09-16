@@ -11,6 +11,7 @@ export function ChatbotWidget() {
   const [query, setQuery] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [name, setName] = useState(''); // Added name field
 
   const chatWindowRef = useRef<HTMLDivElement>(null);
   const chatButtonRef = useRef<HTMLButtonElement>(null);
@@ -43,11 +44,11 @@ export function ChatbotWidget() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!query.trim() || !phone.trim() || !email.trim()) {
-      alert('Please fill in all required fields.');
+    if (!query.trim() || !email.trim()) {
+      alert('Please fill in your query and email address.');
       return;
     }
-    if (!/^\d{10}$/.test(phone)) {
+    if (phone.trim() && !/^\d{10}$/.test(phone)) {
       alert('Please enter a valid 10-digit phone number.');
       return;
     }
@@ -58,33 +59,31 @@ export function ChatbotWidget() {
     
     setIsSubmitting(true);
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      const queryData = {
-        id: Date.now(),
-        query,
-        phone: `+91${phone}`,
-        email,
-        timestamp: new Date().toISOString(),
-        status: 'new'
-      };
+    const queryData = {
+      name,
+      email,
+      phone,
+      query,
+    };
 
-      // Save to localStorage
-      try {
-        const savedQueries = localStorage.getItem('chatbot_queries');
-        const queries = savedQueries ? JSON.parse(savedQueries) : [];
-        queries.unshift(queryData);
-        localStorage.setItem('chatbot_queries', JSON.stringify(queries));
-      } catch (error) {
-        console.error('Could not save to localStorage:', error);
+    try {
+      const response = await fetch('/api/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(queryData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit query.');
       }
       
       setShowSuccess(true);
       setQuery('');
       setPhone('');
       setEmail('');
+      setName('');
 
       setTimeout(() => {
         setShowSuccess(false);
@@ -92,6 +91,7 @@ export function ChatbotWidget() {
       }, 3000);
 
     } catch (error) {
+      console.error(error);
       alert('There was an error submitting your query. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -357,13 +357,13 @@ export function ChatbotWidget() {
               <h3><i className="fas fa-headset"></i> Drop us a Query</h3>
               <div className="team-images">
                 <div className="team-member">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Team Member 1" />
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Team Member 1" data-ai-hint="woman portrait" />
                 </div>
                 <div className="team-member">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Team Member 2" />
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Team Member 2" data-ai-hint="man portrait" />
                 </div>
                 <div className="team-member">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Team Member 3" />
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Team Member 3" data-ai-hint="woman smiling" />
                 </div>
               </div>
               <div className="contact-info">
@@ -385,6 +385,18 @@ export function ChatbotWidget() {
             </div>
 
             <form id="queryForm" onSubmit={handleSubmit}>
+               <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
               <div className="form-group">
                 <textarea
                   className="form-control"
@@ -410,12 +422,11 @@ export function ChatbotWidget() {
                     type="tel"
                     className="form-control phone-main"
                     id="phone"
-                    placeholder="8447242558"
+                    placeholder="Enter contact"
                     pattern="[0-9]{10}"
-                    required
                     value={phone}
                     onChange={(e) => {
-                      const value = e.target.value.replace(/\\D/g, '');
+                      const value = e.target.value.replace(/\D/g, '');
                       if (value.length <= 10) {
                         setPhone(value);
                       }
@@ -430,7 +441,7 @@ export function ChatbotWidget() {
                   type="email"
                   className="form-control"
                   id="email"
-                  placeholder="rahuldbc340@gmail.com"
+                  placeholder="marcomdigitalsolution@gmail.com"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

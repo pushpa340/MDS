@@ -113,7 +113,7 @@ const services = [
       'Unified Data Modernization with Microsoft Fabric & GCP.',
     icons: [DatabaseZap, Server, ShieldCheck],
     href: '/services/data-modernization',
-    image: { src: '/services-icon/7.avif', hint: 'data cloud' },
+    image: { src: '/services-icon/7-1.avif', hint: 'data cloud' },
   },
   {
     title: 'Hiring Talent',
@@ -267,7 +267,7 @@ function HeroSection() {
               <span>
                 <TypingEffect
                   text="DIGITAL "
-                  className="text-yellow-400"
+                  className="text-Red-400"
                   onComplete={() => setIsDigitalTyped(true)}
                 />
                  {isDigitalTyped && (
@@ -336,7 +336,7 @@ function HeroSection() {
             <Button
               size="lg"
               asChild
-              className="bg-yellow-400 text-header-blue hover:bg-yellow-500 transition-transform duration-300 hover:scale-105"
+              className="bg-gray-400 text-header-blue hover:bg-yellow-500 transition-transform duration-300 hover:scale-105"
             >
               <Link href="/about">Know More</Link>
             </Button>

@@ -64,7 +64,7 @@ export default function DataModernizationPage() {
     <MotionWrapper delay={0.4} variants={zoomIn}>
           <section className="mb-16">
             <Image
-              src="/services-icon/7.avif"
+              src="/services-icon/7-1.avif"
               alt="Cyber Security Shield"
               width={1200}
               height={200}

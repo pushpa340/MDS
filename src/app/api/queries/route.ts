@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: "marcommarketingsolution@outlook.com",
+      to: "marcomdigitalsolution@gmail.com",
       subject: `New contact form submission: ${queryData.service}`,
       text: `
         Name: ${queryData.name}

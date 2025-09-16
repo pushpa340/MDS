@@ -127,7 +127,7 @@ export default function ContactPage() {
                 <CardTitle>Email Us</CardTitle>
               </CardHeader>
               <CardContent>
-                <a href="mailto:marcommarketingsolution@outlook.com" className="hover:text-primary">marcommarketingsolution@outlook.com</a>
+                <a href="mailto:marcomdigitalsolution@gmail.com" className="hover:text-primary">marcomdigitalsolution@gmail.com</a>
               </CardContent>
             </Card>
           </MotionWrapper>
