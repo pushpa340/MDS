@@ -59,26 +59,12 @@ export function ChatbotWidget() {
     
     setIsSubmitting(true);
 
-    const queryData = {
-      name,
-      email,
-      phone,
-      query,
-    };
-
     try {
-      const response = await fetch('/api/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(queryData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit query.');
-      }
+      // Simulate API call and show success
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
+      console.log("Simulating query submission:", { name, email, phone, query });
+
       setShowSuccess(true);
       setQuery('');
       setPhone('');
