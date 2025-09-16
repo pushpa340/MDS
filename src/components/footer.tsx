@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-blue-900/50 pt-8 text-center text-sm text-blue-200">
-          <p>&copy; {new Date().getFullYear()} Marcom Digital Solution. All rights reserved.</p>
+          <p>&copy; 2020 Marcom Digital Solution. All rights reserved.</p>
         </div>
       </div>
     </footer>
