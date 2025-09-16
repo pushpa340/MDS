@@ -31,6 +31,7 @@ import {
   Rocket,
   Eye,
   DatabaseZap,
+  Users2,
 } from 'lucide-react';
 import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { AboutHero } from '@/components/about-hero';
@@ -111,6 +112,12 @@ const services = [
       'Unified Data Modernization with Microsoft Fabric & GCP.',
     icons: [DatabaseZap, Server, ShieldCheck],
     href: '/services/data-modernization',
+  },
+  {
+    title: 'Hiring Talent Services',
+    description: 'Find the right talent to power your data and tech vision.',
+    icons: [Users2, Briefcase, ArrowRight],
+    href: '/services/hiring-talent-services',
   },
 ];
 
@@ -298,5 +305,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-    

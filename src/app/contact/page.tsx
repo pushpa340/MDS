@@ -25,6 +25,7 @@ const services = [
     { title: "Cyber Security Solution" },
     { title: "ERP & CRM Solution" },
     { title: "Data Modernization" },
+    { title: "Hiring Talent Services" },
 ];
 
 export default function ContactPage() {
@@ -169,5 +170,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
-    

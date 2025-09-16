@@ -50,6 +50,7 @@ import {
   KeyRound,
   MailCheck,
   DatabaseZap,
+  Users2,
 } from 'lucide-react';
 import type { Testimonial } from '@/types';
 import { useToast } from '@/hooks/use-toast';
@@ -112,6 +113,13 @@ const services = [
     icons: [DatabaseZap, Server, ShieldCheck],
     href: '/services/data-modernization',
     image: { src: 'https://picsum.photos/seed/datamodern/400/400', hint: 'data cloud' },
+  },
+  {
+    title: 'Hiring Talent',
+    description: 'Find the right talent to power your data and tech vision.',
+    icons: [Users2, Briefcase, ArrowRight],
+    href: '/services/hiring-talent-services',
+    image: { src: 'https://picsum.photos/seed/hiring/400/400', hint: 'team recruitment' },
   },
 ];
 
@@ -185,6 +193,10 @@ const ribbonServices = [
     title: 'Data Modernization',
     icons: [DatabaseZap, Server, ShieldCheck],
   },
+  {
+    title: 'Hiring Talent',
+    icons: [Users2, Briefcase, ArrowRight],
+  },
 ];
 
 function ServicesRibbon() {
@@ -244,7 +256,7 @@ function HeroSection() {
           </div>
         </MotionWrapper>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-8 justify-items-center mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-8 justify-items-center mt-8">
           {services.map((service, index) => (
             <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
               <Link
@@ -645,6 +657,17 @@ function ContactAndNewsletterSection() {
       setIsSubmittingNewsletter(false);
     }
   };
+  
+  const contactServices = [
+    { title: "Digital Marketing" },
+    { title: "IT Solutions" },
+    { title: "Event Marketing" },
+    { title: "Stock Market Analysis" },
+    { title: "Cyber Security Solution" },
+    { title: "ERP & CRM Solution" },
+    { title: "Data Modernization" },
+    { title: "Hiring Talent Services" },
+  ];
 
   return (
     <section id="contact" className="py-16 sm:py-24 bg-card">
@@ -668,7 +691,7 @@ function ContactAndNewsletterSection() {
                           <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                          {services.map(s => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
+                          {contactServices.map(s => <SelectItem key={s.title} value={s.title}>{s.title}</SelectItem>)}
                       </SelectContent>
                   </Select>
                   <Textarea name="message" placeholder="Your Message" required disabled={isSubmittingContact} />
@@ -713,5 +736,3 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
-
-    
