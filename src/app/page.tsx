@@ -60,7 +60,7 @@ import { MotionWrapper } from '@/components/ui/motion-wrapper';
 import { TypingEffect } from '@/components/ui/typing-effect';
 import { WhatWeDoSection } from '@/components/what-we-do';
 import { AiBackground } from '@/components/ai-background';
-import { type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 const services = [
   {
@@ -237,6 +237,22 @@ function ServicesRibbon() {
 
 function HeroSection() {
   const [isDigitalTyped, setIsDigitalTyped] = useState(false);
+  
+  const iconContainerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const iconItemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section className="relative w-full overflow-hidden py-16">
       <AiBackground />
@@ -273,9 +289,14 @@ function HeroSection() {
           </div>
         </MotionWrapper>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-8 justify-items-center mt-8">
-          {services.map((service, index) => (
-            <MotionWrapper key={service.title} delay={0.1 * (index + 1)}>
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-8 justify-items-center mt-8"
+          variants={iconContainerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {services.map((service) => (
+            <motion.div key={service.title} variants={iconItemVariants}>
               <Link
                 href={service.href}
                 className="group flex flex-col items-center text-center"
@@ -299,9 +320,9 @@ function HeroSection() {
                   {service.title}
                 </h3>
               </Link>
-            </MotionWrapper>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <MotionWrapper delay={0.5}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -753,3 +774,5 @@ function ContactAndNewsletterSection() {
     </section>
   );
 }
+
+    
