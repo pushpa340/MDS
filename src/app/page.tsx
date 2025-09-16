@@ -294,7 +294,7 @@ function HeroSection() {
           variants={iconContainerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={iconItemVariants}>
